@@ -3,7 +3,7 @@ import './Feeds.scss';
 
 class Feeds extends Component {
   render() {
-    return <div className="test">Feeds</div>;
+    return <div className="test">Feeds page</div>;
   }
 }
 
