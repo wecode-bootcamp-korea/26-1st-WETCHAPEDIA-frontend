@@ -1,0 +1,71 @@
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.detailFeedContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .movieBackground {
+    width: 100%;
+    height: 360px;
+  }
+
+  .movieHeader {
+    display: flex;
+    width: 70%;
+    margin: auto;
+
+    .moviePoster {
+      width: 160px;
+      height: 230px;
+    }
+
+    .basicInfo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contour {
+      width: 600px;
+      height: 2px;
+      background-color: rgb(237, 237, 237);
+    }
+
+    .averageScore {
+      .blackstar {
+        width: 13px;
+        height: 13px;
+      }
+    }
+
+    .movieReview {
+      display: flex;
+
+      .reviewContour {
+        width: 3px;
+        height: 30px;
+        background-color: rgb(237, 237, 237);
+      }
+
+      .star {
+        width: 15px;
+        height: 15px;
+      }
+
+      .commentContainer {
+        display: flex;
+        .plus,
+        .pencil,
+        .looking,
+        .dotmenu {
+          width: 13px;
+          height: 13px;
+        }
+      }
+    }
+  }
+}
