@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './DetailFeed.scss';
 import MovieHeader from './MovieHeader';
+import MovieInfos from './MovieInfos';
 
 class DetailFeed extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class DetailFeed extends Component {
           alt="movieposter"
         />
         <MovieHeader />
-        <section className="movieInfos" />
+        <MovieInfos />
       </div>
     );
   }

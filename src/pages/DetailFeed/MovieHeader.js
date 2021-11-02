@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class MovieHeader extends Component {
   render() {
     return (
-      <header className="movieHeader">
+      <div className="movieHeader">
         <div className="moviePosterContainer">
           <img
             src="/images/movieposter.jpeg"
@@ -20,15 +20,13 @@ class MovieHeader extends Component {
           </div>
           <div className="contour" />
           <div className="averageScore">
-            <span>
-              평균
-              <img
-                src="/images/blackstar.png"
-                alt="blackstar"
-                className="blackstar"
-              />
-              4.0 (10,000명)
-            </span>
+            <span className="averageWord">평균</span>
+            <img
+              src="/images/blackstar.png"
+              alt="blackstar"
+              className="blackstar"
+            />
+            <span>4.0 (10,000명)</span>
           </div>
           <div className="contour" />
           <div className="movieReview">
@@ -67,7 +65,7 @@ class MovieHeader extends Component {
             </div>
           </div>
         </div>
-      </header>
+      </div>
     );
   }
 }

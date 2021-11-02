@@ -14,28 +14,51 @@ body,
     height: 360px;
   }
 
+  // 여기서부터 movieHeader
   .movieHeader {
     display: flex;
+    margin-top: 20px;
     width: 70%;
-    margin: auto;
-
-    .moviePoster {
-      width: 160px;
-      height: 230px;
+    .moviePosterContainer {
+      transform: translateY(-30px);
+      .moviePoster {
+        width: 160px;
+        height: 230px;
+      }
     }
 
     .basicInfo {
       display: flex;
       flex-direction: column;
+      padding-left: 40px;
+      .titleInfo {
+        .movieTitle {
+          margin-bottom: 10px;
+          font-size: 33px;
+        }
+        .movieYear,
+        .movieGenre,
+        .movieCountry {
+          padding-right: 10px;
+          font-size: 17px;
+          color: rgb(127, 127, 127);
+        }
+      }
     }
 
     .contour {
-      width: 600px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 700px;
       height: 2px;
       background-color: rgb(237, 237, 237);
     }
 
     .averageScore {
+      font-size: 17px;
+      .averageWord {
+        padding-right: 7px;
+      }
       .blackstar {
         width: 13px;
         height: 13px;
@@ -44,27 +67,68 @@ body,
 
     .movieReview {
       display: flex;
+      margin-top: 10px;
 
-      .reviewContour {
-        width: 3px;
-        height: 30px;
-        background-color: rgb(237, 237, 237);
+      .starScore {
+        text-align: center;
+        .starsContainer {
+          .star {
+            width: 35px;
+            height: 35px;
+          }
+        }
       }
 
-      .star {
-        width: 15px;
-        height: 15px;
+      .reviewContour {
+        margin: 0 40px 0 10px;
+        width: 2px;
+        height: 50px;
+        background-color: rgb(237, 237, 237);
       }
 
       .commentContainer {
         display: flex;
+        align-items: center;
+        .wantLook,
+        .comment,
+        .lookingEye,
+        .dotMenu {
+          display: flex;
+          align-items: center;
+          margin-right: 20px;
+          font-size: 17px;
+        }
         .plus,
         .pencil,
         .looking,
         .dotmenu {
-          width: 13px;
-          height: 13px;
+          margin-right: 10px;
+          width: 17px;
+          height: 17px;
         }
+      }
+    }
+  }
+  // 여기서부터 movieInfos scss 기능들어감
+
+  .movieInfos {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    .mainInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 60%;
+      .infoComment {
+        .infoCommentButton {
+          width: 240px;
+        }
+      }
+      .infoContour {
+        height: 1px;
+        width: 95%;
+        background-color: rgb(237, 237, 237);
       }
     }
   }
