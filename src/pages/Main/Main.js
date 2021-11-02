@@ -9,7 +9,7 @@ class Main extends Component {
       <div>
         <Nav />
         <Feeds />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     );
   }
