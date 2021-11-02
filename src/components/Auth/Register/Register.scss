@@ -1,0 +1,87 @@
+.SignupContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  width: 375px;
+  height: 506.01px;
+  border-radius: 6px;
+
+  .logoSection {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    .initialName {
+      font-size: 30px;
+      font-weight: 10px;
+    }
+    .Logologin {
+      margin-top: 29px;
+      padding-top: 10px;
+      font-size: 17px;
+      font-weight: 900;
+    }
+  }
+  .enterContainer {
+    width: 335px;
+    height: 164px;
+    display: flex;
+    flex-direction: column;
+    .nameBox {
+      border: none;
+      background-color: #f5f5f5;
+      margin-bottom: 10px;
+      padding: 0 12px 0 12px;
+      width: 335px;
+      height: 44px;
+      border-radius: 6px;
+    }
+    .emailBox {
+      border: none;
+      background-color: #f5f5f5;
+      margin-bottom: 10px;
+      padding: 0 12px 0 12px;
+      width: 335px;
+      height: 44px;
+      border-radius: 6px;
+    }
+    .passwordBox {
+      border: none;
+      background-color: #f5f5f5;
+      margin-bottom: 10px;
+      padding: 0 12px 0 12px;
+      width: 335px;
+      height: 44px;
+      border-radius: 6px;
+    }
+    .buttonBox {
+      border: none;
+      background-color: #ff2f6e;
+      color: white;
+      width: 335px;
+      height: 44px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 900;
+    }
+  }
+  .forgetContainer {
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  .divideLine {
+    width: 335px;
+    margin-top: 20px;
+  }
+  .socialLogin {
+    border: none;
+    background-color: #3c5aa0;
+    margin-top: 40px;
+    width: 335px;
+    height: 44px;
+    color: white;
+    font-size: 15px;
+    font-weight: 900;
+    border-radius: 6px;
+  }
+}
