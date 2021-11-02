@@ -9,7 +9,11 @@ class Nav extends Component {
     return (
       <header>
         <nav>
-          <div className="sdkj">{/* <p>dkja;f</p> */}</div>
+          <div className="logo">
+            <h3>
+              Wecha <span className="smallLogo">pedia</span>
+            </h3>
+          </div>
         </nav>
       </header>
     );
