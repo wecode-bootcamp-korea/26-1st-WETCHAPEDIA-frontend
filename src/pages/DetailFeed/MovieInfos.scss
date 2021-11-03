@@ -1,6 +1,7 @@
 .detailFeedContainer {
   .movieInfosContainer {
     display: flex;
+    justify-content: center;
 
     .sideInfo {
       margin-top: 100px;
@@ -22,10 +23,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 70%;
+      width: 46%;
       padding-right: 0;
       .infoComment {
-        width: 60%;
+        width: 100%;
         margin-top: 30px;
         display: flex;
         border: 1px solid rgb(227, 227, 227);
@@ -54,7 +55,7 @@
         align-items: center;
         border: 1px solid rgb(227, 227, 227);
         border-radius: 3px;
-        width: 60%;
+        width: 100%;
         margin-top: 30px;
         padding-top: 20px;
         background-color: white;
