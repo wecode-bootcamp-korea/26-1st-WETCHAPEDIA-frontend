@@ -1,0 +1,56 @@
+.detailFeedContainer {
+  .movieCommentContainer {
+    overflow: auto;
+    .commentHeader {
+      display: flex;
+      justify-content: space-between;
+      padding: 30px 20px 0 20px;
+
+      .comment {
+        font-size: 25px;
+        font-weight: bolder;
+      }
+    }
+
+    .commentContainer {
+      display: flex;
+      padding: 30px 0 20px 20px;
+
+      .commentIndividual {
+        width: 45%;
+        padding: 10px;
+        margin-right: 20px;
+        background-color: rgb(242, 242, 242);
+
+        .userComment {
+          height: 120px;
+          padding-top: 20px;
+        }
+
+        .commentContour {
+          margin: auto;
+          margin-top: 7px;
+          width: 95%;
+          height: 1px;
+          background-color: rgb(229, 229, 229);
+        }
+
+        .commentLike {
+          padding-top: 10px;
+          img {
+            width: 13px;
+            height: 13px;
+            margin-right: 5px;
+          }
+        }
+
+        .likeCountButton {
+          padding-top: 10px;
+          color: rgb(255, 47, 110);
+          font-size: 17px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.detailFeedContainer {
+  .actorProfiles {
+    padding: 20px 0px 10px 30px;
+    width: 100%;
+
+    .title {
+      margin-bottom: 20px;
+      font-size: 20px;
+      font-weight: bolder;
+    }
+
+    .profileContainer {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: auto;
+
+      .profile {
+        display: flex;
+        align-items: center;
+        margin-right: 30px;
+        margin-bottom: 20px;
+
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 8px;
+        }
+
+        .profileInfo {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

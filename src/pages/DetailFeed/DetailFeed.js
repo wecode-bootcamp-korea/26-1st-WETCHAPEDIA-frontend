@@ -1,12 +1,29 @@
 import React, { Component } from 'react';
-import './DetailFeed.scss';
 import MovieHeader from './MovieHeader';
 import MovieInfos from './MovieInfos';
+import './DetailFeed.scss';
+import './MovieInfos.scss';
+import './Profiles.scss';
+import './CommentIndividuals.scss';
 
 class DetailFeed extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  constructor() {
+    super();
+    this.state = {
+      infos: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          infos: data,
+        });
+      });
   }
 
   render() {
@@ -17,8 +34,8 @@ class DetailFeed extends Component {
           className="movieBackground"
           alt="movieposter"
         />
-        <MovieHeader />
-        <MovieInfos />
+        <MovieHeader infos={this.state.infos} />
+        <MovieInfos infos={this.state.infos} />
       </div>
     );
   }
