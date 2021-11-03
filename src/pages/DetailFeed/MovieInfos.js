@@ -50,7 +50,7 @@ class MovieInfos extends Component {
                       <span className="moreText">더보기</span>
                     </div>
                     <div className="commentContainer">
-                      <CommentIndividuals />
+                      <CommentIndividuals infos={infos} />
                     </div>
                   </div>
                 </div>

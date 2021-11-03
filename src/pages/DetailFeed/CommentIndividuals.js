@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 class CommentIndividuals extends Component {
   render() {
+    const { infos } = this.props;
     return (
       <>
-        {contents.map((info, index) => {
+        {infos[0].contents.map((info, index) => {
           return (
             <div className="commentIndividual" key={index}>
               <p className="userName">{info.userName}</p>
@@ -32,17 +33,3 @@ class CommentIndividuals extends Component {
 }
 
 export default CommentIndividuals;
-
-const contents = [
-  {
-    userName: '위코드 26기 전창민',
-    comment:
-      '영화가 정말 재미있네요 ㅋㅋㅋㅋㅋ 추천합니다 이런 영화 처음이에요정말 지루하군요!!!!!',
-    likeNumber: 40,
-  },
-  {
-    userName: '위코드 26기 권상현',
-    comment: '추천합니다 이런 영화 처음이에요정말 지루하군요!!!!!',
-    likeNumber: 4,
-  },
-];

@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 class Profiles extends Component {
   render() {
     const { infos } = this.props;
+    console.log(infos[0].actors);
     return (
       <>
-        {actors.map((info, index) => {
+        {infos[0].actors.map((info, index) => {
           return (
             <div className="profile" key={index}>
               <img
@@ -24,17 +25,5 @@ class Profiles extends Component {
     );
   }
 }
-
-const actors = [
-  { name: '전창민', role: '주연' },
-  { name: '전창민', role: '주연' },
-  { name: '전창민', role: '주연' },
-  { name: '전창민', role: '주연' },
-  { name: '전창민', role: '주연' },
-  { name: '전창민', role: '주연' },
-  { name: '전창민', role: '주연' },
-  { name: '전창민', role: '주연' },
-  { name: '전창민', role: '주연' },
-];
 
 export default Profiles;
