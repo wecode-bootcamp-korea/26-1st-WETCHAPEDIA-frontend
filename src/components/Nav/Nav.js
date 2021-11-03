@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
-import '../../styles/common.scss';
 import '../Nav/Nav.scss';
 
 class Nav extends Component {
@@ -25,12 +24,11 @@ class Nav extends Component {
             <div className="searchWrapper">
               <form className="searchbar">
                 <input
-                  type="text"
+                  type="search"
                   id="id"
                   placeholder="콘텐츠,인물,컬렉션,유저를 검색해보세요."
                 />
               </form>
-
               {/* <div className="searchBox">
                 <p>창 만들기</p>
               </div> */}

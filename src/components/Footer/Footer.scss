@@ -1,12 +1,14 @@
-footer {
+Footer {
   width: 100%;
   position: fixed;
   bottom: 0;
+  left: 0;
+  background-color: #1c1d1f;
 
   .topBanner {
     width: 100%;
     height: 62px;
-    background-color: #1c1d20;
+    background-color: #101113;
     text-align: center;
     padding: 1.5rem 0;
 
@@ -17,6 +19,139 @@ footer {
 
       em {
         color: #ff0558;
+      }
+    }
+  }
+
+  .footerMain {
+    display: flex;
+    width: 1200px;
+    padding: 2rem 0;
+    margin: 0 auto;
+    color: #a5a5a7;
+    font-size: 14px;
+
+    .leftFooter {
+      width: 85%;
+
+      ul {
+        display: flex;
+
+        li {
+          &::after {
+            content: '';
+            display: inline-block;
+            background: #a5a5a7;
+            width: 1px;
+            height: 12px;
+            margin: 0 10px;
+          }
+
+          &:last-child {
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .ftFirstList {
+        margin-bottom: 20px;
+      }
+
+      .ftSecondList {
+        margin-top: 7px;
+      }
+
+      .ftThirdList {
+        margin-bottom: 7px;
+        margin-top: 20px;
+        display: block;
+        width: 50%;
+
+        .memberList {
+          margin-top: 5px;
+          display: inline-block;
+        }
+      }
+
+      .ftInfo {
+        margin-top: 15px;
+      }
+    }
+
+    .rightFooter {
+      width: 15%;
+      position: relative;
+
+      .ftL {
+        position: absolute;
+        right: 0;
+        z-index: 899;
+      }
+
+      .dropdown {
+        width: 120px;
+        height: 45px;
+        display: inline-block;
+        transition: all 0.9s ease;
+        position: relative;
+        font-size: 14px;
+        color: #000;
+        height: 100%;
+        text-align: left;
+        z-index: 899;
+
+        .select {
+          cursor: pointer;
+          display: block;
+          padding: 10px 30px;
+          font-weight: bold;
+          border: 2px solid #a5a5a7;
+          background: url('https://cdn2.iconfinder.com/data/icons/font-awesome/1792/angle-down-512.png')
+            no-repeat;
+          background-size: 25px;
+          background-position: 95% 50%;
+          filter: invert(100);
+          font-size: 1rem;
+
+          &span {
+            color: #a5a5a7;
+          }
+        }
+
+        .dropdown-menu {
+          position: absolute;
+          width: 100%;
+          left: 0;
+          margin-top: 5px;
+          overflow: hidden;
+          display: none;
+          overflow-y: auto;
+          z-index: 899;
+
+          li {
+            padding: 10px 30px;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+            background: #fff;
+            color: #000;
+          }
+        }
+      }
+
+      .footerSns {
+        width: 115px;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        img {
+          width: 28px;
+          filter: invert(0.5);
+        }
       }
     }
   }

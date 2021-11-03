@@ -13,7 +13,7 @@ header {
   border-bottom: 1px solid rgb(235, 234, 234);
 
   nav {
-    width: 70%;
+    width: 1200px;
     height: 100%;
     margin: 0 auto;
     display: flex;
@@ -59,7 +59,7 @@ header {
     }
 
     .navRight {
-      width: 34.5%;
+      width: 36%;
       display: flex;
       justify-content: space-between;
 
@@ -88,12 +88,9 @@ header {
             background-size: 7%;
             filter: invert(0.6);
             &::placeholder {
-              font-size: 0.95rem;
+              font-size: 0.9rem;
               text-align: center;
               text-indent: 6px;
-            }
-
-            #id {
             }
           }
 

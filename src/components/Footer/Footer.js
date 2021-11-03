@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import '../../styles/common.scss';
+import { INFO } from './footerData';
 import '../Footer/Footer.scss';
+
 class Footer extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
   render() {
     return (
-      <footer>
+      <footer className="Footer">
         <div className="topBanner">
           <span>
             지금까지 <em>★ 635,684,311 개의 평가가</em> 쌓였어요.
@@ -13,6 +18,7 @@ class Footer extends Component {
         <div className="footerMain">
           <section className="leftFooter">
             <ul className="ftFirstList">
+              {/* data.map(elem => (${})) {id, content} */}
               <li>서비스 이용약관</li>
               <li>개인정보 처리방침</li>
               <li>회사 안내</li>
@@ -30,22 +36,47 @@ class Footer extends Component {
               <li>loveadsadf1976@gmail.com</li>
             </ul>
             <ul className="ftThirdList">
-              <li>주식회사 위챠챠</li>
-              <li>대표 안재우</li>
-              <li>대표 전창민</li>
-              <li>대표 정지후</li>
-              <li>대표 최병현</li>
+              {INFO.map(el => {
+                return (
+                  <li className="memberList" key={el.id}>
+                    {el.content}
+                  </li>
+                );
+              })}
             </ul>
-            <ul className="ftThirdList">
-              <li>주식회사 위챠챠</li>
-              <li>대표 박민정</li>
-              <li>대표 박대현</li>
-              <li>대표 장재원</li>
+            <ul className="ftInfo">
+              <span>
+                WETCHA PEDIA &nbsp;© 2021 by WECHACHA, Inc. All rights reserved.
+              </span>
             </ul>
-            <ul className="ftThirdList">
-              <li>WETCHA PEDIA</li>
-              <li>© 2021 by WECHACHA, Inc. All rights reserved.</li>
-            </ul>
+          </section>
+          <section className="rightFooter">
+            <div className="ftL">
+              <div className="dropdown">
+                <div className="select">
+                  <span>한국어</span>
+                </div>
+                <input type="hidden" name="gender" />
+                <ul className="dropdown-menu">
+                  <li id="en">English</li>
+                  <li id="jp">日本語</li>
+                </ul>
+              </div>
+            </div>
+            <div className="footerSns">
+              <img
+                src="https://cdn-icons.flaticon.com/png/512/4494/premium/4494464.png?token=exp=1635928138~hmac=12a8205b87e97ae46b873389f692ab6b"
+                atl="facebookicon"
+              />
+              <img
+                src="https://cdn-icons.flaticon.com/png/512/3669/premium/3669691.png?token=exp=1635928179~hmac=b89ced8ea398e56fffbceb5beb218f96"
+                atl="twitericon"
+              />
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/625/625150.png"
+                atl="bankicon"
+              />
+            </div>
           </section>
         </div>
       </footer>
