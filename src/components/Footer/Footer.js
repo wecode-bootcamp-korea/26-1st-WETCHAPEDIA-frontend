@@ -3,13 +3,9 @@ import { EMAILINFO, INFO } from './footerData';
 import '../Footer/Footer.scss';
 
 class Footer extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
   render() {
     return (
-      <footer className="Footer">
+      <footer className="footer">
         <div className="topBanner">
           <span>
             지금까지 <em>★ 635,684,311 개의 평가가</em> 쌓였어요.
@@ -17,12 +13,12 @@ class Footer extends Component {
         </div>
         <div className="footerMain">
           <section className="leftFooter">
-            <ul className="ftFirstList">
+            <ul className="firstList">
               <li>서비스 이용약관</li>
               <li>개인정보 처리방침</li>
               <li>회사 안내</li>
             </ul>
-            <ul className="ftSecondList">
+            <ul className="secondList">
               {EMAILINFO.map(email => {
                 return (
                   <li className="emailList" key={email.id}>
@@ -31,7 +27,7 @@ class Footer extends Component {
                 );
               })}
             </ul>
-            <ul className="ftThirdList">
+            <ul className="thirdList">
               {INFO.map(member => {
                 return (
                   <li className="memberList" key={member.id}>
@@ -47,7 +43,7 @@ class Footer extends Component {
             </ul>
           </section>
           <section className="rightFooter">
-            <div className="ftList">
+            <div className="list">
               <div className="select">
                 <span>한국어</span>
               </div>

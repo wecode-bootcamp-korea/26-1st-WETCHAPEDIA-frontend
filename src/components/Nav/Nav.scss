@@ -2,9 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300&family=Roboto:ital,wght@0,300;0,500;1,300&display=swap');
 @import '../../styles/variables.scss';
 
-#root {
-  padding-top: 300px;
-}
 header {
   width: 100%;
   height: 62px;
@@ -12,7 +9,7 @@ header {
   position: fixed;
   background-color: white;
   border-bottom: 1px solid rgb(235, 234, 234);
-
+  z-index: 10;
   nav {
     width: 1200px;
     height: 100%;
@@ -65,6 +62,7 @@ header {
       justify-content: space-between;
 
       .searchWrapper {
+        position: relative;
         width: 300px;
         height: 100%;
 
@@ -88,6 +86,7 @@ header {
             background-position: left;
             background-size: 7%;
             filter: invert(0.6);
+
             &::placeholder {
               font-size: 0.9rem;
               text-align: center;
@@ -98,6 +97,30 @@ header {
           input {
             &:focus {
               outline: none;
+            }
+          }
+        }
+
+        .searchbarList {
+          position: absolute;
+          width: 300px;
+          top: 55px;
+          padding: 10px 15px;
+          border-radius: 2px;
+          background-color: white;
+          box-shadow: 0px 0px 0px 1px rgba(220, 220, 220, 0.317);
+
+          .searchListDown {
+            p {
+              margin-top: 0.7rem;
+              color: $heightColor;
+              font-size: 15px;
+            }
+
+            .searchList {
+              margin-top: 1rem;
+              font-size: 16px;
+              color: rgb(126, 126, 126);
             }
           }
         }
@@ -135,4 +158,15 @@ header {
       }
     }
   }
+}
+.headerOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  // background-color: rgba(0, 0, 0, 0);
+  inset: 0px !important;
+  position: fixed !important;
+  z-index: 5;
 }
