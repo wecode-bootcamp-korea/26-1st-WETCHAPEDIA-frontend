@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Profiles from './Profiles';
 import CommentIndividual from './CommentIndividual';
-// import CommentIndividuals from './CommentIndividuals';
+import Profile from '../Profile';
 
 class MovieInfos extends Component {
   render() {
@@ -39,12 +38,10 @@ class MovieInfos extends Component {
             <div className="actorProfiles">
               <p className="title">출연제작</p>
               <div className="profileContainer">
-                {/* {infos.actors.map(actor => {
-                        return (
-                          <Profile actor={actor}/>
-                        )
-                      }} */}
-                <Profiles infos={infos} />
+                {infos.actors &&
+                  infos.actors.map((actor, index) => {
+                    return <Profile infos={actor} key={index} />;
+                  })}
               </div>
             </div>
             <div className="infoContour" />
@@ -63,7 +60,6 @@ class MovieInfos extends Component {
                       />
                     );
                   })}
-                {/* <CommentIndividuals commentInfos={infos} /> */}
               </div>
             </div>
           </div>
