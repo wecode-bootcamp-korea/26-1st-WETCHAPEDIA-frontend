@@ -29,9 +29,6 @@ class Nav extends Component {
                   placeholder="콘텐츠,인물,컬렉션,유저를 검색해보세요."
                 />
               </form>
-              {/* <div className="searchBox">
-                <p>창 만들기</p>
-              </div> */}
             </div>
             <div className="loginBtn">
               <button>로그인</button>

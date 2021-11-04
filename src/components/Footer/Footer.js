@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { INFO } from './footerData';
+import { EMAILINFO, INFO } from './footerData';
 import '../Footer/Footer.scss';
 
 class Footer extends Component {
@@ -18,28 +18,24 @@ class Footer extends Component {
         <div className="footerMain">
           <section className="leftFooter">
             <ul className="ftFirstList">
-              {/* data.map(elem => (${})) {id, content} */}
               <li>서비스 이용약관</li>
               <li>개인정보 처리방침</li>
               <li>회사 안내</li>
             </ul>
             <ul className="ftSecondList">
-              <li>고객센터</li>
-              <li>loveadsadf1976@gmail.com</li>
-            </ul>
-            <ul className="ftSecondList">
-              <li>광고 문의</li>
-              <li>loveadsadf1976@gmail.com</li>
-            </ul>
-            <ul className="ftSecondList">
-              <li>제휴 및 대외 협력</li>
-              <li>loveadsadf1976@gmail.com</li>
+              {EMAILINFO.map(email => {
+                return (
+                  <li className="emailList" key={email.id}>
+                    {email.content}
+                  </li>
+                );
+              })}
             </ul>
             <ul className="ftThirdList">
-              {INFO.map(el => {
+              {INFO.map(member => {
                 return (
-                  <li className="memberList" key={el.id}>
-                    {el.content}
+                  <li className="memberList" key={member.id}>
+                    {member.content}
                   </li>
                 );
               })}
@@ -51,16 +47,9 @@ class Footer extends Component {
             </ul>
           </section>
           <section className="rightFooter">
-            <div className="ftL">
-              <div className="dropdown">
-                <div className="select">
-                  <span>한국어</span>
-                </div>
-                <input type="hidden" name="gender" />
-                <ul className="dropdown-menu">
-                  <li id="en">English</li>
-                  <li id="jp">日本語</li>
-                </ul>
+            <div className="ftList">
+              <div className="select">
+                <span>한국어</span>
               </div>
             </div>
             <div className="footerSns">
