@@ -12,7 +12,7 @@ function getTarget(elem, className) {
   return elem;
 }
 
-class Feed extends Component {
+class CarouselSlide extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,7 +44,7 @@ class Feed extends Component {
 
   render() {
     let { curTranslateX, isOverflow } = this.state;
-    let { feeds } = this.props;
+    let { children } = this.props;
 
     return (
       <>
@@ -58,17 +58,7 @@ class Feed extends Component {
             className="carouselSlider"
             style={{ transform: `translateX(${curTranslateX}%)` }}
           >
-            {feeds.map(({ id, movieTitle, movieTear }) => {
-              return (
-                <li key={id} className="feed">
-                  <figure className="moviePoster" />
-                  <div className="movieInfo">
-                    <p className="Title">{movieTitle}</p>
-                    <p className="Tear">{movieTear}</p>
-                  </div>
-                </li>
-              );
-            })}
+            {children}
           </ul>
         </div>
         <button
@@ -92,4 +82,4 @@ class Feed extends Component {
   }
 }
 
-export default Feed;
+export default CarouselSlide;

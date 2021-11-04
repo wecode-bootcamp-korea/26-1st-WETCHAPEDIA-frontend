@@ -1,37 +1,65 @@
 import React, { Component } from 'react';
-import Feed from './Feed';
+import CarouselSlide from './CarouselSlide';
+import MovieList from './MovieList';
 import './Feeds.scss';
 
 class Feeds extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      feedsData: [],
+      soleFeedsData: [],
+      collectionFeedsData: [],
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/feedsData.json', {
+    fetch('http://localhost:3000/data/soleFeedsData.json', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        this.setState({ feedsData: data });
+        this.setState({ soleFeedsData: data });
+      });
+    fetch('http://localhost:3000/data/collectionFeedsData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          collectionFeedsData: data,
+        });
       });
   }
 
   render() {
-    let { feedsData } = this.state;
+    let { soleFeedsData, collectionFeedsData } = this.state;
 
     return (
       <article className="feeds">
-        {feedsData.map(({ category, feeds }, index) => {
+        {soleFeedsData.map(({ category, movieList }, index) => {
           return (
             <section key={index} className="feedsContainer">
               <div className="feedsCategoryNameContainer">
                 <p className="feedsCategoryName">{category}</p>
               </div>
-              <Feed feeds={feeds} />
+              <CarouselSlide>
+                <MovieList type="movieListType" movieListData={movieList} />
+              </CarouselSlide>
+            </section>
+          );
+        })}
+        {collectionFeedsData.map(({ category, movieList }, index) => {
+          return (
+            <section key={index} className="feedsContainer">
+              <div className="feedsCategoryNameContainer">
+                <p className="feedsCategoryName">{category}</p>
+              </div>
+              <CarouselSlide>
+                <MovieList
+                  type="movieCollectionType"
+                  movieListData={movieList}
+                />
+              </CarouselSlide>
             </section>
           );
         })}

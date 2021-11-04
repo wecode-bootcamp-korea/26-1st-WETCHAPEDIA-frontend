@@ -1,1 +1,15 @@
 $heightColor: #ff0458;
+
+@mixin feedsFont {
+  color: #292a32;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  line-height: 30px;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
