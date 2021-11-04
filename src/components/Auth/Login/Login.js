@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './sample.scss';
+import './Login.scss';
 
-class sample extends Component {
+class Login extends Component {
   constructor() {
     super();
     this.state = {
@@ -10,24 +10,44 @@ class sample extends Component {
     };
   }
 
+  goToMain = () => {
+    this.props.history.push('');
+
+    fetch('', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => console.log('결과', res));
+  };
+
   handleEmailInput = e => {
     this.setState({
       email: e.target.value,
     });
   };
+
   handlePwdInput = e => {
     this.setState({
       password: e.target.value,
     });
   };
+
   render() {
     return (
       <div className="loginContainer">
         <div className="wechaContainer">
-          <span className="initial">wechachapedia</span>
+          <div className="logoWetchaPedia">
+            <span className="initial">WETCHA</span>
+            <span>pedia</span>
+          </div>
+
           <span className="loginMark">로그인</span>
         </div>
-        <form className="signupContainer">
+        <form className="inputBtnContainer">
           <input
             className="emailLoginBox"
             placeholder="이메일"
@@ -38,23 +58,17 @@ class sample extends Component {
             placeholder="비밀번호"
             onChange={this.handlePwdInput}
           />
-          <button className="buttonLoginBox">로그인</button>
+          <button className="buttonLoginBox" onClick={this.goToMain}>
+            로그인
+          </button>
         </form>
         <div className="forgetLoginContainer">
           <span className="forgetPwd">비밀번호를 잊어버리셨나요?</span>
-          <span className="signupLoginText">계정이 없으신가요? 회원가입</span>
+          <span className="guessNoSignupText">계정이 없으신가요? 회원가입</span>
         </div>
         <hr className="divideSocialLine" />
 
-        <button
-          className="socialLoginButton"
-          disabled={
-            !(
-              this.state.email.indexOf('@') !== -1 &&
-              this.state.password.length > 5
-            )
-          }
-        >
+        <button className="socialLoginButton">
           <img />
           Facebook 으로 로그인
         </button>
@@ -63,4 +77,4 @@ class sample extends Component {
   }
 }
 
-export default sample;
+export default Login;

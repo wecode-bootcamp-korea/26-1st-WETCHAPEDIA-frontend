@@ -10,27 +10,46 @@ class Register extends Component {
       password: '',
     };
   }
+  goToMain = () => {
+    this.props.history.push('./Main-jaewoo');
+
+    fetch('http://10.58.1.234:8000/user/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => console.log('결과', res));
+  };
   handleNameInput = e => {
     this.setState({
       name: e.target.value,
     });
   };
+
   handleEmailInput = e => {
     this.setState({
       email: e.target.value,
     });
   };
+
   handlePwdInput = e => {
     this.setState({
       password: e.target.value,
     });
   };
+
   render() {
     return (
       <div className="SignupContainer">
         <div className="logoSection">
-          <span className="initialName">wechachapedia</span>
-          <span className="Logologin">로그인</span>
+          <div className="RegisterWetchaPedia">
+            <span className="initialName">wetcha</span>
+            <span className="pediaLogo">pedia</span>
+          </div>
+          <span className="LogoRegister">회원가입</span>
         </div>
         <form className="enterContainer">
           <input
@@ -48,11 +67,11 @@ class Register extends Component {
             placeholder="비밀번호"
             onChange={this.handlePwdInput}
           />
-          <button className="buttonBox">로그인</button>
+          <button className="buttonBox">회원가입</button>
         </form>
         <div className="forgetContainer">
           <span>이미 가입하셨나요?</span>
-          <span className="signupText">로그인</span>
+          <span className="signupText"> 로그인</span>
         </div>
         <hr className="divideLine" />
 
