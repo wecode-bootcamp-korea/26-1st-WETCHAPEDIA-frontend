@@ -1,3 +1,4 @@
+@import '../../styles/variables.scss';
 .detailFeedContainer {
   .movieInfosContainer {
     display: flex;
@@ -5,11 +6,12 @@
 
     .sideInfo {
       margin-top: 100px;
+
       .sideBox1 {
         width: 200px;
         height: 200px;
-        background-color: red;
         margin-bottom: 100px;
+        background-color: red;
       }
 
       .sideBox2 {
@@ -25,13 +27,14 @@
       align-items: center;
       width: 46%;
       padding-right: 0;
+
       .infoComment {
-        width: 100%;
-        margin-top: 30px;
         display: flex;
+        width: 100%;
+        padding: 15px;
+        margin-top: 30px;
         border: 1px solid rgb(227, 227, 227);
         border-radius: 5px;
-        padding: 15px;
         background-color: white;
 
         .infoText {
@@ -53,11 +56,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        border: 1px solid rgb(227, 227, 227);
-        border-radius: 3px;
         width: 100%;
         margin-top: 30px;
         padding-top: 20px;
+        border: 1px solid rgb(227, 227, 227);
+        border-radius: 3px;
         background-color: white;
 
         .title {
@@ -67,13 +70,13 @@
         .infoContour {
           height: 1px;
           width: 95%;
-          background-color: rgb(237, 237, 237);
+          background-color: $contourColor;
         }
 
         .infoHeader {
-          width: 100%;
           display: flex;
           justify-content: space-between;
+          width: 100%;
           padding: 0 20px 0 20px;
         }
 

@@ -2,23 +2,23 @@ import React, { Component } from 'react';
 
 class MovieHeader extends Component {
   render() {
-    const { infos } = this.props;
-    const MovieHeader = infos.map((info, index) => {
-      return (
-        <div className="movieHeader" key={index}>
-          <div className="moviePosterContainer">
-            <img
-              src="/images/movieposter.jpeg"
-              alt="movieposter"
-              className="moviePoster"
-            />
-          </div>
+    const { infos, starsUrl, scoreComment, changeStars } = this.props;
+    return (
+      <div className="movieHeader">
+        <div className="moviePosterContainer">
+          <img
+            src="/images/movieposter.jpeg"
+            alt="movieposter"
+            className="moviePoster"
+          />
+        </div>
+        {infos && (
           <div className="basicInfo">
             <div className="titleInfo">
-              <p className="title">{info.movieBasicInfo.title}</p>
-              <span className="year">{info.movieBasicInfo.year} </span>
-              <span className="genre">{info.movieBasicInfo.genre}</span>
-              <span className="country">{info.movieBasicInfo.country}</span>
+              <p className="title">{infos.title}</p>
+              <span className="year">{infos.year} </span>
+              <span className="genre">{infos.genre}</span>
+              <span className="country">{infos.country}</span>
             </div>
             <div className="contour" />
             <div className="averageScore">
@@ -28,41 +28,19 @@ class MovieHeader extends Component {
                 alt="blackstar"
                 className="blackstar"
               />
-              <span className="score">{info.movieBasicInfo.score}</span>
-              <span className="peopleNumber">
-                {info.movieBasicInfo.peopleNumber}
-              </span>
+              <span className="score">{infos.score}</span>
+              <span className="peopleNumber">{infos.peopleNumber}</span>
             </div>
             <div className="contour" />
             <div className="movieReview">
               <div className="starScore">
-                <p>평가하기</p>
-                <div className="starsContainer">
-                  <img
-                    src="/images/emptystar.png"
-                    alt="star"
-                    className="star"
-                  />
-                  <img
-                    src="/images/emptystar.png"
-                    alt="star"
-                    className="star"
-                  />
-                  <img
-                    src="/images/emptystar.png"
-                    alt="star"
-                    className="star"
-                  />
-                  <img
-                    src="/images/emptystar.png"
-                    alt="star"
-                    className="star"
-                  />
-                  <img
-                    src="/images/emptystar.png"
-                    alt="star"
-                    className="star"
-                  />
+                <p className="scoreComent">{scoreComment}</p>
+                <div className="starsContainer" onMouseMove={changeStars}>
+                  {starsUrl.map((url, index) => {
+                    return (
+                      <img src={url} alt="star" className="star" key={index} />
+                    );
+                  })}
                 </div>
               </div>
               <div className="reviewContour" />
@@ -98,10 +76,9 @@ class MovieHeader extends Component {
               </div>
             </div>
           </div>
-        </div>
-      );
-    });
-    return <>{MovieHeader}</>;
+        )}
+      </div>
+    );
   }
 }
 

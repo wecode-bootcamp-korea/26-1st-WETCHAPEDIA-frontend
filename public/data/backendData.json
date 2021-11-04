@@ -1,0 +1,40 @@
+{
+  "movieBasicInfo": {
+    "title": "인터스텔라",
+    "released_date": 2017,
+    "genre": "SF/스릴러",
+    "country": "미국",
+    "score": "4.0",
+    "runningTime": "2시간 49분",
+    "age": "12세",
+    "shortContent": "세계 각국의 정부와 경제가 완전히 붕괴된 미래가 다가온다. 지난 20세기에 범한 잘못이 전 세계적인 식량 부족을 불러왔고, NASA도 해체되었다. 이때 시공간에 불가사의한 틈이 열리고, 남은 자들에게는 이..."
+  },
+  "actors": [
+    {
+      "name": "전창민",
+      "role": "배역",
+      "position": "감독",
+      "profile_image:": "_url이미지URL"
+    },
+    { "name": "전창민", "role": "주연" },
+    { "name": "전창민", "role": "주연" },
+    { "name": "전창민", "role": "주연" },
+    { "name": "전창민", "role": "주연" },
+    { "name": "전창민", "role": "주연" },
+    { "name": "전창민", "role": "주연" },
+    { "name": "전창민", "role": "주연" },
+    { "name": "전창민", "role": "주연" }
+  ],
+  "contents": [
+    {
+      "userName": "위코드 26기 전창민",
+      "comment": "영화가 정말 재미있네요 ㅋㅋㅋㅋㅋ 추천합니다 이런 영화 처음이에요정말 지루하군요!!!!!",
+      "likeNumber": 40
+    },
+    {
+      "userName": "위코드 26기 권상현",
+      "comment": "추천합니다 이런 영화 처음이에요정말 지루하군요!!!!!",
+      "likeNumber": 4
+    }
+  ]
+}

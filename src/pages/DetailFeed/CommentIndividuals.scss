@@ -1,10 +1,12 @@
+@import '../../styles/variables.scss';
 .detailFeedContainer {
   .movieCommentContainer {
     overflow: auto;
+
     .commentHeader {
       display: flex;
       justify-content: space-between;
-      padding: 30px 20px 0 20px;
+      padding: 30px 20px 0;
 
       .comment {
         font-size: 25px;
@@ -16,18 +18,18 @@
       display: flex;
       padding: 30px 0 20px 20px;
 
-      .commentIndividual {
+      .individual {
         width: 45%;
         padding: 10px;
         margin-right: 20px;
         background-color: rgb(242, 242, 242);
 
-        .userComment {
+        .comment {
           height: 120px;
           padding-top: 20px;
         }
 
-        .commentContour {
+        .contour {
           margin: auto;
           margin-top: 7px;
           width: 95%;
@@ -35,8 +37,9 @@
           background-color: rgb(229, 229, 229);
         }
 
-        .commentLike {
+        .like {
           padding-top: 10px;
+
           img {
             width: 13px;
             height: 13px;
