@@ -12,7 +12,7 @@ class MovieList extends Component {
   static getDerivedStateFromProps(nextProps, prevState) {
     let { type, movieListData } = nextProps;
     let { curFeedsType } = prevState;
-    if (!nextProps.type) return null;
+    if (!type) return null;
     if (type !== curFeedsType)
       return { curFeedsType: type, curMovieListData: movieListData };
   }

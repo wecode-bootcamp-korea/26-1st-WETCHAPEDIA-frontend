@@ -21,15 +21,10 @@ class CarouselSlide extends Component {
     };
   }
 
-  carouselLeaveMouse = event => {
+  carouselSildeTypeSwitch = event => {
+    let { isOverflow } = this.state;
     this.setState({
-      isOverflow: false,
-    });
-  };
-
-  carouselOverMouse = event => {
-    this.setState({
-      isOverflow: true,
+      isOverflow: !isOverflow,
     });
   };
 
@@ -49,10 +44,9 @@ class CarouselSlide extends Component {
     return (
       <>
         <div
-          onMouseOver={this.carouselOverMouse}
-          onMouseLeave={this.carouselLeaveMouse}
+          onMouseOver={this.carouselSildeTypeSwitch}
           className="feedsCarousel"
-          style={isOverflow ? { overflow: 'auto' } : { overflow: 'hidden' }}
+          style={isOverflow ? { overflow: 'scroll' } : { overflow: 'hidden' }}
         >
           <ul
             className="carouselSlider"
