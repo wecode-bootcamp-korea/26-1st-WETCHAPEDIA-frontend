@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './CommentIndividuals.scss';
 
 class CommentIndividual extends Component {
   render() {

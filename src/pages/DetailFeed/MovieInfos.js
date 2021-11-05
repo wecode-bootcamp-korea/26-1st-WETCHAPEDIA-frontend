@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CommentIndividual from './CommentIndividual';
 import Profile from './Profile';
+import './MovieInfos.scss';
 
 class MovieInfos extends Component {
   render() {
@@ -9,9 +10,7 @@ class MovieInfos extends Component {
       <div className="movieInfosContainer">
         <section className="movieInfos">
           <div className="infoComment">
-            <span className="infoText">
-              대단한 작품이군요! 전창민 님의 감동을 글로 남겨보세요
-            </span>
+            <span className="infoText">평가히기</span>
             <button type="button" className="infoCommentButton">
               코멘트 남기기
             </button>

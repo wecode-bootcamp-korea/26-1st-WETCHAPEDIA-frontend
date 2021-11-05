@@ -78,7 +78,8 @@
         text-align: center;
 
         .starsContainer {
-          padding: 10px;
+          display: flex;
+          padding: 0 10px;
           margin-top: 8px;
           cursor: pointer;
 

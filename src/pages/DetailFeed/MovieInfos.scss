@@ -28,6 +28,10 @@
       width: 46%;
       padding-right: 0;
 
+      .infoCommentOff {
+        display: none;
+      }
+
       .infoComment {
         display: flex;
         width: 100%;

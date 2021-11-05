@@ -1,25 +1,43 @@
 import React, { Component } from 'react';
 import MovieHeader from './MovieHeader';
 import MovieInfos from './MovieInfos';
-import './MovieHeader.scss';
-import './MovieInfos.scss';
-import './Profiles.scss';
-import './CommentIndividuals.scss';
 
 class DetailFeed extends Component {
   constructor() {
     super();
     this.state = {
       infos: {},
-      starsUrl: [
-        '/images/emptystar.png',
-        '/images/emptystar.png',
-        '/images/emptystar.png',
-        '/images/emptystar.png',
-        '/images/emptystar.png',
+      score: 0,
+      commentContainer: [
+        {
+          divClassName: 'wantLook',
+          src: '/images/plus.png',
+          alt: 'plus',
+          imgClassName: 'plus',
+          text: '보고싶어요',
+        },
+        {
+          divClassName: 'comment',
+          src: '/images/pencil.png',
+          alt: 'pencil',
+          imgClassName: 'pencil',
+          text: '코멘트',
+        },
+        {
+          divClassName: 'lookingEye',
+          src: '/images/looking.png',
+          alt: 'looking',
+          imgClassName: 'looking',
+          text: '보는중',
+        },
+        {
+          divClassName: 'dotMenu',
+          src: '/images/dotmenu.png',
+          alt: 'menu',
+          imgClassName: 'dotmenu',
+          text: '더보기',
+        },
       ],
-      scoreComment: '평가하기',
-      scoreRegister: false,
     };
   }
 
@@ -33,159 +51,26 @@ class DetailFeed extends Component {
       });
   }
 
-  resetStars = e => {
+  getStarScore = value => {
     this.setState({
-      starsUrl: [
-        '/images/emptystar.png',
-        '/images/emptystar.png',
-        '/images/emptystar.png',
-        '/images/emptystar.png',
-        '/images/emptystar.png',
-      ],
+      score: value,
     });
   };
 
-  changeStars = e => {
-    if (e.pageX < 429) {
-      this.setState({
-        starsUrl: [
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-        ],
-      });
-    } else if (e.pageX >= 429 && e.pageX < 443) {
-      // console.log('pageX is 419<=pageX<433');
-      this.setState({
-        starsUrl: [
-          '/images/starhalf.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-        ],
-      });
-    } else if (e.pageX >= 443 && e.pageX < 459) {
-      // console.log('pageX is 433<pageX<449');
-      this.setState({
-        starsUrl: [
-          '/images/star.jpeg',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-        ],
-      });
-    } else if (e.pageX >= 459 && e.pageX < 467) {
-      this.setState({
-        starsUrl: [
-          '/images/star.jpeg',
-          '/images/starhalf.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-        ],
-      });
-    } else if (e.pageX >= 477 && e.pageX < 494) {
-      this.setState({
-        starsUrl: [
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-        ],
-      });
-    } else if (e.pageX >= 494 && e.pageX < 511) {
-      this.setState({
-        starsUrl: [
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/starhalf.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-        ],
-      });
-    } else if (e.pageX >= 511 && e.pageX < 529) {
-      this.setState({
-        starsUrl: [
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-        ],
-      });
-    } else if (e.pageX >= 529 && e.pageX < 547) {
-      this.setState({
-        starsUrl: [
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/starhalf.png',
-          '/images/emptystar.png',
-        ],
-      });
-    } else if (e.pageX >= 547 && e.pageX < 565) {
-      this.setState({
-        starsUrl: [
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/emptystar.png',
-        ],
-      });
-    } else if (e.pageX >= 565 && e.pageX < 582) {
-      this.setState({
-        starsUrl: [
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/starhalf.png',
-        ],
-      });
-    } else if (e.pageX >= 582 && e.pageX < 599) {
-      this.setState({
-        starsUrl: [
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-          '/images/star.jpeg',
-        ],
-      });
-    } else if (e.pageX >= 599) {
-      this.setState({
-        starsUrl: [
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-          '/images/emptystar.png',
-        ],
-      });
-    }
-  };
-
   render() {
-    const { infos, starsUrl, scoreComment } = this.state;
+    const { infos, commentContainer, score } = this.state;
     return (
       <div className="detailFeedContainer">
         <img
-          src="/images/moviebackground.jpeg"
+          src="/images/background2.jpeg"
           className="movieBackground"
           alt="movieposter"
         />
         <MovieHeader
           infos={infos.movieBasicInfo}
-          starsUrl={starsUrl}
-          scoreComment={scoreComment}
-          changeStars={this.changeStars}
-          resetStars={this.resetStars}
+          commentContainer={commentContainer}
+          score={score}
+          getStarScore={this.getStarScore}
         />
         <MovieInfos infos={infos} />
       </div>

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import StarBox from './StarBox';
+import './MovieHeader.scss';
 
 class MovieHeader extends Component {
   render() {
-    const { infos, starsUrl, scoreComment, changeStars, resetStars } =
-      this.props;
+    const { infos, commentContainer, getStarScore, score } = this.props;
     return (
       <div className="movieHeader">
         {infos && (
@@ -36,54 +37,49 @@ class MovieHeader extends Component {
               <div className="contour" />
               <div className="movieReview">
                 <div className="starScore">
-                  <p className="scoreComent">{scoreComment}</p>
-                  <div
-                    className="starsContainer"
-                    onMouseMove={changeStars}
-                    onMouseOut={resetStars}
-                  >
-                    {starsUrl.map((url, index) => {
-                      return (
-                        <img
-                          src={url}
-                          alt="star"
-                          className="star"
-                          key={index}
-                        />
-                      );
-                    })}
+                  <p className="scoreComent">평가하기</p>
+                  <div className="starsContainer">
+                    <StarBox
+                      score={1}
+                      fill={score >= 1 ? 'yellow' : 'current'}
+                      getStarScore={getStarScore}
+                    />
+                    <StarBox
+                      score={2}
+                      fill={score >= 2 ? 'yellow' : 'current'}
+                      getStarScore={getStarScore}
+                    />
+                    <StarBox
+                      score={3}
+                      fill={score >= 3 ? 'yellow' : 'current'}
+                      getStarScore={getStarScore}
+                    />
+                    <StarBox
+                      score={4}
+                      fill={score >= 4 ? 'yellow' : 'current'}
+                      getStarScore={getStarScore}
+                    />
+                    <StarBox
+                      score={5}
+                      fill={score >= 5 ? 'yellow' : 'current'}
+                      getStarScore={getStarScore}
+                    />
                   </div>
                 </div>
                 <div className="reviewContour" />
                 <div className="commentContainer">
-                  <div className="wantLook">
-                    <img src="/images/plus.png" alt="plus" className="plus" />
-                    <span>보고싶어요</span>
-                  </div>
-                  <div className="comment">
-                    <img
-                      src="/images/pencil.png"
-                      alt="pencil"
-                      className="pencil"
-                    />
-                    <span>코멘트</span>
-                  </div>
-                  <div className="lookingEye">
-                    <img
-                      src="/images/looking.png"
-                      alt="looking"
-                      className="looking"
-                    />
-                    <span>보는중</span>
-                  </div>
-                  <div className="dotMenu">
-                    <img
-                      src="/images/dotmenu.png"
-                      alt="menu"
-                      className="dotmenu"
-                    />
-                    <span>더보기</span>
-                  </div>
+                  {commentContainer.map((info, index) => {
+                    return (
+                      <div className={info.divClassName} key={index}>
+                        <img
+                          src={info.src}
+                          alt={info.alt}
+                          className={info.imgClassName}
+                        />
+                        <span>{info.text}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>
