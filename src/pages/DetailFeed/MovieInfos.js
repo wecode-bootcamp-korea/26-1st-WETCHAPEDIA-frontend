@@ -39,8 +39,8 @@ class MovieInfos extends Component {
               <p className="title">출연제작</p>
               <div className="profileContainer">
                 {infos.actors &&
-                  infos.actors.map((actor, index) => {
-                    return <Profile actorinfos={actor} key={index} />;
+                  infos.actors.map(actor => {
+                    return <Profile actorinfos={actor} key={actor.id} />;
                   })}
               </div>
             </div>
@@ -55,7 +55,7 @@ class MovieInfos extends Component {
                   infos.contents.map(content => {
                     return (
                       <CommentIndividual
-                        key={infos.contents.id}
+                        key={content.id}
                         commentInfo={content}
                       />
                     );

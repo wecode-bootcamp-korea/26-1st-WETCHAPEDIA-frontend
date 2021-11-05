@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 class MovieHeader extends Component {
   render() {
-    const { infos, starsUrl, scoreComment, changeStars } = this.props;
+    const { infos, starsUrl, scoreComment, changeStars, resetStars } =
+      this.props;
     return (
       <div className="movieHeader">
         {infos && (
@@ -36,7 +37,11 @@ class MovieHeader extends Component {
               <div className="movieReview">
                 <div className="starScore">
                   <p className="scoreComent">{scoreComment}</p>
-                  <div className="starsContainer" onMouseMove={changeStars}>
+                  <div
+                    className="starsContainer"
+                    onMouseMove={changeStars}
+                    onMouseOut={resetStars}
+                  >
                     {starsUrl.map((url, index) => {
                       return (
                         <img

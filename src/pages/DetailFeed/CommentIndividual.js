@@ -4,7 +4,7 @@ class CommentIndividual extends Component {
   render() {
     const { commentInfo } = this.props;
     return (
-      <div className="individual" key={commentInfo.id}>
+      <div className="individual">
         <p className="userName">{commentInfo.userName}</p>
         <div className="contour" />
         <div className="comment">

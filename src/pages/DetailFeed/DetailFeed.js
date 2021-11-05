@@ -33,6 +33,18 @@ class DetailFeed extends Component {
       });
   }
 
+  resetStars = e => {
+    this.setState({
+      starsUrl: [
+        '/images/emptystar.png',
+        '/images/emptystar.png',
+        '/images/emptystar.png',
+        '/images/emptystar.png',
+        '/images/emptystar.png',
+      ],
+    });
+  };
+
   changeStars = e => {
     if (e.pageX < 429) {
       this.setState({
@@ -173,6 +185,7 @@ class DetailFeed extends Component {
           starsUrl={starsUrl}
           scoreComment={scoreComment}
           changeStars={this.changeStars}
+          resetStars={this.resetStars}
         />
         <MovieInfos infos={infos} />
       </div>
