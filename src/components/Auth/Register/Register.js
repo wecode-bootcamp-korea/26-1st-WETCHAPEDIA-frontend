@@ -10,34 +10,37 @@ class Register extends Component {
       password: '',
     };
   }
-  goToMain = () => {
-    this.props.history.push('./Main-jaewoo');
 
-    fetch('http://10.58.1.234:8000/user/login', {
+  goToLogin = () => {
+    const { name, email, password } = this.state;
+    fetch('', {
       method: 'POST',
       body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password,
+        name: name,
+        email: email,
+        password: password,
       }),
-    })
-      .then(res => res.json())
-      .then(res => console.log('결과', res));
+    }).then(res => res.json());
   };
+
   handleNameInput = e => {
+    const { value } = e.target;
     this.setState({
-      name: e.target.value,
+      name: value,
     });
   };
 
   handleEmailInput = e => {
+    const { value } = e.target;
     this.setState({
-      email: e.target.value,
+      email: value,
     });
   };
 
   handlePwdInput = e => {
+    const { value } = e.target;
     this.setState({
-      password: e.target.value,
+      password: value,
     });
   };
 
@@ -76,7 +79,7 @@ class Register extends Component {
         <hr className="divideLine" />
 
         <button className="socialLogin">
-          <img />
+          <img alt="facebook" />
           Facebook 으로 로그인
         </button>
       </div>

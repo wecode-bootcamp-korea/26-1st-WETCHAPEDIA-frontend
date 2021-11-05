@@ -11,17 +11,17 @@ class Login extends Component {
   }
 
   goToMain = () => {
-    this.props.history.push('');
+    const { email, password } = this.state;
+    const { history } = this.props;
+    history.push('');
 
     fetch('', {
       method: 'POST',
       body: JSON.stringify({
-        email: this.state.email,
-        password: this.state.password,
+        email: email,
+        password: password,
       }),
-    })
-      .then(res => res.json())
-      .then(res => console.log('결과', res));
+    }).then(res => res.json());
   };
 
   handleEmailInput = e => {
@@ -69,7 +69,7 @@ class Login extends Component {
         <hr className="divideSocialLine" />
 
         <button className="socialLoginButton">
-          <img />
+          <img alt="" facebook />
           Facebook 으로 로그인
         </button>
       </div>
