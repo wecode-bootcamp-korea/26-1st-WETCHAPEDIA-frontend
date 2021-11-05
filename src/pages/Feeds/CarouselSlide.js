@@ -17,16 +17,8 @@ class CarouselSlide extends Component {
     super(props);
     this.state = {
       curTranslateX: 0,
-      isOverflow: false,
     };
   }
-
-  carouselSildeTypeSwitch = event => {
-    let { isOverflow } = this.state;
-    this.setState({
-      isOverflow: !isOverflow,
-    });
-  };
 
   moveToX = event => {
     let { curTranslateX } = this.state;
@@ -38,16 +30,12 @@ class CarouselSlide extends Component {
   };
 
   render() {
-    let { curTranslateX, isOverflow } = this.state;
+    let { curTranslateX } = this.state;
     let { children } = this.props;
 
     return (
       <>
-        <div
-          onMouseOver={this.carouselSildeTypeSwitch}
-          className="feedsCarousel"
-          style={isOverflow ? { overflow: 'scroll' } : { overflow: 'hidden' }}
-        >
+        <div className="feedsCarousel">
           <ul
             className="carouselSlider"
             style={{ transform: `translateX(${curTranslateX}%)` }}
