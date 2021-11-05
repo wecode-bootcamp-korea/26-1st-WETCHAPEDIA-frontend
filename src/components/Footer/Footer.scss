@@ -110,48 +110,11 @@ footer {
         right: 0;
         width: 120px;
         height: 45px;
-        color: #000;
+        color: #a5a5a7;
+        background-color: #1c1d1f;
+        border: 1px solid #a5a5a7;
         font-size: 14px;
-        text-align: left;
-        transition: all 0.9s ease;
-        z-index: 899;
-
-        .select {
-          display: block;
-          padding: 10px 30px;
-          font-weight: bold;
-          border: 2px solid #a5a5a7;
-          background: url('https://cdn2.iconfinder.com/data/icons/font-awesome/1792/angle-down-512.png')
-            no-repeat;
-          background-size: 25px;
-          background-position: 95% 50%;
-          filter: invert(100);
-          font-size: 1rem;
-          cursor: pointer;
-
-          &span {
-            color: #a5a5a7;
-          }
-        }
-
-        .dropdown-menu {
-          position: absolute;
-          width: 100%;
-          left: 0;
-          margin-top: 5px;
-          overflow: hidden;
-          display: none;
-          overflow-y: auto;
-          z-index: 899;
-
-          li {
-            padding: 10px 30px;
-            transition: all 0.2s ease-in-out;
-            cursor: pointer;
-            background: #fff;
-            color: #000;
-          }
-        }
+        text-align: center;
       }
 
       .footerSns {

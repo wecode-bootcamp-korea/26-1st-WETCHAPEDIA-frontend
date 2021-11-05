@@ -43,11 +43,7 @@ class Footer extends Component {
             </ul>
           </section>
           <section className="rightFooter">
-            <div className="list">
-              <div className="select">
-                <span>한국어</span>
-              </div>
-            </div>
+            <button className="list">한국어</button>
             <div className="footerSns">
               <img
                 src="https://cdn-icons.flaticon.com/png/512/4494/premium/4494464.png?token=exp=1635928138~hmac=12a8205b87e97ae46b873389f692ab6b"
