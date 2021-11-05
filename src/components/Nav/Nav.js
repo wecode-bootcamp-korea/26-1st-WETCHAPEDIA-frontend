@@ -11,8 +11,9 @@ class Nav extends Component {
   }
 
   handleInput = () => {
+    const { seen } = this.state;
     this.setState({
-      seen: !this.state.seen,
+      seen: !seen,
     });
   };
 
@@ -29,6 +30,7 @@ class Nav extends Component {
   };
 
   render() {
+    const { seen } = this.state;
     return (
       <>
         <header>
@@ -58,7 +60,7 @@ class Nav extends Component {
                   />
                 </form>
 
-                {this.state.seen ? (
+                {seen ? (
                   <div className="searchbarList">
                     <div className="searchListDown">
                       <p>인기 검색어</p>
@@ -82,7 +84,7 @@ class Nav extends Component {
             </div>
           </nav>
         </header>
-        {this.state.seen ? (
+        {seen ? (
           <div onClick={this.handleInput} className="headerOverlay" />
         ) : null}
       </>

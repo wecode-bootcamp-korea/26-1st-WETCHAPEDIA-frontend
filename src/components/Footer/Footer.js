@@ -51,15 +51,15 @@ class Footer extends Component {
             <div className="footerSns">
               <img
                 src="https://cdn-icons.flaticon.com/png/512/4494/premium/4494464.png?token=exp=1635928138~hmac=12a8205b87e97ae46b873389f692ab6b"
-                atl="facebookicon"
+                alt="facebookicon"
               />
               <img
                 src="https://cdn-icons.flaticon.com/png/512/3669/premium/3669691.png?token=exp=1635928179~hmac=b89ced8ea398e56fffbceb5beb218f96"
-                atl="twitericon"
+                alt="twitericon"
               />
               <img
                 src="https://cdn-icons-png.flaticon.com/512/625/625150.png"
-                atl="bankicon"
+                alt="bankicon"
               />
             </div>
           </section>
