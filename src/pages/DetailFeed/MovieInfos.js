@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CommentIndividual from './CommentIndividual';
-import Profile from '../Profile';
+import Profile from './Profile';
 
 class MovieInfos extends Component {
   render() {
@@ -40,7 +40,7 @@ class MovieInfos extends Component {
               <div className="profileContainer">
                 {infos.actors &&
                   infos.actors.map((actor, index) => {
-                    return <Profile infos={actor} key={index} />;
+                    return <Profile actorinfos={actor} key={index} />;
                   })}
               </div>
             </div>

@@ -15,7 +15,7 @@ class CommentIndividual extends Component {
           <img src="/images/thumb.png" alt="thumb" className="commentThumb" />
           <span className="likeNumber">{commentInfo.likeNumber}</span>
         </div>
-        <div className="commentContour" />
+        <div className="contour" />
         <div className="likeCountButton">좋아요</div>
       </div>
     );
