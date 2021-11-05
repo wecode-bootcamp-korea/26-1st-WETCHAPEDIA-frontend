@@ -6,31 +6,19 @@ class Nav extends Component {
   constructor() {
     super();
     this.state = {
-      seen: false,
+      isOpenSearchbarTab: false,
     };
   }
 
   handleInput = () => {
-    const { seen } = this.state;
+    const { isOpenSearchbarTab } = this.state;
     this.setState({
-      seen: !seen,
-    });
-  };
-
-  open = () => {
-    this.setState({
-      seen: true,
-    });
-  };
-
-  close = () => {
-    this.setState({
-      seen: false,
+      isOpenSearchbarTab: !isOpenSearchbarTab,
     });
   };
 
   render() {
-    const { seen } = this.state;
+    const { isOpenSearchbarTab } = this.state;
     return (
       <>
         <header>
@@ -60,7 +48,7 @@ class Nav extends Component {
                   />
                 </form>
 
-                {seen ? (
+                {isOpenSearchbarTab && (
                   <div className="searchbarList">
                     <div className="searchListDown">
                       <p>인기 검색어</p>
@@ -73,7 +61,7 @@ class Nav extends Component {
                       })}
                     </div>
                   </div>
-                ) : null}
+                )}
               </div>
               <div className="loginBtn">
                 <button>로그인</button>
@@ -84,9 +72,9 @@ class Nav extends Component {
             </div>
           </nav>
         </header>
-        {seen ? (
+        {isOpenSearchbarTab && (
           <div onClick={this.handleInput} className="headerOverlay" />
-        ) : null}
+        )}
       </>
     );
   }

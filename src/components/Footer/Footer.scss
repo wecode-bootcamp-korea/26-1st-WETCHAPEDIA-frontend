@@ -25,15 +25,15 @@ footer {
 
   .footerMain {
     display: flex;
-    width: 1200px;
+    justify-content: space-between;
+    max-width: 1320px;
+    min-width: 750px;
     padding: 2rem 0;
     margin: 0 auto;
     color: #a5a5a7;
     font-size: 14px;
 
     .leftFooter {
-      width: 85%;
-
       ul {
         display: flex;
 
@@ -61,8 +61,9 @@ footer {
 
       .secondList {
         margin-top: 7px;
+        display: flex;
         display: block;
-        width: 30%;
+        width: 40%;
 
         .emailList {
           margin-top: 7px;
@@ -81,7 +82,7 @@ footer {
         margin-bottom: 7px;
         margin-top: 20px;
         display: block;
-        width: 50%;
+        width: 66%;
 
         .memberList {
           margin-top: 7px;
@@ -101,7 +102,6 @@ footer {
     }
 
     .rightFooter {
-      width: 15%;
       position: relative;
 
       .list {

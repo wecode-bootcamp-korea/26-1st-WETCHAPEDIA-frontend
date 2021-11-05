@@ -12,7 +12,8 @@ header {
   z-index: 10;
 
   nav {
-    width: 1200px;
+    max-width: 1320px;
+    min-width: 750px;
     height: 100%;
     margin: 0 auto;
     display: flex;
@@ -44,7 +45,7 @@ header {
         .navigation {
           display: flex;
           height: 100%;
-          margin-left: 18px;
+          margin-left: 6px;
           padding: 0px 10px;
           margin-top: 10px;
 
@@ -58,7 +59,6 @@ header {
     }
 
     .navRight {
-      width: 36%;
       display: flex;
       justify-content: space-between;
 
@@ -128,7 +128,8 @@ header {
       }
 
       .loginBtn {
-        width: 13%;
+        width: 65px;
+        margin-left: 5px;
 
         button {
           width: 100%;
@@ -142,7 +143,8 @@ header {
       }
 
       .signBtn {
-        width: 15%;
+        width: 75px;
+        margin-left: 5px;
 
         button {
           width: 100%;
