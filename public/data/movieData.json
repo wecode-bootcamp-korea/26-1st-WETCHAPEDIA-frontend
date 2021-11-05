@@ -1,5 +1,6 @@
 {
   "movieBasicInfo": {
+    "posterUrl": "/images/movieposter.jpeg",
     "title": "인터스텔라",
     "year": 2017,
     "genre": "SF/스릴러",
