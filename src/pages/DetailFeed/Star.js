@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { ReactComponent as Star } from './star.svg';
+import { ReactComponent as StarSvg } from './star.svg';
 
-class StarBox extends Component {
+class Star extends Component {
   render() {
     const { fill, score, getStarScore } = this.props;
     return (
       <div>
-        <Star
+        <StarSvg
           fill={fill}
           onMouseOver={() => {
             getStarScore(score);
@@ -17,4 +17,4 @@ class StarBox extends Component {
   }
 }
 
-export default StarBox;
+export default Star;

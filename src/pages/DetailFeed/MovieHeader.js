@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import StarBox from './StarBox';
+import Star from './Star';
 import './MovieHeader.scss';
 
 class MovieHeader extends Component {
@@ -39,27 +39,27 @@ class MovieHeader extends Component {
                 <div className="starScore">
                   <p className="scoreComent">평가하기</p>
                   <div className="starsContainer">
-                    <StarBox
+                    <Star
                       score={1}
                       fill={score >= 1 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
                     />
-                    <StarBox
+                    <Star
                       score={2}
                       fill={score >= 2 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
                     />
-                    <StarBox
+                    <Star
                       score={3}
                       fill={score >= 3 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
                     />
-                    <StarBox
+                    <Star
                       score={4}
                       fill={score >= 4 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
                     />
-                    <StarBox
+                    <Star
                       score={5}
                       fill={score >= 5 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
