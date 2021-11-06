@@ -32,7 +32,7 @@ class MovieHeader extends Component {
                   className="blackstar"
                 />
                 <span className="score">{infos.score}</span>
-                <span className="peopleNumber">{infos.peopleNumber}</span>
+                <span className="peopleNumber">{infos.peopleNumber}명</span>
               </div>
               <div className="contour" />
               <div className="movieReview">

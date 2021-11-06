@@ -3,7 +3,6 @@
   .movieInfosContainer {
     display: flex;
     justify-content: center;
-
     .sideInfo {
       margin-top: 100px;
 
@@ -27,6 +26,7 @@
       align-items: center;
       width: 46%;
       padding-right: 0;
+      margin-right: 20px;
 
       .infoCommentOff {
         display: none;
@@ -34,24 +34,26 @@
 
       .infoComment {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
-        padding: 15px;
+        padding: 15px 20px;
         margin-top: 30px;
         border: 1px solid rgb(227, 227, 227);
         border-radius: 5px;
         background-color: white;
 
         .infoText {
-          margin-right: 15px;
-          font-size: 16px;
+          font-size: 17px;
         }
 
         .infoCommentButton {
           width: 240px;
+          padding: 5px 0;
           border: 1px solid rgb(210, 210, 210);
           border-radius: 5px;
           background-color: white;
-          font-size: 17px;
+          font-size: 20px;
           cursor: pointer;
         }
       }
@@ -73,7 +75,7 @@
 
         .infoContour {
           height: 1px;
-          width: 95%;
+          width: 92%;
           background-color: $contourColor;
         }
 
@@ -81,7 +83,7 @@
           display: flex;
           justify-content: space-between;
           width: 100%;
-          padding: 0 20px 0 20px;
+          padding: 0 30px;
         }
 
         .movieTitle {
@@ -95,7 +97,7 @@
         }
 
         .infoMain {
-          padding: 20px;
+          padding: 20px 30px;
           color: rgb(90, 90, 90);
 
           .title,
