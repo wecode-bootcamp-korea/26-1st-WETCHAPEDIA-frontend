@@ -28,16 +28,32 @@ class MovieList extends Component {
     let { curFeedsType, curMovieListData } = this.state;
 
     if (this.isFeedsType(curFeedsType)) {
-      return curMovieListData.map(({ id, movieTitle, movieTear, url }) => {
-        return (
-          <SoleFeedLayout
-            key={id}
-            movieTitle={movieTitle}
-            movieTear={movieTear}
-            url={url}
-          />
-        );
-      });
+      return curMovieListData.map(
+        (
+          {
+            id,
+            title,
+            poster_image_url,
+            released_at,
+            country,
+            ratings,
+            sources,
+          },
+          index
+        ) => {
+          return (
+            <SoleFeedLayout
+              key={id}
+              ranking={index + 1}
+              movieTitle={title}
+              movieTear={`${released_at.slice(0, 4)} ・ ${country}`}
+              url={poster_image_url}
+              ratings={ratings}
+              sources={sources}
+            />
+          );
+        }
+      );
     } else {
       return curMovieListData.map(({ id, concept, urls }) => {
         return <CollectionFeedLayout key={id} concept={concept} urls={urls} />;

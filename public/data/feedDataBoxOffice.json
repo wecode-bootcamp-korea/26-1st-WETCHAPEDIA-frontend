@@ -1,0 +1,52 @@
+{
+  "message": {
+    "category": "박스오피스 순위",
+    "movies": [
+      {
+        "id": 6,
+        "title": "귀문",
+        "poster_image_url": "https://images.unsplash.com/photo-1612948848209-31e99a8554a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=627&q=80",
+        "released_at": "2021-08-25",
+        "country": "한국",
+        "ratings": "4.3",
+        "sources": ["넷플릭스"]
+      },
+      {
+        "id": 7,
+        "title": "아미 오브 더 데드: 도둑들",
+        "poster_image_url": "https://images.unsplash.com/photo-1631027238844-3a489e7abccb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
+        "released_at": "2021-10-29",
+        "country": "독일/미국",
+        "ratings": "3.3",
+        "sources": ["넷플릭스"]
+      },
+      {
+        "id": 8,
+        "title": "리듬 오브 리벤지",
+        "poster_image_url": "https://images.unsplash.com/photo-1587042430483-c7b7f70ed9db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=694&q=80",
+        "released_at": "2020-04-30",
+        "country": "영국/미국/스페인",
+        "ratings": "3.3",
+        "sources": ["넷플릭스"]
+      },
+      {
+        "id": 9,
+        "title": "나이트 티스",
+        "poster_image_url": "https://images.unsplash.com/photo-1629984335756-3f99ae6f402e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1475&q=80",
+        "released_at": "2021-10-20",
+        "country": "미국",
+        "ratings": "2.7",
+        "sources": ["넷플릭스"]
+      },
+      {
+        "id": 10,
+        "title": "극장판 귀멸의 칼날: 무한열차편",
+        "poster_image_url": "https://images.unsplash.com/photo-1628851475593-13db86bade64?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80",
+        "released_at": "2021-01-27",
+        "country": "일본",
+        "ratings": "1.8",
+        "sources": ["왓챠", "넷플릭스"]
+      }
+    ]
+  }
+}

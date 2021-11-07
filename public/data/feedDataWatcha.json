@@ -1,0 +1,61 @@
+{
+  "message": {
+    "category": "왓차 영화 순위",
+    "movies": [
+      {
+        "id": 1,
+        "title": "그린 나이트",
+        "poster_image_url": "https://images.unsplash.com/photo-1634843845395-7f13d40e84de?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1960&q=80",
+        "released_at": "2021-08-05",
+        "country": "아일랜드/캐나다/미국",
+        "ratings": "3.5",
+        "sources": ["왓챠"]
+      },
+      {
+        "id": 2,
+        "title": "해리포터와 마법사의 돌",
+        "poster_image_url": "https://images.unsplash.com/photo-1635243669063-e0723f87dba8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYzNTk0MDYzMw&ixlib=rb-1.2.1&q=80&w=1080",
+        "released_at": "2001-11-24",
+        "country": "영국/미국",
+        "ratings": "3.0",
+        "sources": ["왓챠"]
+      },
+      {
+        "id": 5,
+        "title": "도굴",
+        "poster_image_url": "https://images.unsplash.com/photo-1632570695117-633536e178ff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
+        "released_at": "2020-11-04",
+        "country": "한국",
+        "ratings": "2.5",
+        "sources": ["왓챠"]
+      },
+      {
+        "id": 3,
+        "title": "해리포터와 비밀의 방",
+        "poster_image_url": "https://images.unsplash.com/photo-1635071858349-bfea7d919680?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
+        "released_at": "2002-12-13",
+        "country": "영국/미국/독일",
+        "ratings": "2.3",
+        "sources": ["왓챠"]
+      },
+      {
+        "id": 10,
+        "title": "극장판 귀멸의 칼날: 무한열차편",
+        "poster_image_url": "https://images.unsplash.com/photo-1628851475593-13db86bade64?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80",
+        "released_at": "2021-01-27",
+        "country": "일본",
+        "ratings": "1.8",
+        "sources": ["왓챠", "넷플릭스"]
+      },
+      {
+        "id": 4,
+        "title": "베놈",
+        "poster_image_url": "https://images.unsplash.com/photo-1632752414460-900945823b49?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80",
+        "released_at": "2021-10-13",
+        "country": "미국",
+        "ratings": 0,
+        "sources": ["왓챠"]
+      }
+    ]
+  }
+}
