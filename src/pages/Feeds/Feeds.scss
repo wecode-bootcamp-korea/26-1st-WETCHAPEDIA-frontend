@@ -36,8 +36,10 @@
       margin: 0 auto;
       display: flex;
       overflow: scroll;
+      scroll-behavior: smooth;
+      transition: transform 0.5s ease-out;
       &::-webkit-scrollbar {
-        // display: none;
+        display: none;
       }
       // &:hover {
       //   overflow: scroll;
@@ -55,7 +57,7 @@
           cursor: pointer;
 
           &:last-child {
-            margin-right: 0;
+            margin-right: 3px;
           }
 
           .wrapper {
@@ -145,11 +147,11 @@
       left: -0.9%;
     }
 
-    .activeLeftBtn {
+    .activeBtn {
       visibility: visible;
     }
 
-    .unactiveLeftBtn {
+    .unactiveBtn {
       visibility: hidden;
     }
   }

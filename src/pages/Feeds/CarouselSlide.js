@@ -16,8 +16,8 @@ class CarouselSlide extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      curTranslateX: 0,
-      curScrollLeftPos: 0,
+      curTranslatePosX: 0,
+      curLastPosX: 1,
     };
     this.carouselSildeRef = null;
   }
@@ -25,38 +25,50 @@ class CarouselSlide extends Component {
   moveToX = event => {
     let eventType = event.type;
 
+    let { curLastPosX } = this.state;
+    let totalScrollLength = event.target.scrollWidth;
+    curLastPosX = totalScrollLength - 1320;
+
+    this.setState({ curLastPosX });
+
     if (eventType === 'click') {
-      let { curTranslateX } = this.state;
+      let { curTranslatePosX } = this.state;
       let { name } = getTarget(event.target, 'carouselControl');
 
-      name === 'right'
-        ? this.setState({ curTranslateX: curTranslateX - 50.2 })
-        : this.setState({ curTranslateX: curTranslateX + 50.2 });
+      if (name === 'right') {
+        this.carouselSildeRef.scrollLeft = curTranslatePosX + 1327;
+        this.setState({ curTranslatePosX: curTranslatePosX + 1327 });
+      } else {
+        this.carouselSildeRef.scrollLeft = curTranslatePosX - 1327;
+        this.setState({ curTranslatePosX: curTranslatePosX - 1327 });
+      }
     } else {
       let curScrollLeftPos = event.target.scrollLeft;
-      curScrollLeftPos = 50;
-      this.setState({ curScrollLeftPos });
+      this.setState({ curTranslatePosX: curScrollLeftPos });
     }
   };
 
   render() {
-    let { curTranslateX, curScrollLeftPos } = this.state;
+    let { curTranslatePosX, curLastPosX } = this.state;
     let { children } = this.props;
 
     return (
       <>
-        <div className="feedsCarousel" onScroll={this.moveToX}>
-          <ul
-            className="carouselSlider"
-            style={{ transform: `translateX(${curTranslateX}%)` }}
-          >
-            {children}
-          </ul>
+        <div
+          ref={ref => (this.carouselSildeRef = ref)}
+          className="feedsCarousel"
+          onScroll={this.moveToX}
+        >
+          <ul className="carouselSlider">{children}</ul>
         </div>
         <button
           onClick={this.moveToX}
           name="right"
-          className="carouselControl nextBtn"
+          className={`carouselControl nextBtn ${
+            parseInt(curTranslatePosX) === curLastPosX
+              ? 'unactiveBtn'
+              : 'activeBtn'
+          }`}
         >
           <div className="rightBtnImg" />
         </button>
@@ -64,9 +76,7 @@ class CarouselSlide extends Component {
           onClick={this.moveToX}
           name="left"
           className={`carouselControl prevBtn ${
-            (curTranslateX || curScrollLeftPos) === 0
-              ? 'unactiveLeftBtn'
-              : 'activeLeftBtn'
+            curTranslatePosX === 0 ? 'unactiveBtn' : 'activeBtn'
           }`}
         >
           <div className="leftBtnImg" />
