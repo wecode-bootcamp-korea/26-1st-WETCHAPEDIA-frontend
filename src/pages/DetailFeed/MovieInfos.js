@@ -5,13 +5,21 @@ import './MovieInfos.scss';
 
 class MovieInfos extends Component {
   render() {
-    const { infos, isRegister, wantLook } = this.props;
+    const { infos, isRegister, isComment, commentTexts, deleteCommentBox } =
+      this.props;
     return (
       <div className="movieInfosContainer">
         <section className="movieInfos">
+          <div className={isComment ? 'userCommentBox' : 'userCommentBoxOff'}>
+            <img src="/images/userpicture.png" alt="user" className="picture" />
+            <span className="comment">{commentTexts}</span>
+            <span className="deleteButton" onClick={deleteCommentBox}>
+              삭제
+            </span>
+          </div>
           <div
             className={
-              isRegister || wantLook ? 'infoComment' : 'infoCommentOff'
+              isRegister && !isComment ? 'infoComment' : 'infoCommentOff'
             }
           >
             <span className="infoText">

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MovieHeader from './MovieHeader';
 import MovieInfos from './MovieInfos';
-import MovieCommentBox from './MovieCommentBox';
+import MovieCommentInput from './MovieCommentInput';
 
 class DetailFeed extends Component {
   constructor() {
@@ -15,6 +15,7 @@ class DetailFeed extends Component {
       boxSwitch: false,
       wantLook: false,
       scoreComment: '평가하기',
+      commentTexts: '',
       commentContainer: [
         {
           divClassName: 'lookingEye',
@@ -95,6 +96,28 @@ class DetailFeed extends Component {
     });
   };
 
+  updateUserComment = () => {
+    const { boxSwitch } = this.state;
+    this.setState({
+      boxSwitch: !boxSwitch,
+      isComment: true,
+    });
+  };
+
+  updateCommentTexts = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  deleteCommentBox = () => {
+    this.setState({
+      isComment: false,
+      commentTexts: '',
+    });
+  };
+
   render() {
     const {
       infos,
@@ -104,12 +127,17 @@ class DetailFeed extends Component {
       isRegister,
       wantLook,
       boxSwitch,
+      isComment,
+      commentTexts,
     } = this.state;
     return (
       <div className="detailFeedContainer">
-        <MovieCommentBox
+        <MovieCommentInput
           boxSwitch={boxSwitch}
+          commentTexts={commentTexts}
           changeCommentBoxSwitch={this.changeCommentBoxSwitch}
+          updateUserComment={this.updateUserComment}
+          updateCommentTexts={this.updateCommentTexts}
         />
         <img
           src="/images/background2.jpeg"
@@ -126,9 +154,16 @@ class DetailFeed extends Component {
           registerStarScore={this.registerStarScore}
           bindStarScore={this.bindStarScore}
           changeLookColor={this.changeLookColor}
-          commentBoxDelete={this.changeCommentBoxSwitch}
+          changeCommentBoxSwitch={this.changeCommentBoxSwitch}
         />
-        <MovieInfos infos={infos} isRegister={isRegister} wantLook={wantLook} />
+        <MovieInfos
+          infos={infos}
+          isRegister={isRegister}
+          wantLook={wantLook}
+          isComment={isComment}
+          commentTexts={commentTexts}
+          deleteCommentBox={this.deleteCommentBox}
+        />
       </div>
     );
   }

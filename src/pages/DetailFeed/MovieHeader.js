@@ -14,7 +14,7 @@ class MovieHeader extends Component {
       comment,
       wantLook,
       changeLookColor,
-      commentBoxDelete,
+      changeCommentBoxSwitch,
     } = this.props;
     return (
       <div className="movieHeader">
@@ -107,7 +107,7 @@ class MovieHeader extends Component {
                     />
                     <span>보고싶어요</span>
                   </div>
-                  <div className="comment" onClick={commentBoxDelete}>
+                  <div className="comment" onClick={changeCommentBoxSwitch}>
                     <img
                       src="/images/pencil.png"
                       alt="pencil"
