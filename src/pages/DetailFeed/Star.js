@@ -3,13 +3,26 @@ import { ReactComponent as StarSvg } from './star.svg';
 
 class Star extends Component {
   render() {
-    const { fill, score, getStarScore } = this.props;
+    const {
+      fill,
+      score,
+      getStarScore,
+      registerStarScore,
+      bindStarScore,
+      comment,
+    } = this.props;
     return (
       <div>
         <StarSvg
           fill={fill}
           onMouseOver={() => {
             getStarScore(score);
+          }}
+          onClick={() => {
+            registerStarScore(score, comment);
+          }}
+          onMouseOut={() => {
+            bindStarScore(comment);
           }}
         />
       </div>

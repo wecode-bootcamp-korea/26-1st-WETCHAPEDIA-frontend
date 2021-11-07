@@ -4,7 +4,18 @@ import './MovieHeader.scss';
 
 class MovieHeader extends Component {
   render() {
-    const { infos, commentContainer, getStarScore, score } = this.props;
+    const {
+      infos,
+      commentContainer,
+      getStarScore,
+      displayScore,
+      registerStarScore,
+      bindStarScore,
+      comment,
+      wantLook,
+      changeLookColor,
+      commentBoxDelete,
+    } = this.props;
     return (
       <div className="movieHeader">
         {infos && (
@@ -37,37 +48,73 @@ class MovieHeader extends Component {
               <div className="contour" />
               <div className="movieReview">
                 <div className="starScore">
-                  <p className="scoreComent">평가하기</p>
+                  <p className="scoreComent">{comment}</p>
                   <div className="starsContainer">
                     <Star
                       score={1}
-                      fill={score >= 1 ? 'yellow' : 'current'}
+                      fill={displayScore >= 1 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
+                      registerStarScore={registerStarScore}
+                      bindStarScore={bindStarScore}
+                      comment="싫어요"
                     />
                     <Star
                       score={2}
-                      fill={score >= 2 ? 'yellow' : 'current'}
+                      fill={displayScore >= 2 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
+                      registerStarScore={registerStarScore}
+                      bindStarScore={bindStarScore}
+                      comment="별로에요"
                     />
                     <Star
                       score={3}
-                      fill={score >= 3 ? 'yellow' : 'current'}
+                      fill={displayScore >= 3 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
+                      registerStarScore={registerStarScore}
+                      bindStarScore={bindStarScore}
+                      comment="보통이에요"
                     />
                     <Star
                       score={4}
-                      fill={score >= 4 ? 'yellow' : 'current'}
+                      fill={displayScore >= 4 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
+                      registerStarScore={registerStarScore}
+                      bindStarScore={bindStarScore}
+                      comment="재미있어요"
                     />
                     <Star
                       score={5}
-                      fill={score >= 5 ? 'yellow' : 'current'}
+                      fill={displayScore >= 5 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
+                      registerStarScore={registerStarScore}
+                      bindStarScore={bindStarScore}
+                      comment="최고에요!"
                     />
                   </div>
                 </div>
                 <div className="reviewContour" />
                 <div className="commentContainer">
+                  <div
+                    className={wantLook ? 'wantLookOn' : 'wantLookOff'}
+                    onClick={changeLookColor}
+                  >
+                    <img
+                      src={
+                        wantLook ? '/images/bookmark.jpeg' : '/images/plus.png'
+                      }
+                      alt="plus"
+                      className="plus"
+                    />
+                    <span>보고싶어요</span>
+                  </div>
+                  <div className="comment" onClick={commentBoxDelete}>
+                    <img
+                      src="/images/pencil.png"
+                      alt="pencil"
+                      className="pencil"
+                    />
+                    <span>코멘트</span>
+                  </div>
                   {commentContainer.map((info, index) => {
                     return (
                       <div className={info.divClassName} key={index}>

@@ -1,0 +1,54 @@
+.detailFeedContainer {
+  .commentBoxoff {
+    display: none;
+  }
+
+  .commentBox {
+    position: absolute;
+    top: 30%;
+    width: 40%;
+    background-color: white;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      font-size: 22px;
+
+      .deleteButton {
+        cursor: pointer;
+      }
+
+      .title {
+        padding-left: 50px;
+      }
+
+      .commentButton {
+        color: hotpink;
+        cursor: pointer;
+      }
+    }
+
+    .contour {
+      width: 95%;
+      height: 1px;
+      margin: 5px 0;
+      background-color: rgb(240, 240, 240);
+    }
+
+    .sns {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    textarea {
+      border: none;
+    }
+  }
+}

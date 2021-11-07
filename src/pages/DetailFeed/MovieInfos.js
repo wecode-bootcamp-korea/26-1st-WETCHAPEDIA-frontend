@@ -5,13 +5,17 @@ import './MovieInfos.scss';
 
 class MovieInfos extends Component {
   render() {
-    const { infos } = this.props;
+    const { infos, isRegister, wantLook } = this.props;
     return (
       <div className="movieInfosContainer">
         <section className="movieInfos">
-          <div className="infoComment">
+          <div
+            className={
+              isRegister || wantLook ? 'infoComment' : 'infoCommentOff'
+            }
+          >
             <span className="infoText">
-              좋은 평가네요. 전창민 님의 생각을 글로 남겨보세요.
+              평점을 남겨주세요. 전창민 님의 생각을 글로 남겨보세요.
             </span>
             <button type="button" className="infoCommentButton">
               코멘트 남기기

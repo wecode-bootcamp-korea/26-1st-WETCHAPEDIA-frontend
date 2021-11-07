@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
 import MovieHeader from './MovieHeader';
 import MovieInfos from './MovieInfos';
+import MovieCommentBox from './MovieCommentBox';
 
 class DetailFeed extends Component {
   constructor() {
     super();
     this.state = {
       infos: {},
-      score: 0,
+      displayScore: 0,
+      registerScore: 0,
+      isRegister: false,
+      isComment: false,
+      boxSwitch: false,
+      wantLook: false,
+      scoreComment: '평가하기',
       commentContainer: [
-        {
-          divClassName: 'wantLook',
-          src: '/images/plus.png',
-          alt: 'plus',
-          imgClassName: 'plus',
-          text: '보고싶어요',
-        },
-        {
-          divClassName: 'comment',
-          src: '/images/pencil.png',
-          alt: 'pencil',
-          imgClassName: 'pencil',
-          text: '코멘트',
-        },
         {
           divClassName: 'lookingEye',
           src: '/images/looking.png',
@@ -51,16 +44,73 @@ class DetailFeed extends Component {
       });
   }
 
+  changeLookColor = () => {
+    const { wantLook } = this.state;
+    this.setState({
+      wantLook: !wantLook,
+    });
+  };
+
   getStarScore = value => {
     this.setState({
-      score: value,
+      displayScore: value,
+      scoreComment: '평가하기',
+    });
+  };
+
+  registerStarScore = score => {
+    const { isRegister } = this.state;
+    if (!isRegister) {
+      this.setState({
+        registerScore: score,
+        isRegister: !isRegister,
+      });
+    } else {
+      this.setState({
+        registerScore: 0,
+        isRegister: !isRegister,
+      });
+    }
+  };
+
+  bindStarScore = comment => {
+    const { isRegister, registerScore } = this.state;
+    if (!isRegister) {
+      this.setState({
+        displayScore: 0,
+        scoreComment: '평가하기',
+      });
+    } else {
+      this.setState({
+        displayScore: registerScore,
+        scoreComment: comment,
+      });
+    }
+  };
+
+  changeCommentBoxSwitch = () => {
+    const { boxSwitch } = this.state;
+    this.setState({
+      boxSwitch: !boxSwitch,
     });
   };
 
   render() {
-    const { infos, commentContainer, score } = this.state;
+    const {
+      infos,
+      commentContainer,
+      displayScore,
+      scoreComment,
+      isRegister,
+      wantLook,
+      boxSwitch,
+    } = this.state;
     return (
       <div className="detailFeedContainer">
+        <MovieCommentBox
+          boxSwitch={boxSwitch}
+          changeCommentBoxSwitch={this.changeCommentBoxSwitch}
+        />
         <img
           src="/images/background2.jpeg"
           className="movieBackground"
@@ -69,10 +119,16 @@ class DetailFeed extends Component {
         <MovieHeader
           infos={infos.movieBasicInfo}
           commentContainer={commentContainer}
-          score={score}
+          displayScore={displayScore}
+          comment={scoreComment}
+          wantLook={wantLook}
           getStarScore={this.getStarScore}
+          registerStarScore={this.registerStarScore}
+          bindStarScore={this.bindStarScore}
+          changeLookColor={this.changeLookColor}
+          commentBoxDelete={this.changeCommentBoxSwitch}
         />
-        <MovieInfos infos={infos} />
+        <MovieInfos infos={infos} isRegister={isRegister} wantLook={wantLook} />
       </div>
     );
   }
