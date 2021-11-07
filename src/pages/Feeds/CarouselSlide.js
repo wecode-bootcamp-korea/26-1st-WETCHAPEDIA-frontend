@@ -19,6 +19,7 @@ class CarouselSlide extends Component {
       curTranslateX: 0,
       curScrollLeftPos: 0,
     };
+    this.carouselSildeRef = null;
   }
 
   moveToX = event => {
@@ -29,10 +30,11 @@ class CarouselSlide extends Component {
       let { name } = getTarget(event.target, 'carouselControl');
 
       name === 'right'
-        ? this.setState({ curTranslateX: curTranslateX - 50 })
-        : this.setState({ curTranslateX: curTranslateX + 50 });
+        ? this.setState({ curTranslateX: curTranslateX - 50.2 })
+        : this.setState({ curTranslateX: curTranslateX + 50.2 });
     } else {
       let curScrollLeftPos = event.target.scrollLeft;
+      curScrollLeftPos = 50;
       this.setState({ curScrollLeftPos });
     }
   };
@@ -62,7 +64,7 @@ class CarouselSlide extends Component {
           onClick={this.moveToX}
           name="left"
           className={`carouselControl prevBtn ${
-            curTranslateX && curScrollLeftPos
+            (curTranslateX || curScrollLeftPos) === 0
               ? 'unactiveLeftBtn'
               : 'activeLeftBtn'
           }`}
