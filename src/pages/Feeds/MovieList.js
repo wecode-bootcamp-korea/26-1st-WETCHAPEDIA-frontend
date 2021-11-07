@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SoleFeedLayout from './SoleFeedLayout';
+import CollectionFeedLayout from './CollectionFeedLayout';
 
 class MovieList extends Component {
   constructor(props) {
@@ -28,55 +30,17 @@ class MovieList extends Component {
     if (this.isFeedsType(curFeedsType)) {
       return curMovieListData.map(({ id, movieTitle, movieTear, url }) => {
         return (
-          <li key={id} className="feed">
-            <figure
-              style={{
-                backgroundImage: `url(${url})`,
-              }}
-              className="moviePoster"
-            />
-            <div className="movieInfo">
-              <p className="title">{movieTitle}</p>
-              <p className="tear">{movieTear}</p>
-            </div>
-          </li>
+          <SoleFeedLayout
+            key={id}
+            movieTitle={movieTitle}
+            movieTear={movieTear}
+            url={url}
+          />
         );
       });
     } else {
       return curMovieListData.map(({ id, concept, urls }) => {
-        return (
-          <li key={id} className="feed">
-            <div className="wrapper collectionType">
-              <figure
-                style={{
-                  backgroundImage: `url(${urls[0]})`,
-                }}
-                className="moviePosterQuarter"
-              />
-              <figure
-                style={{
-                  backgroundImage: `url(${urls[1]})`,
-                }}
-                className="moviePosterQuarter"
-              />
-              <figure
-                style={{
-                  backgroundImage: `url(${urls[2]})`,
-                }}
-                className="moviePosterQuarter"
-              />
-              <figure
-                style={{
-                  backgroundImage: `url(${urls[3]})`,
-                }}
-                className="moviePosterQuarter"
-              />
-            </div>
-            <div className="movieInfo">
-              <p className="title">{concept}</p>
-            </div>
-          </li>
-        );
+        return <CollectionFeedLayout key={id} concept={concept} urls={urls} />;
       });
     }
   }

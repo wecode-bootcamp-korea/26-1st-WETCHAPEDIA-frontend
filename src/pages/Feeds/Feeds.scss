@@ -32,7 +32,7 @@
       display: flex;
       overflow: hidden;
       &::-webkit-scrollbar {
-        display: none;
+        // display: none;
       }
       &:hover {
         overflow: scroll;

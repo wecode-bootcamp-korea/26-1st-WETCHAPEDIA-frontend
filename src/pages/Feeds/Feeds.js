@@ -13,16 +13,12 @@ class Feeds extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data/soleFeedsData.json', {
-      method: 'GET',
-    })
+    fetch('/data/soleFeedsData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({ soleFeedsData: data });
       });
-    fetch('http://localhost:3000/data/collectionFeedsData.json', {
-      method: 'GET',
-    })
+    fetch('/data/collectionFeedsData.json')
       .then(res => res.json())
       .then(data => {
         this.setState({

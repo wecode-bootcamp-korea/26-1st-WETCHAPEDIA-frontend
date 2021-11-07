@@ -40,7 +40,7 @@ class CarouselSlide extends Component {
   render() {
     let { curTranslateX, curScrollLeftPos } = this.state;
     let { children } = this.props;
-    console.log(curTranslateX, curScrollLeftPos);
+
     return (
       <>
         <div className="feedsCarousel" onScroll={this.moveToX}>
@@ -62,7 +62,7 @@ class CarouselSlide extends Component {
           onClick={this.moveToX}
           name="left"
           className={`carouselControl prevBtn ${
-            curTranslateX === 0 && curScrollLeftPos === 0
+            curTranslateX && curScrollLeftPos
               ? 'unactiveLeftBtn'
               : 'activeLeftBtn'
           }`}
