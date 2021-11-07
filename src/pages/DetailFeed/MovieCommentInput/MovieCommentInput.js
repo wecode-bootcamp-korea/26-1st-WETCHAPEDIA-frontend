@@ -17,13 +17,13 @@ class MovieCommentInput extends Component {
             x
           </span>
           <span className="title">영화제목</span>
-          <span className="commentButton" onClick={updateUserComment}>
+          <span className="updateButton" onClick={updateUserComment}>
             코멘트작성
           </span>
         </div>
         <div className="contour" />
         <div className="sns">
-          <span className="snsText">SNS</span>
+          <span className="text">SNS</span>
           <img src="/images/facebook.png" alt="facebook" className="facebook" />
         </div>
         <div className="contour" />

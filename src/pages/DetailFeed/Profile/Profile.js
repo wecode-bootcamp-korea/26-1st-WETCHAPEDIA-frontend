@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Profiles.scss';
+import './Profile.scss';
 
 class Profile extends Component {
   render() {

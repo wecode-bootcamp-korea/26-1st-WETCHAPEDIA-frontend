@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import CommentIndividual from './CommentIndividual';
-import Profile from './Profile';
+import CommentIndividual from '../CommentIndividual/CommentIndividual';
+import Profile from '../Profile/Profile';
 import './MovieInfos.scss';
 
 class MovieInfos extends Component {

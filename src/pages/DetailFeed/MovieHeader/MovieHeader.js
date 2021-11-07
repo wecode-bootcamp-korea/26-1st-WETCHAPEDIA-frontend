@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Star from './Star';
+import Star from '../Star';
 import './MovieHeader.scss';
 
 class MovieHeader extends Component {

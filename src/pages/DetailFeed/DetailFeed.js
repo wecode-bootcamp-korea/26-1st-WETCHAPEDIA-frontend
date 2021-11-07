@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import MovieHeader from './MovieHeader';
-import MovieInfos from './MovieInfos';
-import MovieCommentInput from './MovieCommentInput';
+import MovieHeader from './MovieHeader/MovieHeader';
+import MovieInfos from './MovieInfos/MovieInfos';
+import MovieCommentInput from './MovieCommentInput/MovieCommentInput';
 
 class DetailFeed extends Component {
   constructor() {
@@ -52,9 +52,9 @@ class DetailFeed extends Component {
     });
   };
 
-  getStarScore = value => {
+  getStarScore = score => {
     this.setState({
-      displayScore: value,
+      displayScore: score,
       scoreComment: '평가하기',
     });
   };
