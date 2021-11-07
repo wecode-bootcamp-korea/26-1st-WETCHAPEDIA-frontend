@@ -22,7 +22,7 @@ class Star extends Component {
             registerStarScore(score, comment);
           }}
           onMouseOut={() => {
-            bindStarScore(comment);
+            bindStarScore();
           }}
         />
       </div>

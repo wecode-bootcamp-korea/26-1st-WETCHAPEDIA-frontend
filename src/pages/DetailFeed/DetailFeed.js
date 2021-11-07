@@ -15,6 +15,7 @@ class DetailFeed extends Component {
       boxSwitch: false,
       wantLook: false,
       scoreComment: '평가하기',
+      registerStarComment: '평가하기',
       commentTexts: '',
       commentContainer: [
         {
@@ -59,10 +60,11 @@ class DetailFeed extends Component {
     });
   };
 
-  registerStarScore = score => {
+  registerStarScore = (score, comment) => {
     const { isRegister } = this.state;
     if (!isRegister) {
       this.setState({
+        registerStarComment: comment,
         registerScore: score,
         isRegister: !isRegister,
       });
@@ -74,8 +76,8 @@ class DetailFeed extends Component {
     }
   };
 
-  bindStarScore = comment => {
-    const { isRegister, registerScore } = this.state;
+  bindStarScore = () => {
+    const { isRegister, registerScore, registerStarComment } = this.state;
     if (!isRegister) {
       this.setState({
         displayScore: 0,
@@ -84,7 +86,7 @@ class DetailFeed extends Component {
     } else {
       this.setState({
         displayScore: registerScore,
-        scoreComment: comment,
+        scoreComment: registerStarComment,
       });
     }
   };
