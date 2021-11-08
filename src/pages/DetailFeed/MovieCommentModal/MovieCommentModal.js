@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import './MovieCommentInput.scss';
+import './MovieCommentModal.scss';
 
 class MovieCommentInput extends Component {
   render() {
     const {
-      boxSwitch,
+      isModalOpen,
       changeCommentBoxSwitch,
       updateUserComment,
       updateCommentTexts,
       commentTexts,
     } = this.props;
     return (
-      <div className={boxSwitch ? 'commentBox' : 'commentBoxoff'}>
+      <div className={isModalOpen ? 'commentBox' : 'commentBoxoff'}>
         <div className="header">
           <span className="deleteButton" onClick={changeCommentBoxSwitch}>
             x
@@ -29,7 +29,7 @@ class MovieCommentInput extends Component {
         <div className="contour" />
         <textarea
           rows="20"
-          cols="68"
+          cols="63"
           onChange={updateCommentTexts}
           name="commentTexts"
           placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요!"

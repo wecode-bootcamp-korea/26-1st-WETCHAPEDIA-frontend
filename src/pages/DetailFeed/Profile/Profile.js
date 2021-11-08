@@ -6,10 +6,16 @@ class Profile extends Component {
     const { actorinfos } = this.props;
     return (
       <div className="profile">
-        <img src="/images/profile.jpeg" alt="profile" className="image" />
+        <img
+          src={actorinfos.profile_image_url}
+          alt="profile"
+          className="image"
+        />
         <div className="info">
           <p>{actorinfos.name}</p>
-          <p>{actorinfos.role}</p>
+          <p>
+            {actorinfos.role} / {actorinfos.position}
+          </p>
         </div>
       </div>
     );

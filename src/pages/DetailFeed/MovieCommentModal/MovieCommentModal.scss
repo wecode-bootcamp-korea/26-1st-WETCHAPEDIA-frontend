@@ -5,7 +5,7 @@
 
   .commentBox {
     position: absolute;
-    top: 30%;
+    top: 200px;
     width: 40%;
     background-color: white;
 
@@ -48,6 +48,7 @@
     }
 
     textarea {
+      padding: 20px;
       border: none;
     }
   }

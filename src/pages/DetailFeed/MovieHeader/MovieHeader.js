@@ -6,23 +6,37 @@ class MovieHeader extends Component {
   render() {
     const {
       infos,
-      commentContainer,
       getStarScore,
       displayScore,
       registerStarScore,
       bindStarScore,
       comment,
       wantLook,
-      changeLookColor,
+      changeWantLookState,
       changeCommentBoxSwitch,
     } = this.props;
+
+    const score =
+      Math.round(
+        (infos.rate
+          .map(elem => +elem)
+          .reduce(function add(sum, currValue) {
+            return sum + currValue;
+          }, 0) /
+          infos.rate.length) *
+          10
+      ) / 10;
+    const peopleNumber = infos.rate.length;
+
+    const releasedDate = infos.release_date.slice(0, 4);
+
     return (
       <div className="movieHeader">
         {infos && (
           <>
             <div className="moviePosterContainer">
               <img
-                src={infos.posterUrl}
+                src={infos.poster_url}
                 alt="movieposter"
                 className="moviePoster"
               />
@@ -30,7 +44,7 @@ class MovieHeader extends Component {
             <div className="basicInfo">
               <div className="titleInfo">
                 <p className="title">{infos.title}</p>
-                <span className="year">{infos.year} </span>
+                <span className="year">{releasedDate}</span>
                 <span className="genre">{infos.genre}</span>
                 <span className="country">{infos.country}</span>
               </div>
@@ -42,8 +56,8 @@ class MovieHeader extends Component {
                   alt="blackstar"
                   className="blackstar"
                 />
-                <span className="score">{infos.score}</span>
-                <span className="peopleNumber">{infos.peopleNumber}명</span>
+                <span className="score">{score}</span>
+                <span className="peopleNumber">{peopleNumber}명</span>
               </div>
               <div className="contour" />
               <div className="movieReview">
@@ -96,7 +110,7 @@ class MovieHeader extends Component {
                 <div className="commentContainer">
                   <div
                     className={wantLook ? 'wantLookOn' : 'wantLookOff'}
-                    onClick={changeLookColor}
+                    onClick={changeWantLookState}
                   >
                     <img
                       src={
@@ -115,18 +129,22 @@ class MovieHeader extends Component {
                     />
                     <span>코멘트</span>
                   </div>
-                  {commentContainer.map((info, index) => {
-                    return (
-                      <div className={info.divClassName} key={index}>
-                        <img
-                          src={info.src}
-                          alt={info.alt}
-                          className={info.imgClassName}
-                        />
-                        <span>{info.text}</span>
-                      </div>
-                    );
-                  })}
+                  <div className="lookingEye">
+                    <img
+                      src="/images/looking.png"
+                      alt="looking"
+                      className="looking"
+                    />
+                    <span>보는중</span>
+                    <div className="dotMenu">
+                      <img
+                        src="/images/dotmenu.png"
+                        alt="menu"
+                        className="dotmenu"
+                      />
+                      <span>더보기</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

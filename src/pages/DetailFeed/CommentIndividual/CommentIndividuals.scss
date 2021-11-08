@@ -1,7 +1,7 @@
 @import '../../../styles/variables.scss';
 .detailFeedContainer {
   .movieCommentContainer {
-    overflow: auto;
+    width: 100%;
 
     .commentHeader {
       display: flex;
@@ -15,16 +15,19 @@
     }
 
     .commentContainer {
-      display: flex;
-      padding: 30px 0 20px 30px;
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      column-gap: 50px;
+      padding: 30px 30px 20px;
+      overflow-x: auto;
 
       .individual {
-        width: 45%;
+        width: 250px;
         padding: 10px;
-        margin-right: 20px;
         background-color: rgb(242, 242, 242);
 
         .comment {
+          width: 100%;
           height: 120px;
           padding-top: 20px;
         }

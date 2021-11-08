@@ -3,28 +3,12 @@
   .movieInfosContainer {
     display: flex;
     justify-content: center;
-    .sideInfo {
-      margin-top: 100px;
-
-      .sideBox1 {
-        width: 200px;
-        height: 200px;
-        margin-bottom: 100px;
-        background-color: red;
-      }
-
-      .sideBox2 {
-        width: 200px;
-        height: 200px;
-        background-color: blue;
-      }
-    }
 
     .movieInfos {
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 46%;
+      width: 40%;
       padding-right: 0;
       margin-right: 20px;
 

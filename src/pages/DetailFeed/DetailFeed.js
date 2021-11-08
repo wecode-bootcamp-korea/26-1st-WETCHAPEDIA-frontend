@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MovieHeader from './MovieHeader/MovieHeader';
 import MovieInfos from './MovieInfos/MovieInfos';
-import MovieCommentInput from './MovieCommentInput/MovieCommentInput';
+import MovieCommentModal from './MovieCommentModal/MovieCommentModal';
 
 class DetailFeed extends Component {
   constructor() {
@@ -10,29 +10,12 @@ class DetailFeed extends Component {
       infos: {},
       displayScore: 0,
       registerScore: 0,
-      isRegister: false,
-      isComment: false,
-      boxSwitch: false,
+      isCommentRegister: false,
+      isModalOpen: false,
       wantLook: false,
       scoreComment: '평가하기',
       registerStarComment: '평가하기',
       commentTexts: '',
-      commentContainer: [
-        {
-          divClassName: 'lookingEye',
-          src: '/images/looking.png',
-          alt: 'looking',
-          imgClassName: 'looking',
-          text: '보는중',
-        },
-        {
-          divClassName: 'dotMenu',
-          src: '/images/dotmenu.png',
-          alt: 'menu',
-          imgClassName: 'dotmenu',
-          text: '더보기',
-        },
-      ],
     };
   }
 
@@ -46,7 +29,7 @@ class DetailFeed extends Component {
       });
   }
 
-  changeLookColor = () => {
+  changeWantLookState = () => {
     const { wantLook } = this.state;
     this.setState({
       wantLook: !wantLook,
@@ -61,24 +44,22 @@ class DetailFeed extends Component {
   };
 
   registerStarScore = (score, comment) => {
-    const { isRegister } = this.state;
-    if (!isRegister) {
+    const { registerScore } = this.state;
+    if (!registerScore) {
       this.setState({
         registerStarComment: comment,
         registerScore: score,
-        isRegister: !isRegister,
       });
     } else {
       this.setState({
         registerScore: 0,
-        isRegister: !isRegister,
       });
     }
   };
 
   bindStarScore = () => {
-    const { isRegister, registerScore, registerStarComment } = this.state;
-    if (!isRegister) {
+    const { registerScore, registerStarComment } = this.state;
+    if (!registerScore) {
       this.setState({
         displayScore: 0,
         scoreComment: '평가하기',
@@ -92,17 +73,17 @@ class DetailFeed extends Component {
   };
 
   changeCommentBoxSwitch = () => {
-    const { boxSwitch } = this.state;
+    const { isModalOpen } = this.state;
     this.setState({
-      boxSwitch: !boxSwitch,
+      isModalOpen: !isModalOpen,
     });
   };
 
   updateUserComment = () => {
-    const { boxSwitch } = this.state;
+    const { isModalOpen } = this.state;
     this.setState({
-      boxSwitch: !boxSwitch,
-      isComment: true,
+      isModalOpen: !isModalOpen,
+      isCommentRegister: true,
     });
   };
 
@@ -115,7 +96,7 @@ class DetailFeed extends Component {
 
   deleteCommentBox = () => {
     this.setState({
-      isComment: false,
+      isCommentRegister: false,
       commentTexts: '',
     });
   };
@@ -123,49 +104,52 @@ class DetailFeed extends Component {
   render() {
     const {
       infos,
-      commentContainer,
       displayScore,
+      registerScore,
       scoreComment,
-      isRegister,
       wantLook,
-      boxSwitch,
-      isComment,
+      isModalOpen,
+      isCommentRegister,
       commentTexts,
     } = this.state;
+
     return (
       <div className="detailFeedContainer">
-        <MovieCommentInput
-          boxSwitch={boxSwitch}
-          commentTexts={commentTexts}
-          changeCommentBoxSwitch={this.changeCommentBoxSwitch}
-          updateUserComment={this.updateUserComment}
-          updateCommentTexts={this.updateCommentTexts}
-        />
-        <img
-          src="/images/background2.jpeg"
-          className="movieBackground"
-          alt="movieposter"
-        />
-        <MovieHeader
-          infos={infos.movieBasicInfo}
-          commentContainer={commentContainer}
-          displayScore={displayScore}
-          comment={scoreComment}
-          wantLook={wantLook}
-          getStarScore={this.getStarScore}
-          registerStarScore={this.registerStarScore}
-          bindStarScore={this.bindStarScore}
-          changeLookColor={this.changeLookColor}
-          changeCommentBoxSwitch={this.changeCommentBoxSwitch}
-        />
-        <MovieInfos
-          infos={infos}
-          isRegister={isRegister}
-          wantLook={wantLook}
-          isComment={isComment}
-          commentTexts={commentTexts}
-          deleteCommentBox={this.deleteCommentBox}
-        />
+        {infos.movie && (
+          <>
+            <MovieCommentModal
+              isModalOpen={isModalOpen}
+              commentTexts={commentTexts}
+              changeCommentBoxSwitch={this.changeCommentBoxSwitch}
+              updateUserComment={this.updateUserComment}
+              updateCommentTexts={this.updateCommentTexts}
+            />
+            <img
+              src="/images/background2.jpeg"
+              className="movieBackground"
+              alt="movieposter"
+            />
+            <MovieHeader
+              infos={infos.movie[0].movie_basic_info}
+              displayScore={displayScore}
+              comment={scoreComment}
+              wantLook={wantLook}
+              getStarScore={this.getStarScore}
+              registerStarScore={this.registerStarScore}
+              bindStarScore={this.bindStarScore}
+              changeWantLookState={this.changeWantLookState}
+              changeCommentBoxSwitch={this.changeCommentBoxSwitch}
+            />
+            <MovieInfos
+              infos={infos.movie[0]}
+              registerScore={registerScore}
+              wantLook={wantLook}
+              isCommentRegister={isCommentRegister}
+              commentTexts={commentTexts}
+              deleteCommentBox={this.deleteCommentBox}
+            />
+          </>
+        )}
       </div>
     );
   }

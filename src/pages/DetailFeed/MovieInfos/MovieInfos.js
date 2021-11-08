@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
 import CommentIndividual from '../CommentIndividual/CommentIndividual';
 import Profile from '../Profile/Profile';
+import SideElement from '../SideElement/SideElement';
 import './MovieInfos.scss';
 
 class MovieInfos extends Component {
   render() {
-    const { infos, isRegister, isComment, commentTexts, deleteCommentBox } =
-      this.props;
+    const {
+      infos,
+      isCommentRegister,
+      commentTexts,
+      deleteCommentBox,
+      registerScore,
+    } = this.props;
+    const releasedDate = infos.movie_basic_info.release_date.slice(0, 4);
     return (
       <div className="movieInfosContainer">
         <section className="movieInfos">
-          <div className={isComment ? 'userCommentBox' : 'userCommentBoxOff'}>
+          <div
+            className={
+              isCommentRegister ? 'userCommentBox' : 'userCommentBoxOff'
+            }
+          >
             <img src="/images/userpicture.png" alt="user" className="picture" />
             <span className="comment">{commentTexts}</span>
             <span className="deleteButton" onClick={deleteCommentBox}>
@@ -19,7 +30,9 @@ class MovieInfos extends Component {
           </div>
           <div
             className={
-              isRegister && !isComment ? 'infoComment' : 'infoCommentOff'
+              registerScore && !isCommentRegister
+                ? 'infoComment'
+                : 'infoCommentOff'
             }
           >
             <span className="infoText">
@@ -34,25 +47,31 @@ class MovieInfos extends Component {
               <span className="title">기본정보</span>
               <span className="moreText">더보기</span>
             </div>
-            {infos.movieBasicInfo && (
+            {infos.movie_basic_info && (
               <div className="infoMain">
-                <p className="movieTitle">{infos.movieBasicInfo.title}</p>
+                <p className="movieTitle">{infos.movie_basic_info.title}</p>
                 <p className="basicInfo">
-                  {infos.movieBasicInfo.year}· {infos.movieBasicInfo.country}·
-                  {infos.movieBasicInfo.genre}
+                  {releasedDate} · {infos.movie_basic_info.country} ·
+                  {infos.movie_basic_info.genre}
                 </p>
                 <p className="detailInfo">
-                  {infos.movieBasicInfo.runningTime} ·{infos.movieBasicInfo.age}
+                  {`${parseInt(infos.movie_basic_info.running_time / 60)}시간 ${
+                    infos.movie_basic_info.running_time % 60
+                  }분`}
+                  · {infos.movie_basic_info.grade}
                 </p>
-                <p>{infos.movieBasicInfo.shortContent}</p>
+                <p>{`${infos.movie_basic_info.short_comment.slice(
+                  0,
+                  150
+                )}....`}</p>
               </div>
             )}
             <div className="infoContour" />
             <div className="actorProfiles">
               <p className="title">출연제작</p>
               <div className="profileContainer">
-                {infos.actors &&
-                  infos.actors.map(actor => {
+                {infos.staffs &&
+                  infos.staffs.map(actor => {
                     return <Profile actorinfos={actor} key={actor.id} />;
                   })}
               </div>
@@ -64,8 +83,8 @@ class MovieInfos extends Component {
                 <span className="moreText">더보기</span>
               </div>
               <div className="commentContainer">
-                {infos.contents &&
-                  infos.contents.map(content => {
+                {infos.comments &&
+                  infos.comments.map(content => {
                     return (
                       <CommentIndividual
                         key={content.id}
@@ -77,10 +96,7 @@ class MovieInfos extends Component {
             </div>
           </div>
         </section>
-        <div className="sideInfo">
-          <div className="sideBox1" />
-          <div className="sideBox2" />
-        </div>
+        <SideElement />
       </div>
     );
   }
