@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './FeedLayout.scss';
 
 class CollectionFeedLayout extends Component {
   render() {

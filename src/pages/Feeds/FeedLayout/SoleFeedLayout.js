@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './FeedLayout.scss';
 
 class SoleFeedLayout extends Component {
   isCheckLabel(labels, type) {

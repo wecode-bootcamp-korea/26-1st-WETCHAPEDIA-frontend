@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './CarouselSlide.scss';
 
 function getTarget(elem, className) {
   while (!elem.classList.contains(className)) {

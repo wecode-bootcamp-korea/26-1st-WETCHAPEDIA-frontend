@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SoleFeedLayout from './SoleFeedLayout';
-import CollectionFeedLayout from './CollectionFeedLayout';
+import SoleFeedLayout from './FeedLayout/SoleFeedLayout';
+import CollectionFeedLayout from './FeedLayout/CollectionFeedLayout';
 
 class MovieList extends Component {
   constructor(props) {

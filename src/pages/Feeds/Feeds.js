@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CarouselSlide from './CarouselSlide';
+import CarouselSlide from './CarouselSlide/CarouselSlide';
 import MovieList from './MovieList';
 import './Feeds.scss';
 
