@@ -43,13 +43,14 @@ class MovieList extends Component {
         ) => {
           return (
             <SoleFeedLayout
-              key={id}
+              key={index}
               ranking={index + 1}
               movieTitle={title}
               movieTear={`${released_at.slice(0, 4)} ・ ${country}`}
               url={poster_image_url}
               ratings={ratings}
               sources={sources}
+              query={id}
             />
           );
         }

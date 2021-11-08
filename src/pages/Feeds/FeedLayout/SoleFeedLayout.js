@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './FeedLayout.scss';
 
 class SoleFeedLayout extends Component {
@@ -6,11 +7,25 @@ class SoleFeedLayout extends Component {
     return labels.includes(type);
   }
 
+  moveToDetailPage = query => {
+    let { history } = this.props;
+    history.push({
+      pathname: '/detailPage',
+      state: { query },
+    });
+  };
+
   render() {
-    let { ranking, movieTitle, movieTear, url, ratings, sources } = this.props;
+    let { ranking, movieTitle, movieTear, url, ratings, sources, query } =
+      this.props;
 
     return (
-      <li className="feed">
+      <li
+        onClick={() => {
+          this.moveToDetailPage(query);
+        }}
+        className="feed"
+      >
         <div className="rankingBox">{ranking}</div>
         <div className="labelContainer">
           <div
@@ -44,4 +59,4 @@ class SoleFeedLayout extends Component {
   }
 }
 
-export default SoleFeedLayout;
+export default withRouter(SoleFeedLayout);

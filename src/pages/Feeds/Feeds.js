@@ -44,6 +44,7 @@ class Feeds extends Component {
 
   render() {
     let { soleFeedsData, collectionFeedsData } = this.state;
+
     let fetchCount = soleFeedsData.length;
 
     if (fetchCount === this.fetchComplete) {
