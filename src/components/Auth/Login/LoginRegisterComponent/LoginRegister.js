@@ -36,47 +36,52 @@ export default class LoginRegister extends Component {
 
   render() {
     const { type, title, inputData } = this.props;
+    const { status } = this.props;
+
     return (
-      <div className="loginContainer">
-        <div className="wechaContainer">
-          <div className="logoWetchaPedia">
-            <span className="initial">WETCHA</span>
-            <span>pedia</span>
-          </div>
+      <>
+        <div className="loginContainer">
+          <div className="wechaContainer">
+            <div className="logoWetchaPedia">
+              <span className="initial">WETCHA</span>
+              <span>pedia</span>
+            </div>
 
-          <span className="loginMark">{title}</span>
+            <span className="loginMark">{title}</span>
+          </div>
+          {inputData.map((input, idx) => (
+            <Input
+              key={idx}
+              type={input.type}
+              text={input.text}
+              valueInput={this.handleInput}
+            />
+          ))}
+          <Button value={title} goToMain={this.goToMain} />
+          {type === 'login' && (
+            <div className="forgetInLogin">
+              <span className="forgetPwd">비밀번호를 잊어버리셨나요?</span>
+              <span className="guessNoSignupText">
+                계정이 없으신가요? 회원가입
+              </span>
+            </div>
+          )}
+
+          {type === 'register' && (
+            <div className="forgetContainer">
+              <span>이미 가입하셨나요?</span>
+              <span className="signupText"> 로그인</span>
+            </div>
+          )}
+
+          <hr className="divideSocialLine" />
+
+          <button className="socialLoginButton">
+            <img alt="facebook으로 로그인" />
+          </button>
         </div>
-        {inputData.map((input, idx) => (
-          <Input
-            key={idx}
-            type={input.type}
-            text={input.text}
-            valueInput={this.handleInput}
-          />
-        ))}
-        <Button value={title} goToMain={this.goToMain} />
-        {type === 'login' && (
-          <div className="forgetInLogin">
-            <span className="forgetPwd">비밀번호를 잊어버리셨나요?</span>
-            <span className="guessNoSignupText">
-              계정이 없으신가요? 회원가입
-            </span>
-          </div>
-        )}
-
-        {type === 'register' && (
-          <div className="forgetContainer">
-            <span>이미 가입하셨나요?</span>
-            <span className="signupText"> 로그인</span>
-          </div>
-        )}
-
-        <hr className="divideSocialLine" />
-
-        <button className="socialLoginButton">
-          <img alt="facebook으로 로그인" />
-        </button>
-      </div>
+        <div onClick={status} className="overlay" />
+      </>
     );
   }
 }
