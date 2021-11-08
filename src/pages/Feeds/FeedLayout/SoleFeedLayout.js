@@ -3,9 +3,7 @@ import './FeedLayout.scss';
 
 class SoleFeedLayout extends Component {
   isCheckLabel(labels, type) {
-    if (labels.includes(type)) {
-      return true;
-    } else return false;
+    return labels.includes(type);
   }
 
   render() {
@@ -17,12 +15,12 @@ class SoleFeedLayout extends Component {
         <div className="labelContainer">
           <div
             className={`${
-              this.isCheckLabel(sources, '왓챠') ? 'label watLabel' : ''
+              this.isCheckLabel(sources, '왓챠') && 'label watLabel'
             }`}
           />
           <div
             className={`${
-              this.isCheckLabel(sources, '넷플릭스') ? 'label netFlLabel' : ''
+              this.isCheckLabel(sources, '넷플릭스') && 'label netFlLabel'
             }`}
           />
         </div>

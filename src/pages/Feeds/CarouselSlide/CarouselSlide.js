@@ -71,7 +71,7 @@ class CarouselSlide extends Component {
               : 'activeBtn'
           }`}
         >
-          <div className="rightBtnImg" />
+          <div className="btnImg right" />
         </button>
         <button
           onClick={this.moveToX}
@@ -80,7 +80,7 @@ class CarouselSlide extends Component {
             curTranslatePosX === 0 ? 'unactiveBtn' : 'activeBtn'
           }`}
         >
-          <div className="leftBtnImg" />
+          <div className="btnImg left" />
         </button>
       </>
     );

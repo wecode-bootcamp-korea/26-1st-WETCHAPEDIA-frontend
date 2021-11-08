@@ -8,30 +8,17 @@ class CollectionFeedLayout extends Component {
     return (
       <li className="feed">
         <div className="wrapper collectionType">
-          <figure
-            style={{
-              backgroundImage: `url(${urls[0]})`,
-            }}
-            className="moviePosterQuarter"
-          />
-          <figure
-            style={{
-              backgroundImage: `url(${urls[1]})`,
-            }}
-            className="moviePosterQuarter"
-          />
-          <figure
-            style={{
-              backgroundImage: `url(${urls[2]})`,
-            }}
-            className="moviePosterQuarter"
-          />
-          <figure
-            style={{
-              backgroundImage: `url(${urls[3]})`,
-            }}
-            className="moviePosterQuarter"
-          />
+          {urls.map((url, index) => {
+            return (
+              <figure
+                key={index}
+                style={{
+                  backgroundImage: `url(${url})`,
+                }}
+                className="moviePosterQuarter"
+              />
+            );
+          })}
         </div>
         <div className="movieInfo">
           <p className="title">{concept}</p>

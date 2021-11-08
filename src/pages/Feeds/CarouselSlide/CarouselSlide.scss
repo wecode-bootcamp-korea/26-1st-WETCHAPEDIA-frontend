@@ -1,5 +1,12 @@
 @import '../../../styles/variables.scss';
 
+@mixin btnImg {
+  width: 25px;
+  height: 25px;
+  background-position: center;
+  background-size: cover;
+}
+
 @mixin moviePosterMix($width: 0, $height: 0) {
   width: $width;
   height: $height;
@@ -43,22 +50,16 @@
   cursor: pointer;
   z-index: 999;
 
-  .rightBtnImg {
-    width: 25px;
-    height: 25px;
+  .right {
+    @include btnImg;
     transform: translateX(9%);
     background-image: url('../../../assets/images/chevron_right_black_24dp.svg');
-    background-position: center;
-    background-size: cover;
   }
 
-  .leftBtnImg {
-    width: 25px;
-    height: 25px;
+  .left {
+    @include btnImg;
     transform: translateX(-9%);
     background-image: url('../../../assets/images/chevron_left_black_24dp.svg');
-    background-position: center;
-    background-size: cover;
   }
 }
 
