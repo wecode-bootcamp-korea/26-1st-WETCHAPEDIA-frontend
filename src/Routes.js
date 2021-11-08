@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Modal from './components/Auth/Login/Modal';
 import Main from './pages/Main/Main';
 
 class Routes extends React.Component {
