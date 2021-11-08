@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// import CarouselSlide from './CarouselSlide/CarouselSlide';
-// import MovieList from './MovieList';
 import FeedsDataMap from './FeedsDataMap';
 import './Feeds.scss';
 
@@ -13,9 +11,12 @@ class Feeds extends Component {
     };
     this.fetchComplete = 3;
     this.fetchSoleFeedsPaths = [
+      // 'http://10.58.5.94:8000/?source=박스오피스',
+      // 'http://10.58.5.94:8000/?source=넷플릭스',
+      // 'http://10.58.5.94:8000/?source=왓챠',
       '/data/feedDataBoxOffice.json',
-      '/data/feedDataWatcha.json',
       '/data/feedDataNetflix.json',
+      '/data/feedDataWatcha.json',
     ];
   }
 
