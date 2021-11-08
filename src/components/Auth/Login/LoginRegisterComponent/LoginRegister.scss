@@ -1,5 +1,5 @@
-@import '../../../styles/variables.scss';
-@import '../../../styles/common.scss';
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/common.scss';
 
 .loginContainer {
   display: flex;
@@ -32,52 +32,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 29px;
+      margin-top: 15px;
       padding-top: 10px;
       font-size: 17px;
       font-weight: 900;
     }
   }
-
-  .inputBtnContainer {
-    display: flex;
-    flex-direction: column;
-    width: 335px;
-    height: 164px;
-
-    .emailLoginBox {
-      width: 335px;
-      height: 44px;
-      margin-bottom: 10px;
-      padding: 0 12px;
-      background-color: #f5f5f5;
-      border: none;
-      border-radius: 6px;
-    }
-
-    .passwordLoginBox {
-      width: 335px;
-      height: 44px;
-      margin-bottom: 10px;
-      padding: 0 12px;
-      background-color: #f5f5f5;
-      border: none;
-      border-radius: 6px;
-    }
-
-    .buttonLoginBox {
-      width: 335px;
-      height: 44px;
-      border: none;
-      background-color: #ff2f6e;
-      color: white;
-      border-radius: 6px;
-      font-size: 15px;
-      font-weight: 900;
-    }
+  .forgetContainer {
+    font-size: 16px;
+    margin-top: 20px;
   }
-
-  .forgetLoginContainer {
+  .forgetInLogin {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
