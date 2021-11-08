@@ -34,7 +34,7 @@
 
         .contour {
           margin: auto;
-          margin-top: 7px;
+          margin: 7px;
           width: 95%;
           height: 1px;
           background-color: rgb(229, 229, 229);
@@ -50,9 +50,17 @@
           }
         }
 
-        .likeCountButton {
-          padding-top: 10px;
+        .countButtonOff {
+          margin-top: 10px;
           color: rgb(255, 47, 110);
+          font-size: 17px;
+          cursor: pointer;
+        }
+
+        .countButtonOn {
+          margin-top: 10px;
+          background-color: rgb(255, 47, 110);
+          color: white;
           font-size: 17px;
           cursor: pointer;
         }

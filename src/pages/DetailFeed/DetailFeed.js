@@ -130,7 +130,7 @@ class DetailFeed extends Component {
               alt="movieposter"
             />
             <MovieHeader
-              infos={infos.movie[0].movie_basic_info}
+              infos={infos.movie.movie_basic_info}
               displayScore={displayScore}
               comment={scoreComment}
               wantLook={wantLook}
@@ -141,7 +141,7 @@ class DetailFeed extends Component {
               changeCommentBoxSwitch={this.changeCommentBoxSwitch}
             />
             <MovieInfos
-              infos={infos.movie[0]}
+              infos={infos.movie}
               registerScore={registerScore}
               wantLook={wantLook}
               isCommentRegister={isCommentRegister}
