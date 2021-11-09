@@ -34,6 +34,16 @@ class DetailFeed extends Component {
     this.setState({
       wantLook: !wantLook,
     });
+    // fetch(' http://10.58.1.22:8000/users/wishlist', {
+    //   method: 'post',
+    //   body: JSON.stringify({
+    //     movie_id: 20,
+    //   }),
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     alert('submit is good');
+    //   });
   };
 
   getStarScore = score => {
@@ -48,12 +58,37 @@ class DetailFeed extends Component {
     if (!registerScore) {
       this.setState({
         registerStarComment: comment,
-        registerScore: score,
+        // registerScore: score,
       });
+      fetch('http://10.58.3.106:8000/movies/rate/3', {
+        method: 'post',
+        headers: {
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+        },
+        body: JSON.stringify({
+          rate: score,
+        }),
+      })
+        .then(res => res.json())
+        .then(data => {
+          this.setState({
+            registerScore: +data.rate,
+          });
+        });
     } else {
       this.setState({
         registerScore: 0,
       });
+      fetch('http://10.58.3.106:8000/movies/rate/3', {
+        method: 'delete',
+        headers: {
+          Authorization:
+            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+        },
+      })
+        .then(res => res.json())
+        .then(data => {});
     }
   };
 
@@ -72,19 +107,27 @@ class DetailFeed extends Component {
     }
   };
 
-  changeCommentBoxSwitch = () => {
+  changeCommentModalState = () => {
     const { isModalOpen } = this.state;
     this.setState({
       isModalOpen: !isModalOpen,
     });
   };
 
-  updateUserComment = () => {
+  updateUserComment = commentTexts => {
     const { isModalOpen } = this.state;
     this.setState({
       isModalOpen: !isModalOpen,
       isCommentRegister: true,
     });
+    //   fetch(' http://10.58.3.106:8000/movies/rate/3', {
+    //     method: 'post',
+    //     body: JSON.stringify({
+    //       text: commentTexts,
+    //     }),
+    //   })
+    //     .then(res => res.json())
+    //     .then(data => {});
   };
 
   updateCommentTexts = event => {
@@ -120,7 +163,7 @@ class DetailFeed extends Component {
             <MovieCommentModal
               isModalOpen={isModalOpen}
               commentTexts={commentTexts}
-              changeCommentBoxSwitch={this.changeCommentBoxSwitch}
+              changeCommentModalState={this.changeCommentModalState}
               updateUserComment={this.updateUserComment}
               updateCommentTexts={this.updateCommentTexts}
             />
@@ -138,7 +181,7 @@ class DetailFeed extends Component {
               registerStarScore={this.registerStarScore}
               bindStarScore={this.bindStarScore}
               changeWantLookState={this.changeWantLookState}
-              changeCommentBoxSwitch={this.changeCommentBoxSwitch}
+              changeCommentModalState={this.changeCommentModalState}
             />
             <MovieInfos
               infos={infos.movie}

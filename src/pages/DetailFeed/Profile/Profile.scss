@@ -11,8 +11,9 @@
 
     .profileContainer {
       display: grid;
-      grid-template-columns: repeat(6, 200px);
+      grid-template-columns: repeat(3, 200px);
       grid-template-rows: 1fr 1fr 1fr;
+      column-gap: 100px;
       overflow-x: auto;
       &::-webkit-scrollbar {
         display: none;

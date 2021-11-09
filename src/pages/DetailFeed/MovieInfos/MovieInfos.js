@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CommentIndividual from '../CommentIndividual/CommentIndividual';
 import Profile from '../Profile/Profile';
 import SideElement from '../SideElement/SideElement';
+import SlideCarousel from './SlideCarousel';
 import './MovieInfos.scss';
 
 class MovieInfos extends Component {
@@ -57,7 +58,7 @@ class MovieInfos extends Component {
                 <p className="detailInfo">
                   {`${parseInt(infos.movie_basic_info.running_time / 60)}시간 ${
                     infos.movie_basic_info.running_time % 60
-                  }분`}
+                  }분`}{' '}
                   · {infos.movie_basic_info.grade}
                 </p>
                 <p>{`${infos.movie_basic_info.short_comment.slice(
@@ -95,6 +96,7 @@ class MovieInfos extends Component {
               </div>
             </div>
           </div>
+          <SlideCarousel />
         </section>
         <SideElement />
       </div>

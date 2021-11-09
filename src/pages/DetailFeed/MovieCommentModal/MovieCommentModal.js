@@ -5,7 +5,7 @@ class MovieCommentInput extends Component {
   render() {
     const {
       isModalOpen,
-      changeCommentBoxSwitch,
+      changeCommentModalState,
       updateUserComment,
       updateCommentTexts,
       commentTexts,
@@ -13,11 +13,16 @@ class MovieCommentInput extends Component {
     return (
       <div className={isModalOpen ? 'commentBox' : 'commentBoxoff'}>
         <div className="header">
-          <span className="deleteButton" onClick={changeCommentBoxSwitch}>
+          <span className="deleteButton" onClick={changeCommentModalState}>
             x
           </span>
           <span className="title">영화제목</span>
-          <span className="updateButton" onClick={updateUserComment}>
+          <span
+            className="updateButton"
+            onClick={() => {
+              updateUserComment(commentTexts);
+            }}
+          >
             코멘트작성
           </span>
         </div>

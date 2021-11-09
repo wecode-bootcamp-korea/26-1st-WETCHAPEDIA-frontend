@@ -75,48 +75,6 @@
         "role": "보조3",
         "profile_image_url": "/images/profile.jpeg",
         "position": "보조"
-      },
-      {
-        "id": 10,
-        "name": "전창민",
-        "role": "아이언맨",
-        "profile_image_url": "/images/profile.jpeg",
-        "position": "주연"
-      },
-      {
-        "id": 11,
-        "name": "전준호",
-        "role": "조커",
-        "profile_image_url": "/images/profile.jpeg",
-        "position": "감독"
-      },
-      {
-        "id": 12,
-        "name": "윤석민",
-        "role": "악당",
-        "profile_image_url": "/images/profile.jpeg",
-        "position": "보조"
-      },
-      {
-        "id": 13,
-        "name": "김원중",
-        "role": "강도",
-        "profile_image_url": "/images/profile.jpeg",
-        "position": "스턴트맨"
-      },
-      {
-        "id": 14,
-        "name": "전창민",
-        "role": "경찰",
-        "profile_image_url": "/images/profile.jpeg",
-        "position": "스턴트맨"
-      },
-      {
-        "id": 15,
-        "name": "전창민",
-        "role": "위코드",
-        "profile_image_url": "/images/profile.jpeg",
-        "position": "감독"
       }
     ],
     "comments": [

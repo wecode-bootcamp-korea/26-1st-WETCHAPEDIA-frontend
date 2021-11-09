@@ -1,0 +1,19 @@
+.detailFeedContainer {
+  .movieInfos {
+    .slideCarousel {
+      width: 100%;
+
+      .redBox {
+        width: 100%;
+        height: 100px;
+        background-color: red;
+      }
+
+      .blueBox {
+        width: 100%;
+        height: 100px;
+        background-color: blue;
+      }
+    }
+  }
+}

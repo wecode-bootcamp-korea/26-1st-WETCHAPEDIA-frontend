@@ -13,7 +13,7 @@ class MovieHeader extends Component {
       comment,
       wantLook,
       changeWantLookState,
-      changeCommentBoxSwitch,
+      changeCommentModalState,
     } = this.props;
 
     const score =
@@ -121,7 +121,7 @@ class MovieHeader extends Component {
                     />
                     <span>보고싶어요</span>
                   </div>
-                  <div className="comment" onClick={changeCommentBoxSwitch}>
+                  <div className="comment" onClick={changeCommentModalState}>
                     <img
                       src="/images/pencil.png"
                       alt="pencil"
