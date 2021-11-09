@@ -27,6 +27,20 @@ class DetailFeed extends Component {
           infos: data,
         });
       });
+
+    fetch('http://10.58.1.168:8000/movies/7/comments', {
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          commentTexts: data.description,
+        });
+        console.log(data);
+      });
   }
 
   changeWantLookState = () => {
@@ -34,16 +48,6 @@ class DetailFeed extends Component {
     this.setState({
       wantLook: !wantLook,
     });
-    // fetch(' http://10.58.1.22:8000/users/wishlist', {
-    //   method: 'post',
-    //   body: JSON.stringify({
-    //     movie_id: 20,
-    //   }),
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     alert('submit is good');
-    //   });
   };
 
   getStarScore = score => {
@@ -58,7 +62,6 @@ class DetailFeed extends Component {
     if (!registerScore) {
       this.setState({
         registerStarComment: comment,
-        // registerScore: score,
       });
       fetch('http://10.58.3.106:8000/movies/rate/3', {
         method: 'post',
@@ -94,17 +97,10 @@ class DetailFeed extends Component {
 
   bindStarScore = () => {
     const { registerScore, registerStarComment } = this.state;
-    if (!registerScore) {
-      this.setState({
-        displayScore: 0,
-        scoreComment: '평가하기',
-      });
-    } else {
-      this.setState({
-        displayScore: registerScore,
-        scoreComment: registerStarComment,
-      });
-    }
+    this.setState({
+      displayScore: !registerScore ? 0 : registerScore,
+      scoreComment: !registerScore ? '평가하기' : registerStarComment,
+    });
   };
 
   changeCommentModalState = () => {
@@ -120,14 +116,18 @@ class DetailFeed extends Component {
       isModalOpen: !isModalOpen,
       isCommentRegister: true,
     });
-    //   fetch(' http://10.58.3.106:8000/movies/rate/3', {
-    //     method: 'post',
-    //     body: JSON.stringify({
-    //       text: commentTexts,
-    //     }),
-    //   })
-    //     .then(res => res.json())
-    //     .then(data => {});
+    fetch('http://10.58.1.168:8000/movies/7/comments  ', {
+      method: 'post',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+      },
+      body: JSON.stringify({
+        description: commentTexts,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {});
   };
 
   updateCommentTexts = event => {
@@ -138,6 +138,15 @@ class DetailFeed extends Component {
   };
 
   deleteCommentBox = () => {
+    fetch('http://10.58.1.168:8000/movies/7/comments', {
+      method: 'delete',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {});
     this.setState({
       isCommentRegister: false,
       commentTexts: '',
@@ -190,6 +199,7 @@ class DetailFeed extends Component {
               isCommentRegister={isCommentRegister}
               commentTexts={commentTexts}
               deleteCommentBox={this.deleteCommentBox}
+              changeCommentModalState={this.changeCommentModalState}
             />
           </>
         )}

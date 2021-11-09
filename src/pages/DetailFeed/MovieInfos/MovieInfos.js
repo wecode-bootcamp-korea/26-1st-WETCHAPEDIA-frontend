@@ -13,6 +13,7 @@ class MovieInfos extends Component {
       commentTexts,
       deleteCommentBox,
       registerScore,
+      changeCommentModalState,
     } = this.props;
     const releasedDate = infos.movie_basic_info.release_date.slice(0, 4);
     return (
@@ -39,7 +40,11 @@ class MovieInfos extends Component {
             <span className="infoText">
               평점을 남겨주세요. 전창민 님의 생각을 글로 남겨보세요.
             </span>
-            <button type="button" className="infoCommentButton">
+            <button
+              type="button"
+              className="infoCommentButton"
+              onClick={changeCommentModalState}
+            >
               코멘트 남기기
             </button>
           </div>
