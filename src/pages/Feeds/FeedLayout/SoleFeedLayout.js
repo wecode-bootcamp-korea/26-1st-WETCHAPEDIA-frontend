@@ -9,10 +9,7 @@ class SoleFeedLayout extends Component {
 
   moveToDetailPage = query => {
     let { history } = this.props;
-    history.push({
-      pathname: '/detailPage',
-      state: { query },
-    });
+    history.push(`/movie/${query}`);
   };
 
   render() {

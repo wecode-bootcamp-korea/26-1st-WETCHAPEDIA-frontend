@@ -27,7 +27,7 @@ class FeedsDataMap extends Component {
               <div className="feedsCategoryNameContainer">
                 <p className="feedsCategoryName">{category}</p>
               </div>
-              <CarouselSlide>
+              <CarouselSlide slideWidth={1320} slideMove={1327}>
                 <MovieList type={feedsType} movieListData={movies} />
               </CarouselSlide>
             </section>

@@ -15,66 +15,66 @@
   background-position: center;
 }
 
-.feedsCarousel {
-  width: 1320px;
-  position: relative;
-  // min-width: 750px;
-  margin: 0 auto;
-  display: flex;
-  overflow: scroll;
-  scroll-behavior: smooth;
-  transition: transform 0.5s ease-out;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  .carouselSlider {
+.carouselSliderContainer {
+  .feedsCarousel {
+    position: relative;
+    margin: 0 auto;
     display: flex;
+    overflow: scroll;
+    scroll-behavior: smooth;
     transition: transform 0.5s ease-out;
-  }
-}
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
-.carouselControl {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff;
-  border: 1px solid rgb(249, 249, 249);
-  border-radius: 50%;
-  box-shadow: 0px 0px 2px 0px rgba($color: #000000, $alpha: 0.3);
-  width: 30px;
-  height: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  z-index: 999;
-
-  .right {
-    @include btnImg;
-    transform: translateX(9%);
-    background-image: url('../../../assets/images/chevron_right_black_24dp.svg');
+    .carouselSlider {
+      display: flex;
+      transition: transform 0.5s ease-out;
+    }
   }
 
-  .left {
-    @include btnImg;
-    transform: translateX(-9%);
-    background-image: url('../../../assets/images/chevron_left_black_24dp.svg');
+  .carouselControl {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid rgb(249, 249, 249);
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px 0px rgba($color: #000000, $alpha: 0.3);
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 999;
+
+    .right {
+      @include btnImg;
+      transform: translateX(9%);
+      background-image: url('../../../assets/images/chevron_right_black_24dp.svg');
+    }
+
+    .left {
+      @include btnImg;
+      transform: translateX(-9%);
+      background-image: url('../../../assets/images/chevron_left_black_24dp.svg');
+    }
   }
-}
 
-.nextBtn {
-  right: -0.9%;
-}
+  .nextBtn {
+    right: -0.9%;
+  }
 
-.prevBtn {
-  left: -0.9%;
-}
+  .prevBtn {
+    left: -0.9%;
+  }
 
-.activeBtn {
-  visibility: visible;
-}
+  .activeBtn {
+    visibility: visible;
+  }
 
-.unactiveBtn {
-  visibility: hidden;
+  .unactiveBtn {
+    visibility: hidden;
+  }
 }
