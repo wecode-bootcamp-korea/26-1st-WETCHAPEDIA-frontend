@@ -8,7 +8,6 @@ class Feeds extends Component {
     this.state = {
       soleFeedsData: [],
       collectionFeedsData: [],
-      isScrollEnd: false,
     };
     this.fetchComplete = 3;
     this.fetchSoleFeedsPaths = [
@@ -36,15 +35,13 @@ class Feeds extends Component {
 
   checkFetchAddData = event => {
     if (event.target.className === 'feedsCarousel') return;
-
     let { scrollTop, scrollHeight, clientHeight } =
       event.target.scrollingElement;
 
-    if (scrollHeight - parseInt(scrollTop) === clientHeight) {
-      this.setState({
-        isScrollEnd: true,
-      });
-    }
+    let targetScrollPos = scrollHeight - parseInt(scrollTop);
+
+    if (targetScrollPos === clientHeight)
+      this.sequenceFetchPath(this.fetchSoleFeedsAddPaths);
   };
 
   fetchSoleFeedsData(path) {
@@ -75,27 +72,21 @@ class Feeds extends Component {
   }
 
   addSoleFeedsData = () => {
-    this.setState({
-      isScrollEnd: false,
-    });
     this.sequenceFetchPath(this.fetchSoleFeedsAddPaths);
   };
 
   render() {
-    let { soleFeedsData, collectionFeedsData, isScrollEnd } = this.state;
-
-    if (isScrollEnd) this.addSoleFeedsData();
-
+    let { soleFeedsData, collectionFeedsData } = this.state;
     let fetchCount = this.fetchSoleFeedsPaths.length;
 
     if (fetchCount === this.fetchComplete) {
       return (
         <article className="feeds">
+          <FeedsDataMap type="movieListType" feedsDataInfo={soleFeedsData} />
           <FeedsDataMap
             type="movieCollectionType"
             feedsDataInfo={collectionFeedsData}
           />
-          <FeedsDataMap type="movieListType" feedsDataInfo={soleFeedsData} />
         </article>
       );
     } else return null;

@@ -19,23 +19,18 @@ class CarouselSlide extends Component {
     this.state = {
       curTranslatePosX: 0,
       curLastPosX: 1,
-      curWidthViewValue: 0,
-      curRealMoveValue: 0,
     };
     this.carouselSildeRef = null;
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    let { slideWidth, slideMove } = nextProps;
-    return { curWidthViewValue: slideWidth, curRealMoveValue: slideMove };
   }
 
   moveToX = event => {
     let eventType = event.type;
 
-    let { curLastPosX, curWidthViewValue, curRealMoveValue } = this.state;
+    let { curLastPosX } = this.state;
+    let { slideWidth, slideMove } = this.props;
+
     let totalScrollLength = event.target.scrollWidth;
-    curLastPosX = totalScrollLength - curWidthViewValue;
+    curLastPosX = totalScrollLength - slideWidth;
 
     this.setState({ curLastPosX });
 
@@ -44,14 +39,14 @@ class CarouselSlide extends Component {
       let { name } = getTarget(event.target, 'carouselControl');
 
       if (name === 'right') {
-        this.carouselSildeRef.scrollLeft = curTranslatePosX + curRealMoveValue;
+        this.carouselSildeRef.scrollLeft = curTranslatePosX + slideMove;
         this.setState({
-          curTranslatePosX: curTranslatePosX + curRealMoveValue,
+          curTranslatePosX: curTranslatePosX + slideMove,
         });
       } else {
-        this.carouselSildeRef.scrollLeft = curTranslatePosX - curRealMoveValue;
+        this.carouselSildeRef.scrollLeft = curTranslatePosX - slideMove;
         this.setState({
-          curTranslatePosX: curTranslatePosX - curRealMoveValue,
+          curTranslatePosX: curTranslatePosX - slideMove,
         });
       }
     } else {
@@ -62,7 +57,7 @@ class CarouselSlide extends Component {
 
   render() {
     let { curTranslatePosX, curLastPosX } = this.state;
-    let { curWidthViewValue } = this.props;
+    let { slideWidth } = this.props;
 
     let { children } = this.props;
 
@@ -72,7 +67,7 @@ class CarouselSlide extends Component {
           ref={ref => (this.carouselSildeRef = ref)}
           className="feedsCarousel"
           onScroll={this.moveToX}
-          style={{ width: { curWidthViewValue } }}
+          style={{ width: { slideWidth } }}
         >
           <ul className="carouselSlider">{children}</ul>
         </div>
