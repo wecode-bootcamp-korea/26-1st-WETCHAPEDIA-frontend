@@ -1,2 +1,16 @@
 $heightColor: #ff0458;
+
 $contourColor: rgb(237, 237, 237);
+
+@mixin feedsFont {
+  color: #292a32;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

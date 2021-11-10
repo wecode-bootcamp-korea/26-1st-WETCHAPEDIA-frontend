@@ -1,0 +1,52 @@
+{
+  "message": {
+    "category": "넷플릭스 영화 순위",
+    "movies": [
+      {
+        "id": 13,
+        "title": "베놈 2: 렛 데어 비 카니지",
+        "poster_image_url": "https://images.unsplash.com/photo-1626357425024-f24ebf5e9790?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80",
+        "released_at": "2021-10-13",
+        "country": "미국",
+        "ratings": "4.3",
+        "sources": ["박스오피스"]
+      },
+      {
+        "id": 14,
+        "title": "세버그",
+        "poster_image_url": "https://images.unsplash.com/photo-1571327389107-788c34251327?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+        "released_at": "2021-11-04",
+        "country": "미국/프랑스",
+        "ratings": "4.3",
+        "sources": ["박스오피스"]
+      },
+      {
+        "id": 15,
+        "title": "고장난 론",
+        "poster_image_url": "https://images.unsplash.com/photo-1580826196949-9729067e604c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80",
+        "released_at": "2021-10-27",
+        "country": "미국/영국/캐나다",
+        "ratings": "4.0",
+        "sources": ["박스오피스"]
+      },
+      {
+        "id": 12,
+        "title": "듄",
+        "poster_image_url": "https://images.unsplash.com/photo-1625737186162-5766a7289b5a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=880&q=80",
+        "released_at": "2021-10-20",
+        "country": "미국/캐나다",
+        "ratings": "3.2",
+        "sources": ["박스오피스"]
+      },
+      {
+        "id": 11,
+        "title": "이터널스",
+        "poster_image_url": "https://images.unsplash.com/photo-1627299406750-c0f7ba2d0f5f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80",
+        "released_at": "2021-11-03",
+        "country": "미국",
+        "ratings": "2.3",
+        "sources": ["박스오피스"]
+      }
+    ]
+  }
+}
