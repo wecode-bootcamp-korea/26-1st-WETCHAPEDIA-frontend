@@ -10,7 +10,6 @@
     height: 360px;
   }
 
-  // 여기서부터 movieHeader
   .movieHeader {
     display: flex;
     padding-top: 30px;
@@ -24,7 +23,7 @@
 
       .moviePoster {
         width: 160px;
-        height: 230px;
+        height: 220px;
       }
     }
 
@@ -107,7 +106,12 @@
 
         img:hover {
           transform: scale(1.3);
-          transition: 0.2s ease-in;
+          transition: all ease-in 0.2s;
+        }
+
+        .plus:active {
+          transform: rotate(180deg);
+          transition: all ease-in 0.2s;
         }
 
         .wantLookOn {

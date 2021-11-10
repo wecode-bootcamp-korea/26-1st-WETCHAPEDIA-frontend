@@ -136,14 +136,14 @@ class MovieHeader extends Component {
                       className="looking"
                     />
                     <span>보는중</span>
-                    <div className="dotMenu">
-                      <img
-                        src="/images/dotmenu.png"
-                        alt="menu"
-                        className="dotmenu"
-                      />
-                      <span>더보기</span>
-                    </div>
+                  </div>
+                  <div className="dotMenu">
+                    <img
+                      src="/images/dotmenu.png"
+                      alt="menu"
+                      className="dotmenu"
+                    />
+                    <span>더보기</span>
                   </div>
                 </div>
               </div>
