@@ -1,0 +1,22 @@
+@import '../../styles/variables.scss';
+
+.feeds {
+  margin-top: 100px;
+
+  .feedsContainer {
+    position: relative;
+    max-width: 1320px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+
+    .feedsCategoryNameContainer {
+      max-width: 100%;
+      margin: 0 auto;
+      margin-bottom: 10px;
+
+      .feedsCategoryName {
+        @include feedsFont;
+      }
+    }
+  }
+}
