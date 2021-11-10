@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './button.scss';
+import './Button.scss';
 
 export default class Button extends Component {
   render() {

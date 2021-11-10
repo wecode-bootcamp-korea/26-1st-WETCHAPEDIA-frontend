@@ -13,7 +13,7 @@ class Nav extends Component {
     };
   }
 
-  opneLogin = () => {
+  openLogin = () => {
     const { loginModal } = this.state;
     this.setState({
       loginModal: !loginModal,
@@ -21,9 +21,8 @@ class Nav extends Component {
     });
   };
 
-  opneRegister = () => {
+  openRegister = () => {
     const { registerModal } = this.state;
-
     this.setState({
       loginModal: false,
       registerModal: !registerModal,
@@ -33,6 +32,7 @@ class Nav extends Component {
   exceptSection = e => {
     e.stopPropagation();
   };
+
   BackgroundClose = () => {
     this.setState({
       loginModal: false,
@@ -65,7 +65,6 @@ class Nav extends Component {
                 </div>
               </div>
             </div>
-
             <div className="navRight">
               <div className="searchWrapper">
                 <form className="searchbar">
@@ -77,7 +76,6 @@ class Nav extends Component {
                     onClick={this.handleInput}
                   />
                 </form>
-
                 {isOpenSearchbarTab && (
                   <div className="searchbarList">
                     <div className="searchListDown">
@@ -94,10 +92,10 @@ class Nav extends Component {
                 )}
               </div>
               <div className="loginBtn">
-                <button onClick={this.opneLogin}>로그인</button>
+                <button onClick={this.openLogin}>로그인</button>
               </div>
               <div className="signBtn">
-                <button onClick={this.opneRegister}>회원가입</button>
+                <button onClick={this.openRegister}>회원가입</button>
               </div>
             </div>
           </nav>
@@ -114,6 +112,7 @@ class Nav extends Component {
                 title="로그인"
                 inputData={LOGIN_DATA}
                 status={this.BackgroundClose}
+                openRegister={this.openRegister}
               />
             </div>
           </div>
@@ -122,11 +121,12 @@ class Nav extends Component {
           <div className="Nav_modal" onClick={this.BackgroundClose}>
             <div className="Nav_modalin" onClick={this.exceptSection}>
               <LoginRegister
-                type="login"
-                url="signin"
+                type="register"
+                url="signup"
                 title="회원가입"
                 inputData={REGISTER_DATA}
                 status={this.BackgroundClose}
+                openLogin={this.openLogin}
               />
             </div>
           </div>

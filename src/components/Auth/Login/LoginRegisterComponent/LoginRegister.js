@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './LoginRegister.scss';
-import './input.scss';
-import './button.scss';
-import Input from './input';
-import Button from './button';
+import './Input.scss';
+import './Button.scss';
+import Input from './Input';
+import Button from './Button';
 
 export default class LoginRegister extends Component {
   constructor() {
@@ -14,11 +14,11 @@ export default class LoginRegister extends Component {
       password: '',
     };
   }
+
   goToMain = () => {
     const { name, email, password } = this.state;
     const { url } = this.props;
-
-    fetch(`http://10.58.2.253:8000/users/${url}`, {
+    fetch(`http://10.58.3.106:8000/users/${url}`, {
       method: 'POST',
       body: JSON.stringify({
         name: name,
@@ -34,9 +34,20 @@ export default class LoginRegister extends Component {
     });
   };
 
+  checkEmailPwd = type => {
+    const { email, password } = this.state;
+    const emailRegex =
+      /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+    const emailCheck = emailRegex.test(email);
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{10,}$/;
+    const passwordCheck = passwordRegex.test(password);
+    if (type === 'email') return emailCheck;
+    if (type === 'password') return passwordCheck;
+  };
+
   render() {
-    const { type, title, inputData } = this.props;
-    const { status } = this.props;
+    const { type, title, inputData, openLogin, openRegister, status } =
+      this.props;
 
     return (
       <>
@@ -46,7 +57,6 @@ export default class LoginRegister extends Component {
               <span className="initial">WETCHA</span>
               <span>pedia</span>
             </div>
-
             <span className="loginMark">{title}</span>
           </div>
           {inputData.map((input, idx) => (
@@ -55,6 +65,8 @@ export default class LoginRegister extends Component {
               type={input.type}
               text={input.text}
               valueInput={this.handleInput}
+              errorMessage={input.error}
+              checkedEmailPwd={this.checkEmailPwd(input.type)}
             />
           ))}
           <Button value={title} goToMain={this.goToMain} />
@@ -62,23 +74,22 @@ export default class LoginRegister extends Component {
             <div className="forgetInLogin">
               <span className="forgetPwd">비밀번호를 잊어버리셨나요?</span>
               <span className="guessNoSignupText">
-                계정이 없으신가요? 회원가입
+                계정이 없으신가요?{' '}
+                <button onClick={openRegister}>회원가입</button>
               </span>
             </div>
           )}
-
           {type === 'register' && (
             <div className="forgetContainer">
               <span>이미 가입하셨나요?</span>
-              <span className="signupText"> 로그인</span>
+              <button className="signupText" onClick={openLogin}>
+                {' '}
+                로그인
+              </button>
             </div>
           )}
-
           <hr className="divideSocialLine" />
-
-          <button className="socialLoginButton">
-            <img alt="facebook으로 로그인" />
-          </button>
+          <button className="socialLoginButton">facebook으로 로그인</button>
         </div>
         <div onClick={status} className="overlay" />
       </>

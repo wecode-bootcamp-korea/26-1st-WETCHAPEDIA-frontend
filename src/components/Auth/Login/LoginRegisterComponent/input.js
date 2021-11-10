@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import './input.scss';
-import './button';
+import './Input.scss';
+import './Button';
 
 export default class Input extends Component {
   handleInput = e => {
     const { valueInput } = this.props;
-
     valueInput(e);
   };
+
   render() {
-    const { type, text } = this.props;
+    const { type, text, errorMessage, checkedEmailPwd } = this.props;
 
     return (
       <form className="inputBtnContainer">
@@ -19,7 +19,13 @@ export default class Input extends Component {
           className="inputSection"
           placeholder={text}
           onChange={this.handleInput}
+          checkEmailPwd={checkedEmailPwd}
         />
+        {checkedEmailPwd ? null : (
+          <div className="checkingInfo">
+            <span>{errorMessage}</span>
+          </div>
+        )}
       </form>
     );
   }

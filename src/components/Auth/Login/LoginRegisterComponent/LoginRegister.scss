@@ -40,15 +40,33 @@
       font-weight: 900;
     }
   }
+
   .forgetContainer {
     font-size: 16px;
     margin-top: 20px;
+
+    button {
+      border: none;
+      color: red;
+      font-size: 16px;
+      background-color: white;
+      cursor: pointer;
+    }
   }
+
   .forgetInLogin {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
     font-size: 16px;
+
+    button {
+      border: none;
+      color: red;
+      font-size: 16px;
+      background-color: white;
+      cursor: pointer;
+    }
 
     .forgetPwd {
       margin-bottom: 15px;
@@ -63,22 +81,23 @@
   .socialLoginButton {
     width: 335px;
     height: 44px;
-    margin-top: 10px;
+    margin: 10px 0 25px 0;
     background-color: #3c5aa0;
     color: white;
     border: none;
     font-size: 15px;
     font-weight: 900;
     border-radius: 6px;
+    cursor: pointer;
   }
 }
 
 .overlay {
-  background-color: gray;
+  position: fixed;
   width: 100vw;
   height: 100vh;
-  position: fixed;
   top: 0;
   left: 0;
+  background-color: gray;
   opacity: 0.8;
 }
