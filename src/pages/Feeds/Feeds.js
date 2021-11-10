@@ -61,7 +61,6 @@ class Feeds extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.checkFetchAddData, true);
     this.sequenceFetchPath(this.fetchSoleFeedsPaths);
-
     fetch('/data/collectionFeedsData.json')
       .then(res => res.json())
       .then(data => {
