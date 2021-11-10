@@ -39,7 +39,6 @@ class DetailFeed extends Component {
         this.setState({
           commentTexts: data.description,
         });
-        console.log(data);
       });
   }
 
