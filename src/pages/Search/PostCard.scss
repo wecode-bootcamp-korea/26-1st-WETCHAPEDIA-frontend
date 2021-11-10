@@ -1,0 +1,54 @@
+.moviePoster {
+  width: 263px;
+  height: 90%;
+  margin-top: 20px;
+  margin-right: 10px;
+
+  .posterImg {
+    width: 210px;
+    height: 270px;
+    background-color: red;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .posterTitle {
+    height: 30px;
+    padding: 10px 4px;
+    font-size: 16px;
+  }
+
+  .countryRatingWrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .countryReleaseDate {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0px 4px;
+    color: grey;
+    font-size: 14px;
+
+    .dotImage {
+      margin: 0 2px 0 2px;
+      font-size: 20px;
+    }
+  }
+  .Rating {
+    padding: 0px 4px;
+    font-size: 14px;
+    color: grey;
+  }
+
+  .posterCategory {
+    height: 20px;
+    padding: 0px 4px;
+    margin-top: 5px;
+    color: grey;
+    font-size: 12px;
+  }
+}
