@@ -46,7 +46,7 @@ class Footer extends Component {
             <button className="list">한국어</button>
             <div className="footerSns">
               <img
-                src="https://cdn-icons.flaticon.com/png/512/4494/premium/4494464.png?token=exp=1636529686~hmac=4d6f8cbcf0f9fb2755c1e9eb6bf1f2b1"
+                src="https://cdn-icons-png.flaticon.com/512/1384/1384005.png"
                 alt="facebookicon"
               />
               <img
