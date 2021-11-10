@@ -17,15 +17,33 @@ export default class LoginRegister extends Component {
 
   goToMain = () => {
     const { name, email, password } = this.state;
-    const { url } = this.props;
-    fetch(`http://10.58.3.106:8000/users/${url}`, {
+    const { url, history } = this.props;
+    fetch(`http://10.58.5.46:8000/users/${url}`, {
       method: 'POST',
       body: JSON.stringify({
         name: name,
         email: email,
         password: password,
       }),
-    }).then(res => res.json());
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (url === 'signup') {
+          if (result.message === 'EMAIL_NOT_VALID') {
+            alert(' 유효하지 않은 이메일 , 형식 오류.');
+          } else if (result.message === 'PASSWORD_NOT_VALID') {
+            alert('유효하지 않은 패스워드, 형식 오류.');
+          } else if (result.message === 'DUPLICATE_EMAIL_ERROR') {
+            alert('중복된 이메일');
+          } else if (result.access_token) {
+            alert('회원가입 성공');
+            localStorage.setItem('token', result.access_token);
+            history.push('/Main');
+          }
+        } else {
+          alert('signin');
+        }
+      });
   };
 
   handleInput = e => {
