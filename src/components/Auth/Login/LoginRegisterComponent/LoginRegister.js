@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import Input from './Input';
-import Button from './Button';
+import Input from './Input.js';
+import Button from './Button.js';
 import './LoginRegister.scss';
 
 class LoginRegister extends Component {
