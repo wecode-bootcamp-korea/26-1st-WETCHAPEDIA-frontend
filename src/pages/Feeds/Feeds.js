@@ -11,21 +11,8 @@ class Feeds extends Component {
       collectionFeedsData: [],
     };
     this.fetchComplete = 3;
-    this.fetchSoleFeedsPaths = [
-      '박스오피스',
-      '넷플릭스',
-      '왓챠',
-      // '/data/feedDataBoxOffice.json',
-      // '/data/feedDataNetflix.json',
-      // '/data/feedDataWatcha.json',
-    ];
+    this.fetchSoleFeedsPaths = ['박스오피스', '넷플릭스', '왓챠'];
     this.fetchSoleFeedsAddPaths = [
-      // '/data/feedDataWatcha.json',
-      // '/data/feedDataWatcha.json',
-      // '/data/feedDataWatcha.json',
-      // '/data/feedDataWatcha.json',
-      // '/data/feedDataWatcha.json',
-      // '/data/feedDataWatcha.json',
       '평균별점',
       '평균별점',
       '평균별점',
@@ -46,8 +33,7 @@ class Feeds extends Component {
   };
 
   fetchSoleFeedsData(path) {
-    let isPath =
-      path === '평균별점' ? `${API.addFeeds}${path}` : `${API.feeds}${path}`;
+    let isPath = `${API[path === '평균별점' ? 'addFeeds' : 'feeds']}${path}`;
     fetch(isPath)
       .then(res => res.json())
       .then(data => {
