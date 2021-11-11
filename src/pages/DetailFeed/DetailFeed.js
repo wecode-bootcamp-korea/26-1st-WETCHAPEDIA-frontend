@@ -16,30 +16,39 @@ class DetailFeed extends Component {
       scoreComment: '평가하기',
       registerStarComment: '평가하기',
       commentTexts: '',
+      movieId: '',
     };
   }
 
   componentDidMount() {
-    fetch('/data/movieData.json')
+    // fetch('/data/movieData.json')
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({
+    //       infos: data,
+    //     });
+    //   });
+    console.log(this.props.location.pathname);
+    fetch(`http://10.58.4.226:8000${this.props.location.pathname}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
           infos: data,
+          movieId: this.props.location.pathname.slice(8),
         });
       });
-
-    fetch('http://10.58.1.168:8000/movies/7/comments', {
-      headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
-      },
-    })
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          commentTexts: data.description,
-        });
-      });
+    // fetch('http://10.58.1.168:8000/movies/7/comments', {
+    //   headers: {
+    //     Authorization:
+    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+    //   },
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({
+    //       commentTexts: data.description,
+    //     });
+    //   });
   }
 
   changeWantLookState = () => {
@@ -47,6 +56,18 @@ class DetailFeed extends Component {
     this.setState({
       wantLook: !wantLook,
     });
+    fetch('http://10.58.4.226:8000/users/wishlist', {
+      method: 'post',
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+      },
+      body: JSON.stringify({
+        movie_id: this.state.movieId,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {});
   };
 
   getStarScore = score => {
@@ -163,6 +184,7 @@ class DetailFeed extends Component {
       isCommentRegister,
       commentTexts,
     } = this.state;
+    console.log(this.state.movieId);
 
     return (
       <div className="detailFeedContainer">
