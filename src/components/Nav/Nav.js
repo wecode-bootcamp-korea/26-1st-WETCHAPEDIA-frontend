@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import '../Nav/Nav.scss';
 import LoginRegister from '../Auth/Login/LoginRegisterComponent/LoginRegister';
+import { API } from '../../config';
 
 class Nav extends Component {
   constructor() {
@@ -39,6 +40,13 @@ class Nav extends Component {
     e.stopPropagation();
   };
 
+  loginSuccess = () => {
+    this.setState({
+      loginModal: false,
+      registerModal: false,
+    });
+  };
+
   BackgroundClose = () => {
     this.setState({
       loginModal: false,
@@ -63,8 +71,8 @@ class Nav extends Component {
     let { inputValue } = this.state;
     let { history, location } = this.props;
     if (e.key === 'Enter' && inputValue) {
-      history.push(`/movies?keyword=${inputValue}`);
-      fetch(`http://10.58.7.147:8000/movies${location.search}`);
+      history.push(`searchPage?keyword=${inputValue}`);
+      fetch(`${API.movies}/movies${location.search}`);
       e.preventDefault();
       this.setState({ isOpenSearchbarTab: false });
     }

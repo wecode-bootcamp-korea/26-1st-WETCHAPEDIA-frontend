@@ -1,0 +1,107 @@
+{
+  "movie": {
+    "movie_basic_info": {
+      "poster_url": "/images/movieposter.jpeg",
+      "title": "인터스텔라",
+      "release_date": "2017-10-7",
+      "genre": "SF/스릴러",
+      "country": "미국",
+      "rate": [3, 4, 5, 2, 2, 2, 1],
+      "people_number": 10000,
+      "running_time": 130,
+      "grade": "12세",
+      "short_comment": "세계 각국의 정부와 경제가 완전히 붕괴된 미래가 다가온다. 지난 20세기에 범한 잘못이 전 세계적인 식량 부족을 불러왔고, NASA도 해체되었다. 이때 시공간에 불가사의한 틈이 열리고, 남은 자들에게는 이..."
+    },
+    "staffs": [
+      {
+        "id": 1,
+        "name": "전창민",
+        "role": "스파이더면",
+        "profile_image_url": "/images/profile.jpeg",
+        "position": "감독"
+      },
+      {
+        "id": 2,
+        "name": "전준호",
+        "role": "악당",
+        "profile_image_url": "/images/profile.jpeg",
+        "position": "주연"
+      },
+      {
+        "id": 3,
+        "name": "손아섭",
+        "role": "보조",
+        "profile_image_url": "/images/profile.jpeg",
+        "position": "주연"
+      },
+      {
+        "id": 4,
+        "name": "이대호",
+        "role": "주연",
+        "profile_image_url": "/images/profile.jpeg",
+        "position": "주연"
+      },
+      {
+        "id": 5,
+        "name": "전준우",
+        "role": "배트맨",
+        "profile_image_url": "/images/profile.jpeg",
+        "position": "보조"
+      },
+      {
+        "id": 6,
+        "name": "민병현",
+        "role": "바보",
+        "profile_image_url": "/images/profile.jpeg",
+        "position": "보조"
+      },
+      {
+        "id": 7,
+        "name": "류현진",
+        "role": "보조1",
+        "profile_image_url": "/images/profile.jpeg",
+        "position": "보조"
+      },
+      {
+        "id": 8,
+        "name": "김광현",
+        "role": "보조2",
+        "profile_image_url": "/images/profile.jpeg",
+        "position": "각본"
+      },
+      {
+        "id": 9,
+        "name": "손흥민",
+        "role": "보조3",
+        "profile_image_url": "/images/profile.jpeg",
+        "position": "보조"
+      }
+    ],
+    "comments": [
+      {
+        "id": 1,
+        "user_name": "위코드 26기 전창민",
+        "comment": "영화가 정말 재미있네요 ㅋㅋㅋㅋㅋ 추천합니다 이런 영화 처음이에요정말 지루하군요!!!!!",
+        "like_number": 40
+      },
+      {
+        "id": 2,
+        "user_name": "위코드 26기 권상현",
+        "comment": "추천합니다 이런 영화 처음이에요정말 지루하군요!!!!!",
+        "like_number": 4
+      },
+      {
+        "id": 3,
+        "user_name": "위코드 26기 김대한",
+        "comment": "영화가 정말 재미있네요 ㅋㅋㅋㅋ!!!!!",
+        "like_number": 11
+      },
+      {
+        "id": 4,
+        "user_name": "위코드 26기 김민국",
+        "comment": "추천합니다!!!!!",
+        "like_number": 23
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+.detailFeedContainer {
+  .commentBoxoff {
+    display: none;
+  }
+
+  .commentBox {
+    position: absolute;
+    top: 200px;
+    width: 40%;
+    background-color: white;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      font-size: 22px;
+
+      .deleteButton {
+        cursor: pointer;
+      }
+
+      .title {
+        padding-left: 50px;
+      }
+
+      .updateButton {
+        border: none;
+        background-color: transparent;
+        font-size: 18px;
+        color: hotpink;
+        cursor: pointer;
+      }
+    }
+
+    .contour {
+      width: 95%;
+      height: 1px;
+      margin: 5px 0;
+      background-color: rgb(240, 240, 240);
+    }
+
+    .sns {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      padding: 20px;
+      border: none;
+    }
+
+    textarea :focus {
+      outline: none;
+    }
+  }
+}

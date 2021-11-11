@@ -9,7 +9,8 @@ class SoleFeedLayout extends Component {
 
   moveToDetailPage = id => {
     let { history } = this.props;
-    history.push(`/movie/${id}`);
+
+    history.push(`/movies/${id}`);
   };
 
   render() {

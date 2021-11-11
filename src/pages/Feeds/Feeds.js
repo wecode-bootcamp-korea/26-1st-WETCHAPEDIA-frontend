@@ -21,7 +21,11 @@ class Feeds extends Component {
   }
 
   checkFetchAddData = event => {
-    if (event.target.className === ('feedsCarousel' || 'commentContainer'))
+    if (
+      event.target.className === 'feedsCarousel' ||
+      event.target.className === 'commentContainer' ||
+      event.target.className === 'profileContainer'
+    )
       return;
     let { scrollTop, scrollHeight, clientHeight } =
       event.target.scrollingElement;
@@ -34,6 +38,7 @@ class Feeds extends Component {
 
   fetchSoleFeedsData(path) {
     let isPath = `${API[path === '평균별점' ? 'addFeeds' : 'feeds']}${path}`;
+    console.log(isPath);
     fetch(isPath)
       .then(res => res.json())
       .then(data => {

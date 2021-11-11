@@ -1,0 +1,148 @@
+@import '../../../styles/variables.scss';
+.detailFeedContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f8f8;
+
+  .movieBackground {
+    width: 100%;
+    height: 360px;
+  }
+
+  .movieHeader {
+    display: flex;
+    padding-top: 30px;
+    padding-right: 15%;
+    padding-left: 15%;
+    width: 100%;
+    background-color: white;
+
+    .moviePosterContainer {
+      transform: translateY(-50px);
+
+      .moviePoster {
+        width: 160px;
+        height: 220px;
+      }
+    }
+
+    .basicInfo {
+      display: flex;
+      flex-direction: column;
+      padding-left: 40px;
+
+      .titleInfo {
+        .title {
+          margin-bottom: 15px;
+          font-size: 33px;
+        }
+
+        .year,
+        .genre,
+        .country {
+          padding-right: 10px;
+          color: rgb(127, 127, 127);
+          font-size: 17px;
+        }
+      }
+    }
+
+    .contour {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: 700px;
+      height: 2px;
+      background-color: $contourColor;
+    }
+
+    .averageScore {
+      font-size: 17px;
+
+      .averageWord {
+        padding-right: 7px;
+      }
+
+      .blackstar {
+        width: 13px;
+        height: 13px;
+      }
+
+      .score {
+        padding-right: 10px;
+      }
+    }
+
+    .movieReview {
+      display: flex;
+      margin-top: 10px;
+
+      .starScore {
+        text-align: center;
+
+        .starsContainer {
+          display: flex;
+          padding: 0 10px;
+          margin-top: 8px;
+          cursor: pointer;
+
+          .star {
+            width: 35px;
+            height: 35px;
+          }
+        }
+      }
+
+      .reviewContour {
+        margin: 0 40px 0 10px;
+        width: 2px;
+        height: 50px;
+        background-color: $contourColor;
+      }
+
+      .commentContainer {
+        display: flex;
+        align-items: center;
+
+        img:hover {
+          transform: scale(1.3);
+          transition: all ease-in 0.2s;
+        }
+
+        .plus:active {
+          transform: rotate(180deg);
+          transition: all ease-in 0.2s;
+        }
+
+        .wantLookOn {
+          display: flex;
+          align-items: center;
+          margin-right: 20px;
+          font-size: 17px;
+          cursor: pointer;
+          color: hotpink;
+        }
+
+        .wantLookOff,
+        .comment,
+        .lookingEye,
+        .dotMenu {
+          display: flex;
+          align-items: center;
+          margin-right: 20px;
+          font-size: 17px;
+          cursor: pointer;
+        }
+
+        .plus,
+        .pencil,
+        .looking,
+        .dotmenu {
+          margin-right: 10px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
