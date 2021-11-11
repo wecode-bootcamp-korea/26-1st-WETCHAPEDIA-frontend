@@ -1,0 +1,117 @@
+@import '../../../styles/variables.scss';
+
+@mixin moviePosterMix($width: 0, $height: 0) {
+  width: $width;
+  height: $height;
+  border-radius: 4px;
+  background-size: cover;
+  background-position: center;
+}
+
+.feed {
+  position: relative;
+  width: 253px;
+  height: 390px;
+  margin-right: 12.5px;
+  list-style: none;
+  cursor: pointer;
+
+  &:last-child {
+    margin-right: 3px;
+  }
+
+  .rankingBox {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 5px;
+    left: 5px;
+    background-color: rgba(0, 0, 0, 0.65);
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    letter-spacing: normal;
+    text-align: center;
+    line-height: 28px;
+    border-radius: 4px;
+  }
+
+  .labelContainer {
+    width: fit-content;
+    position: absolute;
+    display: flex;
+    right: 4px;
+    top: 4px;
+
+    .label {
+      width: 40px;
+      height: 40px;
+      background-size: cover;
+      background-position: center;
+
+      @at-root .watLabel {
+        background-image: url('../../../assets/images/whaLabel.png');
+      }
+
+      @at-root .netFlLabel {
+        background-image: url('../../../assets/images/netfliLabel.png');
+      }
+    }
+  }
+
+  .wrapper {
+    width: 100%;
+    height: 84%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-top: 6px;
+    padding-left: 6px;
+    border-radius: 4px;
+
+    .moviePosterQuarter {
+      @include moviePosterMix(95%, 95%);
+    }
+  }
+
+  .moviePoster {
+    @include moviePosterMix(100%, 84%);
+  }
+
+  .movieInfo {
+    margin-top: 10px;
+
+    .title {
+      @include feedsFont;
+      font-size: 15px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .ratingContainer {
+      width: 60px;
+      height: 100%;
+      position: relative;
+      display: flex;
+      justify-content: space-around;
+      margin-top: 2px;
+
+      @at-root .subInfo {
+        @include feedsFont;
+        font-size: 14px;
+        font-weight: lighter;
+        letter-spacing: normal;
+      }
+
+      .ratingStar {
+        width: 10px;
+        height: 10px;
+        background-image: url('../../../assets/images/blackstar.png');
+        background-position: center;
+        background-size: cover;
+      }
+    }
+  }
+}
+.collectionType {
+  background-color: #adb5bd;
+}
