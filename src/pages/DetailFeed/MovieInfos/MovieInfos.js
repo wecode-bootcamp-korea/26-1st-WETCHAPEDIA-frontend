@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import CommentIndividual from '../CommentIndividual/CommentIndividual';
 import Profile from '../Profile/Profile';
 import SideElement from '../SideElement/SideElement';
-// import SlideCarousel from './SlideCarousel';
 import './MovieInfos.scss';
 
 class MovieInfos extends Component {
@@ -101,7 +100,6 @@ class MovieInfos extends Component {
               </div>
             </div>
           </div>
-          {/* <SlideCarousel /> */}
         </section>
         <SideElement />
       </div>

@@ -8,6 +8,7 @@ class Star extends Component {
       score,
       getStarScore,
       registerStarScore,
+      deleteStarScore,
       bindStarScore,
       comment,
     } = this.props;
@@ -20,6 +21,7 @@ class Star extends Component {
           }}
           onClick={() => {
             registerStarScore(score, comment);
+            deleteStarScore();
           }}
           onMouseOut={() => {
             bindStarScore();

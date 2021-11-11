@@ -9,6 +9,7 @@ class MovieHeader extends Component {
       getStarScore,
       displayScore,
       registerStarScore,
+      deleteStarScore,
       bindStarScore,
       comment,
       wantLook,
@@ -69,6 +70,7 @@ class MovieHeader extends Component {
                       fill={displayScore >= 1 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
                       registerStarScore={registerStarScore}
+                      deleteStarScore={deleteStarScore}
                       bindStarScore={bindStarScore}
                       comment="싫어요"
                     />
@@ -77,6 +79,7 @@ class MovieHeader extends Component {
                       fill={displayScore >= 2 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
                       registerStarScore={registerStarScore}
+                      deleteStarScore={deleteStarScore}
                       bindStarScore={bindStarScore}
                       comment="별로에요"
                     />
@@ -85,6 +88,7 @@ class MovieHeader extends Component {
                       fill={displayScore >= 3 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
                       registerStarScore={registerStarScore}
+                      deleteStarScore={deleteStarScore}
                       bindStarScore={bindStarScore}
                       comment="보통이에요"
                     />
@@ -93,6 +97,7 @@ class MovieHeader extends Component {
                       fill={displayScore >= 4 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
                       registerStarScore={registerStarScore}
+                      deleteStarScore={deleteStarScore}
                       bindStarScore={bindStarScore}
                       comment="재미있어요"
                     />
@@ -101,6 +106,7 @@ class MovieHeader extends Component {
                       fill={displayScore >= 5 ? 'yellow' : 'current'}
                       getStarScore={getStarScore}
                       registerStarScore={registerStarScore}
+                      deleteStarScore={deleteStarScore}
                       bindStarScore={bindStarScore}
                       comment="최고에요!"
                     />

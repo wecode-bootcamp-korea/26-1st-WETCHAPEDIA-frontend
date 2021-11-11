@@ -28,7 +28,7 @@ class SlideCarousel extends Component {
 
     return (
       <div className="SlideCarousel">
-        <CarouselSlide>
+        <CarouselSlide slideWidth={1320} slideMOve={1327}>
           <MovieList type="movieListType" movieListData={fetchData} />
         </CarouselSlide>
       </div>

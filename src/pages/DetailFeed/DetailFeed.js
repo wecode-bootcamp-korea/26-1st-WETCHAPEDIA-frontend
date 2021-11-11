@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import MovieHeader from './MovieHeader/MovieHeader';
 import MovieInfos from './MovieInfos/MovieInfos';
 import MovieCommentModal from './MovieCommentModal/MovieCommentModal';
+import { API } from '../../config';
 
 class DetailFeed extends Component {
   constructor() {
     super();
     this.state = {
-      infos: {},
+      movieInfos: {},
       displayScore: 0,
       registerScore: 0,
       isCommentRegister: false,
@@ -21,34 +22,30 @@ class DetailFeed extends Component {
   }
 
   componentDidMount() {
-    // fetch('/data/movieData.json')
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     this.setState({
-    //       infos: data,
-    //     });
-    //   });
-    console.log(this.props.location.pathname);
-    fetch(`http://10.58.4.226:8000${this.props.location.pathname}`)
+    const { pathname } = this.props.location;
+    fetch(`${API.movies}${pathname}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
-          infos: data,
-          movieId: this.props.location.pathname.slice(8),
+          movieInfos: data,
+          movieId: pathname.slice(8),
+        });
+        if (data.message === '영화 정보가 없습니다.') {
+          alert('없는 영화 정보입니다!!');
+        }
+      });
+    fetch(`${API.movies}${this.props.location.pathname}/comments`, {
+      headers: {
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          commentTexts: data.description,
         });
       });
-    // fetch('http://10.58.1.168:8000/movies/7/comments', {
-    //   headers: {
-    //     Authorization:
-    //       'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
-    //   },
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     this.setState({
-    //       commentTexts: data.description,
-    //     });
-    //   });
   }
 
   changeWantLookState = () => {
@@ -56,7 +53,7 @@ class DetailFeed extends Component {
     this.setState({
       wantLook: !wantLook,
     });
-    fetch('http://10.58.4.226:8000/users/wishlist', {
+    fetch(`${API.movies}/users/wishlist`, {
       method: 'post',
       headers: {
         Authorization:
@@ -78,12 +75,12 @@ class DetailFeed extends Component {
   };
 
   registerStarScore = (score, comment) => {
-    const { registerScore } = this.state;
+    const { registerScore, movieId } = this.state;
     if (!registerScore) {
       this.setState({
         registerStarComment: comment,
       });
-      fetch('http://10.58.3.106:8000/movies/rate/3', {
+      fetch(`${API.movies}/movies/rate/${movieId}`, {
         method: 'post',
         headers: {
           Authorization:
@@ -99,11 +96,16 @@ class DetailFeed extends Component {
             registerScore: +data.rate,
           });
         });
-    } else {
+    }
+  };
+
+  deleteStarScore = () => {
+    const { registerScore, movieId } = this.state;
+    if (registerScore) {
       this.setState({
         registerScore: 0,
       });
-      fetch('http://10.58.3.106:8000/movies/rate/3', {
+      fetch(`${API.movies}/movies/rate/${movieId}`, {
         method: 'delete',
         headers: {
           Authorization:
@@ -131,12 +133,12 @@ class DetailFeed extends Component {
   };
 
   updateUserComment = commentTexts => {
-    const { isModalOpen } = this.state;
+    const { isModalOpen, movieId } = this.state;
     this.setState({
       isModalOpen: !isModalOpen,
       isCommentRegister: true,
     });
-    fetch('http://10.58.1.168:8000/movies/7/comments  ', {
+    fetch(`${API.movies}/movies/${movieId}/comments`, {
       method: 'post',
       headers: {
         Authorization:
@@ -147,7 +149,11 @@ class DetailFeed extends Component {
       }),
     })
       .then(res => res.json())
-      .then(data => {});
+      .then(data => {
+        if (data.message === 'KEY_ERROR') {
+          alert('댓글을 다시 입력해주세요');
+        }
+      });
   };
 
   updateCommentTexts = event => {
@@ -158,7 +164,8 @@ class DetailFeed extends Component {
   };
 
   deleteCommentBox = () => {
-    fetch('http://10.58.1.168:8000/movies/7/comments', {
+    const { movieId } = this.state;
+    fetch(`${API.movies}/movies/${movieId}/comments`, {
       method: 'delete',
       headers: {
         Authorization:
@@ -166,7 +173,12 @@ class DetailFeed extends Component {
       },
     })
       .then(res => res.json())
-      .then(data => {});
+      .then(data => {
+        if (data.message === 'KEY_ERROR') {
+          alert('댓글 입력이 실패됐습니다!');
+          return;
+        }
+      });
     this.setState({
       isCommentRegister: false,
       commentTexts: '',
@@ -175,7 +187,7 @@ class DetailFeed extends Component {
 
   render() {
     const {
-      infos,
+      movieInfos,
       displayScore,
       registerScore,
       scoreComment,
@@ -184,11 +196,10 @@ class DetailFeed extends Component {
       isCommentRegister,
       commentTexts,
     } = this.state;
-    console.log(this.state.movieId);
 
     return (
       <div className="detailFeedContainer">
-        {infos.movie && (
+        {movieInfos.movie && (
           <>
             <MovieCommentModal
               isModalOpen={isModalOpen}
@@ -203,18 +214,19 @@ class DetailFeed extends Component {
               alt="movieposter"
             />
             <MovieHeader
-              infos={infos.movie.movie_basic_info}
+              infos={movieInfos.movie.movie_basic_info}
               displayScore={displayScore}
               comment={scoreComment}
               wantLook={wantLook}
               getStarScore={this.getStarScore}
               registerStarScore={this.registerStarScore}
+              deleteStarScore={this.deleteStarScore}
               bindStarScore={this.bindStarScore}
               changeWantLookState={this.changeWantLookState}
               changeCommentModalState={this.changeCommentModalState}
             />
             <MovieInfos
-              infos={infos.movie}
+              infos={movieInfos.movie}
               registerScore={registerScore}
               wantLook={wantLook}
               isCommentRegister={isCommentRegister}

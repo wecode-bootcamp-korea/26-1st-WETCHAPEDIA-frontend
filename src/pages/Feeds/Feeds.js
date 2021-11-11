@@ -34,8 +34,12 @@ class Feeds extends Component {
   }
 
   checkFetchAddData = event => {
-    console.log(event.target);
-    if (event.target.className === ('feedsCarousel' || 'commentContainer'))
+    console.log(event.target.className);
+    if (
+      event.target.className === 'feedsCarousel' ||
+      event.target.className === 'commentContainer' ||
+      event.target.className === 'profileContainer'
+    )
       return;
     let { scrollTop, scrollHeight, clientHeight } =
       event.target.scrollingElement;
