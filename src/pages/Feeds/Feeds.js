@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FeedsDataMap from './FeedsDataMap';
+import { API } from '../../config';
 import './Feeds.scss';
 
 class Feeds extends Component {
@@ -11,25 +12,24 @@ class Feeds extends Component {
     };
     this.fetchComplete = 3;
     this.fetchSoleFeedsPaths = [
-      // 'http://10.58.1.22:8000/movies?source=박스오피스',
-      // 'http://10.58.1.22:8000/movies?source=넷플릭스',
-      // 'http://10.58.1.22:8000/movies?source=왓챠',
-      '/data/feedDataBoxOffice.json',
-      '/data/feedDataNetflix.json',
-      '/data/feedDataWatcha.json',
+      '박스오피스',
+      '넷플릭스',
+      '왓챠',
+      // '/data/feedDataBoxOffice.json',
+      // '/data/feedDataNetflix.json',
+      // '/data/feedDataWatcha.json',
     ];
     this.fetchSoleFeedsAddPaths = [
-      '/data/feedDataWatcha.json',
-      '/data/feedDataWatcha.json',
-      '/data/feedDataWatcha.json',
-      '/data/feedDataWatcha.json',
-      '/data/feedDataWatcha.json',
-      '/data/feedDataWatcha.json',
-      // 'http://10.58.1.22:8000/movies?rating=평균별점',
-      // 'http://10.58.1.22:8000/movies?rating=평균별점',
-      // 'http://10.58.1.22:8000/movies?rating=평균별점',
-      // 'http://10.58.1.22:8000/movies?rating=평균별점',
-      // 'http://10.58.1.22:8000/movies?rating=평균별점',
+      // '/data/feedDataWatcha.json',
+      // '/data/feedDataWatcha.json',
+      // '/data/feedDataWatcha.json',
+      // '/data/feedDataWatcha.json',
+      // '/data/feedDataWatcha.json',
+      // '/data/feedDataWatcha.json',
+      '평균별점',
+      '평균별점',
+      '평균별점',
+      '평균별점',
     ];
   }
 
@@ -46,7 +46,9 @@ class Feeds extends Component {
   };
 
   fetchSoleFeedsData(path) {
-    fetch(path)
+    let isPath =
+      path === '평균별점' ? `${API.addFeeds}${path}` : `${API.feeds}${path}`;
+    fetch(isPath)
       .then(res => res.json())
       .then(data => {
         let { message } = data;
