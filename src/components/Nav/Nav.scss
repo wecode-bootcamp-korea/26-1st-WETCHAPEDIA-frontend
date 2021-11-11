@@ -1,23 +1,22 @@
-// font-family: 'Bebas Neue', cursive;
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300&family=Roboto:ital,wght@0,300;0,500;1,300&display=swap');
 @import '../../styles/variables.scss';
 
 header {
+  position: fixed;
+  top: 0;
   width: 100%;
   height: 62px;
-  top: 0;
-  position: fixed;
   background-color: white;
   border-bottom: 1px solid rgb(235, 234, 234);
   z-index: 10;
 
   nav {
+    display: flex;
+    justify-content: space-between;
     max-width: 1320px;
     min-width: 750px;
     height: 100%;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
 
     .navLeft {
       height: 100%;
@@ -28,9 +27,9 @@ header {
         .fontLogo {
           margin-right: 10px;
           padding-top: 14px;
-          font-family: 'Bebas Neue', cursive;
           font-size: 2.3rem;
           color: $heightColor;
+          font-family: 'Bebas Neue', cursive;
           cursor: pointer;
 
           .smallLogo {
@@ -51,8 +50,8 @@ header {
 
           p {
             padding: 13px 10px;
-            cursor: pointer;
             color: rgb(126, 126, 126);
+            cursor: pointer;
           }
         }
       }
@@ -68,11 +67,11 @@ header {
         height: 100%;
 
         .searchbar {
+          position: relative;
+          top: 10px;
           width: 300px;
           height: 40px;
           padding: 0 7px;
-          top: 10px;
-          position: relative;
           background-color: #f5f5f7;
 
           input {
@@ -104,8 +103,8 @@ header {
 
         .searchbarList {
           position: absolute;
-          width: 300px;
           top: 55px;
+          width: 300px;
           padding: 10px 15px;
           border-radius: 2px;
           background-color: white;
@@ -122,6 +121,7 @@ header {
               margin-top: 1rem;
               font-size: 16px;
               color: rgb(126, 126, 126);
+              cursor: pointer;
             }
           }
         }
@@ -162,14 +162,24 @@ header {
     }
   }
 }
+
 .headerOverlay {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  // background-color: rgba(0, 0, 0, 0);
   inset: 0px !important;
-  position: fixed !important;
   z-index: 5;
+}
+
+.Nav_modal {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  opacity: 1;
 }
