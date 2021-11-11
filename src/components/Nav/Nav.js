@@ -9,15 +9,15 @@ class Nav extends Component {
     super();
 
     this.state = {
-      updateInputValue: false,
+      isOpenSearchbarTab: false,
       inputValue: '',
     };
   }
 
-  handleInput = e => {
-    const { updateInputValue } = this.state;
+  updateOpenSearchbarTab = e => {
+    const { isOpenSearchbarTab } = this.state;
     this.setState({
-      updateInputValue: !updateInputValue,
+      isOpenSearchbarTab: !isOpenSearchbarTab,
     });
   };
 
@@ -33,12 +33,12 @@ class Nav extends Component {
     e.preventDefault();
     if (e.key === 'Enter' && inputValue) {
       history.push(`/movies?keyword=${inputValue}`);
-      this.setState({ updateInputValue: false });
+      this.setState({ isOpenSearchbarTab: false });
     }
   };
 
   render() {
-    const { updateInputValue } = this.state;
+    const { isOpenSearchbarTab } = this.state;
 
     return (
       <>
@@ -67,13 +67,13 @@ class Nav extends Component {
                     id="id"
                     placeholder="콘텐츠,인물,컬렉션,유저를 검색해보세요."
                     autoComplete="off"
-                    onClick={this.handleInput}
-                    onChange={this.inputChange}
+                    onClick={this.updateOpenSearchbarTab}
+                    onChange={this.changeInput}
                     onKeyPress={this.goToSearchFile}
                   />
                 </form>
 
-                {updateInputValue && (
+                {isOpenSearchbarTab && (
                   <div className="searchbarList">
                     <div className="searchListDown">
                       <p>인기 검색어</p>
@@ -97,8 +97,11 @@ class Nav extends Component {
             </div>
           </nav>
         </header>
-        {updateInputValue && (
-          <div onClick={this.handleInput} className="headerOverlay" />
+        {isOpenSearchbarTab && (
+          <div
+            onClick={this.updateOpenSearchbarTab}
+            className="headerOverlay"
+          />
         )}
       </>
     );
