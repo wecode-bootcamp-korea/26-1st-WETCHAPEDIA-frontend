@@ -35,7 +35,6 @@ export default class ResearchPage extends Component {
 
   render() {
     const { POSTER_DATA } = this.state;
-
     return (
       <div className="searchContainer">
         <div className="researchTitle">"해리"의 검색결과</div>

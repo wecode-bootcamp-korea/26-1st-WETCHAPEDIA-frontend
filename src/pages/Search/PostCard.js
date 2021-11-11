@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './PostCard.scss';
 
-export default class InsideNav extends Component {
+export default class PostCard extends Component {
   render() {
     let { img, title, released, country, rate, sourced } = this.props;
     return (
-      <div className="moviePoster">
+      <div className="postCard">
         <ul>
           <li className="posterImg">
             <img src={img} alt="asd" />

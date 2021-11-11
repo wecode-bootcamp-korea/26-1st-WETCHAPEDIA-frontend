@@ -9,15 +9,15 @@ class Nav extends Component {
     super();
 
     this.state = {
-      isOpenSearchbarTab: false,
+      updateInputValue: false,
       inputValue: '',
     };
   }
 
   handleInput = e => {
-    const { isOpenSearchbarTab } = this.state;
+    const { updateInputValue } = this.state;
     this.setState({
-      isOpenSearchbarTab: !isOpenSearchbarTab,
+      updateInputValue: !updateInputValue,
     });
   };
 
@@ -29,17 +29,16 @@ class Nav extends Component {
 
   goToSearchFile = e => {
     let { inputValue } = this.state;
-    let { history, location } = this.props;
+    let { history } = this.props;
+    e.preventDefault();
     if (e.key === 'Enter' && inputValue) {
       history.push(`/movies?keyword=${inputValue}`);
-      fetch(`http://10.58.7.147:8000/movies${location.search}`);
-      e.preventDefault();
-      this.setState({ isOpenSearchbarTab: false });
+      this.setState({ updateInputValue: false });
     }
   };
 
   render() {
-    const { isOpenSearchbarTab } = this.state;
+    const { updateInputValue } = this.state;
 
     return (
       <>
@@ -74,7 +73,7 @@ class Nav extends Component {
                   />
                 </form>
 
-                {isOpenSearchbarTab && (
+                {updateInputValue && (
                   <div className="searchbarList">
                     <div className="searchListDown">
                       <p>인기 검색어</p>
@@ -98,7 +97,7 @@ class Nav extends Component {
             </div>
           </nav>
         </header>
-        {isOpenSearchbarTab && (
+        {updateInputValue && (
           <div onClick={this.handleInput} className="headerOverlay" />
         )}
       </>
