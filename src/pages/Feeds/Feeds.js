@@ -21,7 +21,6 @@ class Feeds extends Component {
   }
 
   checkFetchAddData = event => {
-    console.log(event.target.className);
     if (
       event.target.className === 'feedsCarousel' ||
       event.target.className === 'commentContainer' ||

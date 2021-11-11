@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from '../src/components/Nav/Nav';
 import SearchFile from '../src/pages/Search/SearchFile';
-import Main from './pages/Main/Main';
 import DetailFeed from './pages/DetailFeed/DetailFeed';
+import Main from './pages/Main/Main';
 import Footer from '../src/components/Footer/Footer';
 
 class Routes extends React.Component {
