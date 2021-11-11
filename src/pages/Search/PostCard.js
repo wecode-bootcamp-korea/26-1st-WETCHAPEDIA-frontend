@@ -3,20 +3,21 @@ import './PostCard.scss';
 
 export default class InsideNav extends Component {
   render() {
+    let { img, title, released, country, rate, sourced } = this.props;
     return (
       <div className="moviePoster">
         <ul>
           <li className="posterImg">
-            <img src={this.props.img} alt="asd" />
+            <img src={img} alt="asd" />
           </li>
-          <li className="posterTitle">{this.props.title}</li>
+          <li className="posterTitle">{title}</li>
           <li className="countryReleaseDate">
-            {this.props.released}
+            {released}
             <div className="dotImage">・</div>
-            {this.props.country}
+            {country}
           </li>
-          <li className="Rating">{this.props.rate}</li>
-          <li className="posterCategory">{this.props.sourced}</li>
+          <li className="Rating">{rate}</li>
+          <li className="posterCategory">{sourced}</li>
         </ul>
       </div>
     );

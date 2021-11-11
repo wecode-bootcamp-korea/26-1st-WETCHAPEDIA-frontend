@@ -8,12 +8,12 @@ export default class ResearchPage extends Component {
     super();
     this.state = {
       POSTER_DATA: {},
-      query: '',
     };
   }
 
   getSearchData = () => {
-    fetch(`http://10.58.4.226:8000/movies${this.props.location.search}`)
+    let { location } = this.props;
+    fetch(`http://10.58.7.147:8000/movies${location.search}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -23,7 +23,8 @@ export default class ResearchPage extends Component {
   };
 
   componentDidUpdate(prevProps, _) {
-    if (prevProps.location.search !== this.props.location.search) {
+    let { location } = this.props;
+    if (prevProps.location.search !== location.search) {
       this.getSearchData();
     }
   }

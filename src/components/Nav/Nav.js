@@ -28,10 +28,11 @@ class Nav extends Component {
   };
 
   goToSearchFile = e => {
-    if (e.key === 'Enter' && this.state.inputValue) {
-      let { inputValue } = this.state;
-      this.props.history.push(`/movies?keyword=${inputValue}`);
-      fetch(`http://10.58.4.226:8000/movies${this.props.location.search}`);
+    let { inputValue } = this.state;
+    let { history, location } = this.props;
+    if (e.key === 'Enter' && inputValue) {
+      history.push(`/movies?keyword=${inputValue}`);
+      fetch(`http://10.58.7.147:8000/movies${location.search}`);
       e.preventDefault();
       this.setState({ isOpenSearchbarTab: false });
     }
