@@ -17,14 +17,15 @@ class MovieCommentInput extends Component {
             x
           </span>
           <span className="title">영화제목</span>
-          <span
+          <button
             className="updateButton"
             onClick={() => {
               updateUserComment(commentTexts);
             }}
+            disabled={commentTexts ? false : true}
           >
             코멘트작성
-          </span>
+          </button>
         </div>
         <div className="contour" />
         <div className="sns">

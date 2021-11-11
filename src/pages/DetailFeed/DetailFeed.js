@@ -49,7 +49,7 @@ class DetailFeed extends Component {
   }
 
   changeWantLookState = () => {
-    const { wantLook } = this.state;
+    const { wantLook, movieId } = this.state;
     this.setState({
       wantLook: !wantLook,
     });
@@ -60,7 +60,7 @@ class DetailFeed extends Component {
           'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
       },
       body: JSON.stringify({
-        movie_id: this.state.movieId,
+        movie_id: movieId,
       }),
     })
       .then(res => res.json())
@@ -150,8 +150,8 @@ class DetailFeed extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.message === 'KEY_ERROR') {
-          alert('댓글을 다시 입력해주세요');
+        if (data.message === 'SUCCESS') {
+          alert('댓글 입력 성공!!');
         }
       });
   };
