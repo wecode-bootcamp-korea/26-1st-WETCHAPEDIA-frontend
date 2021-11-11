@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import './LoginRegister.scss';
-import './Input.scss';
-import './Button.scss';
+import { withRouter } from 'react-router';
 import Input from './Input';
 import Button from './Button';
+import './LoginRegister.scss';
 
-export default class LoginRegister extends Component {
+class LoginRegister extends Component {
   constructor() {
     super();
     this.state = {
@@ -15,10 +14,11 @@ export default class LoginRegister extends Component {
     };
   }
 
-  goToMain = () => {
+  checkingRegister = () => {
     const { name, email, password } = this.state;
     const { url, history } = this.props;
-    fetch(`http://10.58.5.46:8000/users/${url}`, {
+
+    fetch(`http://10.58.3.106:8000/users/${url}`, {
       method: 'POST',
       body: JSON.stringify({
         name: name,
@@ -35,17 +35,26 @@ export default class LoginRegister extends Component {
             alert('유효하지 않은 패스워드, 형식 오류.');
           } else if (result.message === 'DUPLICATE_EMAIL_ERROR') {
             alert('중복된 이메일');
-          } else if (result.access_token) {
+          } else if (result.message) {
             alert('회원가입 성공');
             localStorage.setItem('token', result.access_token);
             history.push('/Main');
           }
         } else {
-          alert('signin');
+          if (result.message === 'INVALID_USE') {
+            alert('패스워드 불일치');
+          } else if (result.message === 'KEY_ERROR') {
+            alert('데이터가 정확하게 입력되지 않았습니다');
+          } else if (result.message === '‘Unauthorized') {
+            alert('유저의 정보가 존재하지 않습니다.');
+          } else if (result.message) {
+            alert('로그인 성공!');
+            localStorage.setItem('token', result.access_token);
+            history.push('/Main');
+          }
         }
       });
   };
-
   handleInput = e => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -87,7 +96,7 @@ export default class LoginRegister extends Component {
               checkedEmailPwd={this.checkEmailPwd(input.type)}
             />
           ))}
-          <Button value={title} goToMain={this.goToMain} />
+          <Button value={title} goToMain={this.checkingRegister} />
           {type === 'login' && (
             <div className="forgetInLogin">
               <span className="forgetPwd">비밀번호를 잊어버리셨나요?</span>
@@ -114,3 +123,5 @@ export default class LoginRegister extends Component {
     );
   }
 }
+
+export default withRouter(LoginRegister);

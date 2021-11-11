@@ -7,7 +7,9 @@ export default class Button extends Component {
     const { value, goToMain } = this.props;
     return (
       <button onClick={goToMain} className="buttonLoginBox">
-        <Link to="/">{value}</Link>
+        <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+          {value}
+        </Link>
       </button>
     );
   }

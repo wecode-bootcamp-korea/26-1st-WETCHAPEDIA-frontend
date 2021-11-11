@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Input.scss';
-import './Button';
 
 export default class Input extends Component {
   handleInput = e => {
