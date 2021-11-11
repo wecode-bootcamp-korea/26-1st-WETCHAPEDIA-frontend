@@ -1,0 +1,22 @@
+.inputBtnContainer {
+  display: flex;
+  flex-direction: column;
+  width: 335px;
+  height: 70px;
+
+  .inputSection {
+    width: 335px;
+    height: 45px;
+    margin-bottom: 0px;
+    padding: 0 12px;
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 6px;
+  }
+}
+
+.checkingInfo {
+  margin-top: 3px;
+  color: red;
+  font-size: 3px;
+}

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { SEARCHLIST } from './navData.js';
+
+import { SEARCHLIST, REGISTER_DATA, LOGIN_DATA } from './navData.js';
 import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+
 import '../Nav/Nav.scss';
+import LoginRegister from '../Auth/Login/LoginRegisterComponent/LoginRegister';
 
 class Nav extends Component {
   constructor() {
@@ -11,8 +14,37 @@ class Nav extends Component {
     this.state = {
       isOpenSearchbarTab: false,
       inputValue: '',
+      loginModal: false,
+      registerModal: false,
     };
   }
+
+  openLogin = () => {
+    const { loginModal } = this.state;
+    this.setState({
+      loginModal: !loginModal,
+      registerModal: false,
+    });
+  };
+
+  openRegister = () => {
+    const { registerModal } = this.state;
+    this.setState({
+      loginModal: false,
+      registerModal: !registerModal,
+    });
+  };
+
+  exceptSection = e => {
+    e.stopPropagation();
+  };
+
+  BackgroundClose = () => {
+    this.setState({
+      loginModal: false,
+      registerModal: false,
+    });
+  };
 
   updateOpenSearchbarTab = e => {
     const { isOpenSearchbarTab } = this.state;
@@ -39,7 +71,7 @@ class Nav extends Component {
   };
 
   render() {
-    const { isOpenSearchbarTab } = this.state;
+    const { isOpenSearchbarTab, loginModal, registerModal } = this.state;
 
     return (
       <>
@@ -59,7 +91,6 @@ class Nav extends Component {
                 </div>
               </div>
             </div>
-
             <div className="navRight">
               <div className="searchWrapper">
                 <form className="searchbar">
@@ -73,7 +104,6 @@ class Nav extends Component {
                     onKeyPress={this.goToSearchFile}
                   />
                 </form>
-
                 {isOpenSearchbarTab && (
                   <div className="searchbarList">
                     <div className="searchListDown">
@@ -90,10 +120,10 @@ class Nav extends Component {
                 )}
               </div>
               <div className="loginBtn">
-                <button>로그인</button>
+                <button onClick={this.openLogin}>로그인</button>
               </div>
               <div className="signBtn">
-                <button>회원가입</button>
+                <button onClick={this.openRegister}>회원가입</button>
               </div>
             </div>
           </nav>
@@ -103,6 +133,34 @@ class Nav extends Component {
             onClick={this.updateOpenSearchbarTab}
             className="headerOverlay"
           />
+        )}
+        {loginModal && (
+          <div className="Nav_modal" onClick={this.BackgroundClose}>
+            <div className="Nav_modalin" onClick={this.exceptSection}>
+              <LoginRegister
+                type="login"
+                url="signin"
+                title="로그인"
+                inputData={LOGIN_DATA}
+                status={this.BackgroundClose}
+                openRegister={this.openRegister}
+              />
+            </div>
+          </div>
+        )}
+        {registerModal && (
+          <div className="Nav_modal" onClick={this.BackgroundClose}>
+            <div className="Nav_modalin" onClick={this.exceptSection}>
+              <LoginRegister
+                type="register"
+                url="signup"
+                title="회원가입"
+                inputData={REGISTER_DATA}
+                status={this.BackgroundClose}
+                openLogin={this.openLogin}
+              />
+            </div>
+          </div>
         )}
       </>
     );
