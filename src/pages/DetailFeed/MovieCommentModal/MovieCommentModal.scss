@@ -51,8 +51,13 @@
     }
 
     textarea {
+      width: 100%;
       padding: 20px;
       border: none;
+    }
+
+    textarea :focus {
+      outline: none;
     }
   }
 }

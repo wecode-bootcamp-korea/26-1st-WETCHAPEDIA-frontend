@@ -38,6 +38,7 @@ class Feeds extends Component {
 
   fetchSoleFeedsData(path) {
     let isPath = `${API[path === '평균별점' ? 'addFeeds' : 'feeds']}${path}`;
+    console.log(isPath);
     fetch(isPath)
       .then(res => res.json())
       .then(data => {

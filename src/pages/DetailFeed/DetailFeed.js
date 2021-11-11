@@ -23,6 +23,7 @@ class DetailFeed extends Component {
 
   componentDidMount() {
     const { pathname } = this.props.location;
+    let token = localStorage.getItem('token');
     fetch(`${API.movies}${pathname}`)
       .then(res => res.json())
       .then(data => {
@@ -36,8 +37,7 @@ class DetailFeed extends Component {
       });
     fetch(`${API.movies}${this.props.location.pathname}/comments`, {
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+        Authorization: token,
       },
     })
       .then(res => res.json())
@@ -56,8 +56,7 @@ class DetailFeed extends Component {
     fetch(`${API.movies}/users/wishlist`, {
       method: 'post',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+        Authorization: localStorage.getItem('token'),
       },
       body: JSON.stringify({
         movie_id: movieId,
@@ -83,8 +82,7 @@ class DetailFeed extends Component {
       fetch(`${API.movies}/movies/rate/${movieId}`, {
         method: 'post',
         headers: {
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+          Authorization: localStorage.getItem('token'),
         },
         body: JSON.stringify({
           rate: score,
@@ -108,8 +106,7 @@ class DetailFeed extends Component {
       fetch(`${API.movies}/movies/rate/${movieId}`, {
         method: 'delete',
         headers: {
-          Authorization:
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+          Authorization: localStorage.getItem('token'),
         },
       })
         .then(res => res.json())
@@ -134,6 +131,8 @@ class DetailFeed extends Component {
 
   updateUserComment = commentTexts => {
     const { isModalOpen, movieId } = this.state;
+    let token = localStorage.getItem('token');
+
     this.setState({
       isModalOpen: !isModalOpen,
       isCommentRegister: true,
@@ -141,8 +140,7 @@ class DetailFeed extends Component {
     fetch(`${API.movies}/movies/${movieId}/comments`, {
       method: 'post',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+        Authorization: token,
       },
       body: JSON.stringify({
         description: commentTexts,
@@ -150,8 +148,11 @@ class DetailFeed extends Component {
     })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         if (data.message === 'SUCCESS') {
           alert('댓글 입력 성공!!');
+        } else if (data.message === 'INVALID_USER') {
+          alert('유효하지 않은 회원');
         }
       });
   };
@@ -168,8 +169,7 @@ class DetailFeed extends Component {
     fetch(`${API.movies}/movies/${movieId}/comments`, {
       method: 'delete',
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMX0.p-T5WjCAaEe-EgTdf-lI6bQ2G4Rf7fMhR829soN5ICI',
+        Authorization: localStorage.getItem('token'),
       },
     })
       .then(res => res.json())

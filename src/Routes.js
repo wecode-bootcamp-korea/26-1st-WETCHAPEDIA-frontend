@@ -14,7 +14,7 @@ class Routes extends React.Component {
         <Switch>
           <Route exact path="/" component={Main} />
           <Route exact path="/movies/:id" component={DetailFeed} />
-          <Route exact path="/movies" component={SearchFile} />
+          <Route exact path="/searchPage" component={SearchFile} />
         </Switch>
         <Footer />
       </Router>
