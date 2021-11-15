@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './Button.scss';
-
 export default class Button extends Component {
   render() {
     const { value, goToMain } = this.props;

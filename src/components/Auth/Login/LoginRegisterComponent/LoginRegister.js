@@ -69,7 +69,9 @@ class LoginRegister extends Component {
     const emailRegex =
       /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
     const emailCheck = emailRegex.test(email);
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{10,}$/;
+    const passwordRegex =
+      /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/;
+
     const passwordCheck = passwordRegex.test(password);
     if (type === 'email') return emailCheck;
     if (type === 'password') return passwordCheck;
