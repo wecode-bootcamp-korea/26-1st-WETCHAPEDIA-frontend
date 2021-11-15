@@ -7,19 +7,20 @@ class SoleFeedLayout extends Component {
     return labels.includes(type);
   }
 
-  moveToDetailPage = query => {
+  moveToDetailPage = id => {
     let { history } = this.props;
-    history.push(`/movie/${query}`);
+
+    history.push(`/movies/${id}`);
   };
 
   render() {
-    let { ranking, movieTitle, movieTear, url, ratings, sources, query } =
+    let { ranking, movieTitle, movieTear, url, ratings, sources, params } =
       this.props;
 
     return (
       <li
         onClick={() => {
-          this.moveToDetailPage(query);
+          this.moveToDetailPage(params);
         }}
         className="feed"
       >

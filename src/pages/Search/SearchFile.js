@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SearchFile.scss';
 import PostCard from './PostCard';
 import CategoryButton from './CategoryButton';
+import { API } from '../../config';
 
 export default class ResearchPage extends Component {
   constructor() {
@@ -13,7 +14,8 @@ export default class ResearchPage extends Component {
 
   getSearchData = () => {
     let { location } = this.props;
-    fetch(`http://10.58.7.147:8000/movies${location.search}`)
+    console.log(location);
+    fetch(`${API.movies}/movies${location.search}`)
       .then(res => res.json())
       .then(data => {
         this.setState({
@@ -24,6 +26,7 @@ export default class ResearchPage extends Component {
 
   componentDidUpdate(prevProps, _) {
     let { location } = this.props;
+    console.log(location);
     if (prevProps.location.search !== location.search) {
       this.getSearchData();
     }

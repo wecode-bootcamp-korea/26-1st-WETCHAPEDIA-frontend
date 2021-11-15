@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
-import Input from './Input.js';
-import Button from './Button.js';
+import Input from './Input';
+import Button from './Button';
 import './LoginRegister.scss';
+import { API } from '../../../../config';
 
 class LoginRegister extends Component {
   constructor() {
@@ -16,9 +17,9 @@ class LoginRegister extends Component {
 
   checkingRegister = () => {
     const { name, email, password } = this.state;
-    const { url, history } = this.props;
+    const { url, history, status } = this.props;
 
-    fetch(`http://10.58.3.106:8000/users/${url}`, {
+    fetch(`${API.movies}/users/${url}`, {
       method: 'POST',
       body: JSON.stringify({
         name: name,
@@ -28,6 +29,7 @@ class LoginRegister extends Component {
     })
       .then(res => res.json())
       .then(result => {
+        console.log(result);
         if (url === 'signup') {
           if (result.message === 'EMAIL_NOT_VALID') {
             alert(' 유효하지 않은 이메일 , 형식 오류.');
@@ -38,19 +40,20 @@ class LoginRegister extends Component {
           } else if (result.message) {
             alert('회원가입 성공');
             localStorage.setItem('token', result.access_token);
-            history.push('/Main');
+            history.push('/');
           }
         } else {
-          if (result.message === 'INVALID_USE') {
+          if (result.message === 'INVALID_USER') {
             alert('패스워드 불일치');
           } else if (result.message === 'KEY_ERROR') {
             alert('데이터가 정확하게 입력되지 않았습니다');
-          } else if (result.message === '‘Unauthorized') {
+          } else if (result.message === 'Unauthorized') {
             alert('유저의 정보가 존재하지 않습니다.');
           } else if (result.message) {
             alert('로그인 성공!');
             localStorage.setItem('token', result.access_token);
-            history.push('/Main');
+            status();
+            history.push('/');
           }
         }
       });
@@ -66,15 +69,26 @@ class LoginRegister extends Component {
     const emailRegex =
       /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
     const emailCheck = emailRegex.test(email);
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{10,}$/;
+    const passwordRegex =
+      /(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/;
+
     const passwordCheck = passwordRegex.test(password);
     if (type === 'email') return emailCheck;
     if (type === 'password') return passwordCheck;
   };
 
   render() {
-    const { type, title, inputData, openLogin, openRegister, status } =
-      this.props;
+    let {
+      type,
+      title,
+      inputData,
+      openLogin,
+      openRegister,
+      status,
+      loginSuccess,
+    } = this.props;
+
+    console.log(this.props.status);
 
     return (
       <>

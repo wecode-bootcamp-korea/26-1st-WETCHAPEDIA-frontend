@@ -1,0 +1,73 @@
+@import '../../../styles/variables.scss';
+.detailFeedContainer {
+  .movieCommentContainer {
+    width: 100%;
+
+    .commentHeader {
+      display: flex;
+      justify-content: space-between;
+      padding: 30px 30px 0;
+
+      .comment {
+        font-size: 25px;
+        font-weight: bolder;
+      }
+    }
+
+    .commentContainer {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      column-gap: 50px;
+      padding: 30px 30px 20px;
+      overflow-x: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .individual {
+        width: 250px;
+        padding: 10px;
+        background-color: rgb(242, 242, 242);
+
+        .comment {
+          width: 100%;
+          height: 120px;
+          padding-top: 20px;
+        }
+
+        .contour {
+          margin: auto;
+          margin: 7px;
+          width: 95%;
+          height: 1px;
+          background-color: rgb(229, 229, 229);
+        }
+
+        .like {
+          padding-top: 10px;
+
+          img {
+            width: 13px;
+            height: 13px;
+            margin-right: 5px;
+          }
+        }
+
+        .countButtonOff {
+          margin-top: 10px;
+          color: rgb(255, 47, 110);
+          font-size: 17px;
+          cursor: pointer;
+        }
+
+        .countButtonOn {
+          margin-top: 10px;
+          background-color: rgb(255, 47, 110);
+          color: white;
+          font-size: 17px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

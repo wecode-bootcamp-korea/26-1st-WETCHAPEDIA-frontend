@@ -50,7 +50,7 @@ class MovieList extends Component {
               url={poster_image_url}
               ratings={ratings}
               sources={sources}
-              query={id}
+              params={id}
             />
           );
         }
